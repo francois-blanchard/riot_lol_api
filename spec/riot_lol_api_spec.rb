@@ -135,7 +135,8 @@ describe RiotLolApi::Client do
 		end
 
 		it "should good attributes" do
-			game = FactoryGirl.build(:game, :fellow_players => [RiotLolApi::Model::Player.new(:summoner_id => 228437,:team_id => 200, :champion_id => 102),RiotLolApi::Model::Player.new(:summoner_id => 25235641,:team_id => 100, :champion_id => 48)], :stats => RiotLolApi::Model::Stat.new(:level => 13, :goldEarned => 5969, :numDeaths => 2, :minionsKilled => 10, :goldSpent => 5630, :totalDamageDealt => 19848, :totalDamageTaken => 16127, :team => 200, :win => false, :physicalDamageDealtPlayer => 7116, :magicDamageDealtPlayer => 12732, :physicalDamageTaken => 7806, :magicDamageTaken => 8069, :timePlayed => 1597, :totalHeal => 9241, :totalUnitsHealed => 4, :assists => 8, :item0 => 3301, :item1 => 2049, :item2 => 3047, :item3 => 3110, :item4 => 1057, :item6 => 3340, :sightWardsBought => 1, :magicDamageDealtToChampions => 3100, :physicalDamageDealtToChampions => 1230, :totalDamageDealtToChampions => 4330, :trueDamageTaken => 252, :wardPlaced => 14, :totalTimeCrowdControlDealt => 602))
+			game = FactoryGirl.build(:game, :fellow_players => [RiotLolApi::Model::Player.new(:summoner_id => 228437,:team_id => 200, :champion_id => 102),RiotLolApi::Model::Player.new(:summoner_id => 25235641,:team_id => 100, :champion_id => 48)], :stats => 
+				RiotLolApi::Model::Stat.new(:nexus_killed => false, :neutral_minions_killed_your_jungle => 0,:neutral_minions_killed_enemy_jungle => 0,:neutral_minions_killed => 0, :minions_denied => 0, :legendary_items_created => nil,:largest_multi_kill => nil, :largest_killing_spree =>nil, :largest_critical_strike => nil, :killing_sprees => 0, :items_purchased => 0,:item5 => nil, :gold_earned => 5969, :gold_spent => 5630,:first_blood => nil,:double_kills => nil,:consumables_purchased => nil, :combat_player_score => 0, :champions_killed => 0, :barracks_killed => 0,:level => 13, :num_deaths => 2, :minions_killed => 10, :total_damage_dealt => 19848, :total_damage_taken => 16127, :team => 200, :win => false, :physical_damage_dealt_player => 7116, :magic_damage_dealt_player => 12732, :physical_damage_taken => 7806, :magic_damage_taken => 8069, :time_played => 1597, :total_heal => 9241, :total_units_healed => 4, :assists => 8, :item0 => 3301, :item1 => 2049, :item2 => 3047, :item3 => 3110, :item4 => 1057, :item6 => 3340, :sight_wards_bought => 1, :magic_damage_dealt_to_champions => 3100, :physical_damage_dealt_to_champions => 1230, :total_damage_dealt_to_champions => 4330, :true_damage_taken => 252, :ward_placed => 14, :total_time_crowd_control_dealt => 602))
 
 			@game_tests.each do |game_test|
 				expect(game_test.game_id).to eq(game.game_id)
@@ -159,6 +160,43 @@ describe RiotLolApi::Client do
 				end
 				
 				expect(game_test.stats.level).to eq(game.stats.level)
+				expect(game_test.stats.champions_killed).to eq(game.stats.champions_killed)
+				expect(game_test.stats.barracks_killed).to eq(game.stats.barracks_killed)
+				expect(game_test.stats.combat_player_score).to eq(game.stats.combat_player_score)
+				expect(game_test.stats.consumables_purchased).to eq(game.stats.consumables_purchased)
+				expect(game_test.stats.double_kills).to eq(game.stats.double_kills)
+				expect(game_test.stats.first_blood).to eq(game.stats.first_blood)
+				expect(game_test.stats.gold_earned).to eq(game.stats.gold_earned)
+				expect(game_test.stats.gold_spent).to eq(game.stats.gold_spent)
+				expect(game_test.stats.item0).to eq(game.stats.item0)
+				expect(game_test.stats.item1).to eq(game.stats.item1)
+				expect(game_test.stats.item2).to eq(game.stats.item2)
+				expect(game_test.stats.item3).to eq(game.stats.item3)
+				expect(game_test.stats.item4).to eq(game.stats.item4)
+				expect(game_test.stats.item5).to eq(game.stats.item5)
+				expect(game_test.stats.item6).to eq(game.stats.item6)
+				expect(game_test.stats.items_purchased).to eq(game.stats.items_purchased)
+				expect(game_test.stats.killing_sprees).to eq(game.stats.killing_sprees)
+				expect(game_test.stats.largest_critical_strike).to eq(game.stats.largest_critical_strike)
+				expect(game_test.stats.largest_killing_spree).to eq(game.stats.largest_killing_spree)
+				expect(game_test.stats.largest_multi_kill).to eq(game.stats.largest_multi_kill)
+				expect(game_test.stats.legendary_items_created).to eq(game.stats.legendary_items_created)
+				expect(game_test.stats.magic_damage_dealt_player).to eq(game.stats.magic_damage_dealt_player)
+				expect(game_test.stats.magic_damage_dealt_to_champions).to eq(game.stats.magic_damage_dealt_to_champions)
+				expect(game_test.stats.magic_damage_taken).to eq(game.stats.magic_damage_taken)
+				expect(game_test.stats.minions_denied).to eq(game.stats.minions_denied)
+				expect(game_test.stats.minions_killed).to eq(game.stats.minions_killed)
+				expect(game_test.stats.neutral_minions_killed).to eq(game.stats.neutral_minions_killed)
+				expect(game_test.stats.neutral_minions_killed_enemy_jungle).to eq(game.stats.neutral_minions_killed_enemy_jungle)
+				expect(game_test.stats.neutral_minions_killed_your_jungle).to eq(game.stats.neutral_minions_killed_your_jungle)
+				expect(game_test.stats.nexus_killed).to eq(game.stats.nexus_killed)
+
+				expect(game_test.stats.item6).to eq(game.stats.item6)
+				expect(game_test.stats.item6).to eq(game.stats.item6)
+				expect(game_test.stats.item6).to eq(game.stats.item6)
+				expect(game_test.stats.item6).to eq(game.stats.item6)
+				expect(game_test.stats.item6).to eq(game.stats.item6)
+				expect(game_test.stats.item6).to eq(game.stats.item6)
 				# ...
 			end
 		end
