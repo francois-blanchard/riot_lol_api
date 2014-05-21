@@ -1,0 +1,12 @@
+HTTP/1.1 200 OK
+Access-Control-Allow-Headers: Content-Type
+Access-Control-Allow-Methods: GET, POST, DELETE, PUT
+Access-Control-Allow-Origin: *
+Content-Type: application/json; charset=UTF-8
+Date: Mon, 05 May 2014 17:08:17 GMT
+Server: Jetty(9.1.1.v20140108)
+Vary: Accept-Encoding, User-Agent
+Content-Length: 112
+Connection: keep-alive
+
+{"20639710":{"id":20639710,"name":"PacoLoco","profileIconId":8,"summonerLevel":30,"revisionDate":1398345588000}}

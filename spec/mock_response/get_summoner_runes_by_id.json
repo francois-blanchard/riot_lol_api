@@ -1,0 +1,12 @@
+HTTP/1.1 200 OK
+Access-Control-Allow-Headers: Content-Type
+Access-Control-Allow-Methods: GET, POST, DELETE, PUT
+Access-Control-Allow-Origin: *
+Content-Type: application/json; charset=UTF-8
+Date: Mon, 05 May 2014 23:05:58 GMT
+Server: Jetty(9.1.1.v20140108)
+Vary: Accept-Encoding, User-Agent
+Content-Length: 2053
+Connection: keep-alive
+
+{"20639710":{"summonerId":20639710,"pages":[{"id":6182779,"name":"ad","current":true,"slots":[{"runeSlotId":1,"runeId":5253},{"runeSlotId":2,"runeId":5253}]},{"id":6182780,"name":"ap","current":false,"slots":[{"runeSlotId":1,"runeId":5245},{"runeSlotId":2,"runeId":5245}]}]}}

@@ -1,0 +1,12 @@
+HTTP/1.1 200 OK
+Access-Control-Allow-Headers: Content-Type
+Access-Control-Allow-Methods: GET, POST, DELETE, PUT
+Access-Control-Allow-Origin: *
+Content-Type: application/json; charset=UTF-8
+Date: Wed, 07 May 2014 16:56:22 GMT
+Server: Jetty(9.1.1.v20140108)
+Vary: Accept-Encoding, User-Agent
+transfer-encoding: chunked
+Connection: keep-alive
+
+{"games":[{"gameId":1462450355,"invalid":false,"gameMode":"CLASSIC","gameType":"MATCHED_GAME","subType":"NORMAL","mapId":1,"teamId":200,"championId":44,"spell1":4,"spell2":7,"level":30,"ipEarned":52,"createDate":1399415779754,"fellowPlayers":[{"summonerId":228437,"teamId":200,"championId":102},{"summonerId":25235641,"teamId":100,"championId":48}],"stats":{"level":13,"goldEarned":5969,"numDeaths":2,"minionsKilled":10,"goldSpent":5630,"totalDamageDealt":19848,"totalDamageTaken":16127,"team":200,"win":false,"physicalDamageDealtPlayer":7116,"magicDamageDealtPlayer":12732,"physicalDamageTaken":7806,"magicDamageTaken":8069,"timePlayed":1597,"totalHeal":9241,"totalUnitsHealed":4,"assists":8,"item0":3301,"item1":2049,"item2":3047,"item3":3110,"item4":1057,"item6":3340,"sightWardsBought":1,"magicDamageDealtToChampions":3100,"physicalDamageDealtToChampions":1230,"totalDamageDealtToChampions":4330,"trueDamageTaken":252,"wardPlaced":14,"totalTimeCrowdControlDealt":602}}]}
