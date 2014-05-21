@@ -1,3 +1,5 @@
+[![Gem Version](https://badge.fury.io/rb/riot_lol_api.svg)](http://badge.fury.io/rb/riot_lol_api)
+
 # RiotLolApi
 
 RIOT LOL API
