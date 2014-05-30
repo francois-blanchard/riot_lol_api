@@ -5,5 +5,5 @@ require "core_ext/string"
 require "core_ext/hash"
 
 module RiotLolApi
-  # Your code goes here...
+  # http://ddragon.leagueoflegends.com/tool/euw/fr_FR
 end

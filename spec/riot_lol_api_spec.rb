@@ -4,6 +4,13 @@ require 'pp'
 
 describe RiotLolApi::Client do
 
+	before(:each) do
+
+		realm_response = File.read 'spec/mock_response/get_realm.json'
+		stub_request(:get, "https://euw.api.pvp.net/api/lol/static-data/euw/v1.2/realm?api_key=#{RiotLolApi::TOKEN}").to_return(realm_response)		
+
+	end
+
 	describe "can use string and hash ovewriting method" do
 
 		it "transform string CamelCase in to symbol" do
@@ -24,6 +31,13 @@ describe RiotLolApi::Client do
 			expect(hash_result[:stats]).to be_a RiotLolApi::Model::Stat
 		end
 
+	end
+
+	describe "set realm when create client" do
+		it "define RiotLolApi::REALM" do
+			client = FactoryGirl.build(:client)
+			expect(RiotLolApi::Client.realm).to eq({"css" => "0.152.55","dd" => "4.2.6","l" => "en_US","n" => {"item" => "4.8.3","rune" => "4.8.3","mastery" => "4.8.3","summoner" => "4.8.3","champion" => "4.8.3","profileicon" => "4.8.3","language" => "4.8.3"},"profileiconmax" => 28,"v" => "4.8.3","lg" => "0.152.55","cdn" => "http://ddragon.leagueoflegends.com/cdn"})
+		end
 	end
 
 	describe "get_summoner_by_name" do
@@ -308,6 +322,20 @@ describe RiotLolApi::Client do
 			expect(@champion_test.key).to eq(champion.key)
 			expect(@champion_test.name).to eq(champion.name)
 			expect(@champion_test.title).to eq(champion.title)
+		end
+
+		# Image Champion
+
+		it "should a valid full url image champion" do
+			expect(@champion_test.image.full_url).to eq("http://ddragon.leagueoflegends.com/cdn/4.8.3/img/champion/Thresh.png")
+		end
+
+		it "should a valid sprite url image champion" do
+			expect(@champion_test.image.sprite_url).to eq("http://ddragon.leagueoflegends.com/cdn/4.8.3/img/sprite/champion3.png")
+		end
+
+		it "should a valid full url image passive" do
+			expect(@champion_test.passive.image.full_url).to eq("http://ddragon.leagueoflegends.com/cdn/4.8.3/img/passive/Thresh_Passive.png")
 		end
 	end
 

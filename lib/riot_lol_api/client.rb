@@ -3,7 +3,6 @@ require 'json'
 
 module RiotLolApi
 	class Client
-
 		# attr
 		# - region
 		def initialize(options = {})
@@ -11,7 +10,27 @@ module RiotLolApi
 				self.class.send(:attr_accessor, key.to_sym)
 				instance_variable_set("@#{key}", value)
 			end
+			if RiotLolApi::Client.realm.nil? && !self.region.nil?
+				self.get_realm
+			end
 		end
+
+		class << self
+			attr_accessor :realm
+		end
+
+		def get_realm
+			response = Client.get("https://euw.api.pvp.net/api/lol/static-data/#{self.region}/v1.2/realm")
+			unless response.nil?
+				self.class.realm = response
+			else
+				nil
+			end
+		end
+
+		# TO DO
+		# Set callback to get realm constants
+		# 
 
 		def self.get url, data = nil
 			unless RiotLolApi::TOKEN.nil?
@@ -22,14 +41,14 @@ module RiotLolApi
 				end
 				response = HTTParty.get(url, :query => data)
 				case response.code
-				  when 200
-				    JSON.parse(response.body)
-				  when 404
-				    puts "Error server"
-				    nil
-				  when 500...600
-				    puts "ERROR #{response.code}"
-				    nil
+					when 200
+						JSON.parse(response.body)
+					when 404
+						puts "Error server"
+						nil
+					when 500...600
+						puts "ERROR #{response.code}"
+						nil
 				end
 			else
 				puts "No TOKEN, you have to define RiotLolApi::TOKEN"
@@ -68,13 +87,13 @@ module RiotLolApi
 				data.merge!({:locale => locale})
 			end
 			
-	        response = Client.get("https://prod.api.pvp.net/api/lol/static-data/#{@region}/v1.2/champion/#{id}",data)
-	        unless response.nil?
+					response = Client.get("https://prod.api.pvp.net/api/lol/static-data/#{@region}/v1.2/champion/#{id}",data)
+					unless response.nil?
 				RiotLolApi::Model::Champion.new(response.to_symbol)
-	        else
+					else
 				nil
-	        end
-	    end
+					end
+			end
 
 	end
 end
