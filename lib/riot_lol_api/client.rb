@@ -13,9 +13,14 @@ module RiotLolApi
 			end
 		end
 
-		def self.get url
+		def self.get url, data = nil
 			unless RiotLolApi::TOKEN.nil?
-				response = HTTParty.get(url, :query => {:api_key => RiotLolApi::TOKEN})
+				if data.nil?
+					data = {:api_key => RiotLolApi::TOKEN}
+				else
+					data.merge!({:api_key => RiotLolApi::TOKEN})
+				end
+				response = HTTParty.get(url, :query => data)
 				case response.code
 				  when 200
 				    JSON.parse(response.body)
@@ -32,13 +37,14 @@ module RiotLolApi
 			end
 		end
 
+		# SUMMONER
+
 		def get_summoner_by_name name
 			name = name.downcase
 			name.strip!
 			response = Client.get("https://prod.api.pvp.net/api/lol/#{@region}/v1.4/summoner/by-name/#{name}")
 			unless response.nil?
-				summoner = response[name]
-				RiotLolApi::Model::Summoner.new(:id_summoner => summoner["id"],:name => summoner["name"],:profile_icon_id => summoner["profileIconId"],:summoner_level => summoner["summonerLevel"],:revision_date_str => '',:revision_date => summoner["revisionDate"],:region => @region)
+				RiotLolApi::Model::Summoner.new(response[name].to_symbol.merge({:region => @region}))
 			else
 				nil
 			end
@@ -47,12 +53,28 @@ module RiotLolApi
 		def get_summoner_by_id id
 			response = Client.get("https://prod.api.pvp.net/api/lol/#{@region}/v1.4/summoner/#{id}")
 			unless response.nil?
-				summoner = response[id.to_s]
-				RiotLolApi::Model::Summoner.new(:id_summoner => summoner["id"],:name => summoner["name"],:profile_icon_id => summoner["profileIconId"],:summoner_level => summoner["summonerLevel"],:revision_date_str => '',:revision_date => summoner["revisionDate"],:region => @region)
+				RiotLolApi::Model::Summoner.new(response[id.to_s].to_symbol.merge({:region => @region}))
 			else
 				nil
 			end
 		end
+
+		# CHAMPION
+
+		def get_champion_by_id id, data = nil, local = 'fr_FR'
+			if data.nil?
+				data = {:local => local}
+			else
+				data.merge!({:local => local})
+			end
+			
+	        response = Client.get("https://prod.api.pvp.net/api/lol/static-data/#{@region}/v1.2/champion/#{id}",data)
+	        unless response.nil?
+				RiotLolApi::Model::Champion.new(response.to_symbol)
+	        else
+				nil
+	        end
+	    end
 
 	end
 end

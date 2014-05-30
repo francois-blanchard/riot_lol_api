@@ -1,8 +1,8 @@
+require 'riot_lol_api/model/image'
+
 module RiotLolApi
   module Model
-    class Mastery
-
-      # attr :id_mastery, :name, :current, :talents
+    class Passive
 
       def initialize(options = {})
         options.each do |key, value|

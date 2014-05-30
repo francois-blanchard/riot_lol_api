@@ -1,0 +1,13 @@
+HTTP/1.1 200 OK
+Access-Control-Allow-Headers: Content-Type
+Access-Control-Allow-Methods: GET, POST, DELETE, PUT
+Access-Control-Allow-Origin: *
+Content-Type: application/json; charset=UTF-8
+Date: Tue, 27 May 2014 11:40:47 GMT
+Server: Jetty(9.1.1.v20140108)
+Vary: Accept-Encoding, User-Agent
+X-NewRelic-App-Data: PxQFWFFSDwQTVlhTBAcHX0YdFGQHBDcQUQxLA1tMXV1dORYzVBBGBxdCdhUSEVFRRRAEPhhQRw84HlpcDjpMEUQDTAtbFVBTRwRlTlQURD5LHGtOBQtZXkANDgxrHh1ESAEYA05WTVEJWgxaCw4YHwJJG1UGVApXVQJUAFJSCAMBBwVAag==
+transfer-encoding: chunked
+Connection: keep-alive
+
+{"id":412,"key":"Thresh","name":"Thresh","title":"Garde aux chaînes"}

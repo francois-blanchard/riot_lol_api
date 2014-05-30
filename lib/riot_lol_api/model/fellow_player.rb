@@ -1,8 +1,6 @@
 module RiotLolApi
   module Model
-    class Mastery
-
-      # attr :id_mastery, :name, :current, :talents
+    class FellowPlayer
 
       def initialize(options = {})
         options.each do |key, value|

@@ -1,11 +1,14 @@
-require 'riot_lol_api/model/fellow_player.rb'
 require 'riot_lol_api/model/stat'
+require 'riot_lol_api/model/recommended'
+require 'riot_lol_api/model/image'
+require 'riot_lol_api/model/spell'
+require 'riot_lol_api/model/info'
+require 'riot_lol_api/model/passive'
+require 'riot_lol_api/model/skin'
 
 module RiotLolApi
   module Model
-    class Game
-
-      # attr :champion_id, :create_date, :create_date_str, :fellow_players, :game_id, :game_mode, :game_type, :level, :map_id, :spell1, :spell2, :stats, :sub_type, :team_id
+    class Champion
 
       def initialize(options = {})
         options.each do |key, value|

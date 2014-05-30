@@ -1,8 +1,8 @@
+require 'riot_lol_api/model/block'
+
 module RiotLolApi
   module Model
-    class Mastery
-
-      # attr :id_mastery, :name, :current, :talents
+    class Recommended
 
       def initialize(options = {})
         options.each do |key, value|

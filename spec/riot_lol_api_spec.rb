@@ -4,6 +4,28 @@ require 'pp'
 
 describe RiotLolApi::Client do
 
+	describe "can use string and hash ovewriting method" do
+
+		it "transform string CamelCase in to symbol" do
+			test = "lolApiTest"
+			expect(test.to_symbol).to eq :lol_api_test
+		end
+
+		it "transform hash keys CamelCase in to symbol" do
+			hash_test = {"lolApiTest" => "lol", "testLol" => "truc"}
+			expect(hash_test.to_symbol).to eq({:lol_api_test => "lol", :test_lol => "truc"})
+		end
+
+		it "Add instance of class to_symbol" do
+			hash_result = {"lolApiTest" => "lol", "testLol" => "truc", "masteries" => [{"id" => 4212,"rank" => 2},{"id" => 4233,"rank" => 3}], "stats" => {"truc" => 0, "machin" => 2}}.to_symbol
+			# Test Array
+			expect(hash_result[:masteries][0]).to be_a RiotLolApi::Model::Mastery
+			# Test Hash
+			expect(hash_result[:stats]).to be_a RiotLolApi::Model::Stat
+		end
+
+	end
+
 	describe "get_summoner_by_name" do
 
 		before(:each) do
@@ -21,14 +43,13 @@ describe RiotLolApi::Client do
 			expect(@summoner_test).to be_a RiotLolApi::Model::Summoner
 		end
 
-		it "should good attributes" do
+		it "should have good attributes" do
 			summoner = FactoryGirl.build(:summoner)
 
-			expect(@summoner_test.id_summoner).to eq(summoner.id_summoner)
+			expect(@summoner_test.id).to eq(summoner.id)
 			expect(@summoner_test.name).to eq(summoner.name)
 			expect(@summoner_test.profile_icon_id).to eq(summoner.profile_icon_id)
 			expect(@summoner_test.summoner_level).to eq(summoner.summoner_level)
-			expect(@summoner_test.revision_date_str).to eq(summoner.revision_date_str)
 			expect(@summoner_test.revision_date).to eq(summoner.revision_date)
 			expect(@summoner_test.region).to eq(summoner.region)
 		end
@@ -51,43 +72,42 @@ describe RiotLolApi::Client do
 			expect(@summoner_test).to be_a RiotLolApi::Model::Summoner
 		end
 
-		it "should good attributes" do
+		it "should have good attributes" do
 			summoner = FactoryGirl.build(:summoner)
 
-			expect(@summoner_test.id_summoner).to eq(summoner.id_summoner)
+			expect(@summoner_test.id).to eq(summoner.id)
 			expect(@summoner_test.name).to eq(summoner.name)
 			expect(@summoner_test.profile_icon_id).to eq(summoner.profile_icon_id)
 			expect(@summoner_test.summoner_level).to eq(summoner.summoner_level)
-			expect(@summoner_test.revision_date_str).to eq(summoner.revision_date_str)
 			expect(@summoner_test.revision_date).to eq(summoner.revision_date)
 			expect(@summoner_test.region).to eq(summoner.region)
 		end
 	end
 
-	describe "get summoner masteries" do
+	describe "get summoner masteries pages" do
 
 		before(:each) do
 			# Create summoner
 			summoner = FactoryGirl.build(:summoner)
 
 			api_response = File.read 'spec/mock_response/get_summoner_masteries_by_id.json'
-			stub_request(:get, "https://prod.api.pvp.net/api/lol/euw/v1.4/summoner/#{summoner.id_summoner}/masteries?api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
+			stub_request(:get, "https://prod.api.pvp.net/api/lol/euw/v1.4/summoner/#{summoner.id}/masteries?api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
 
-			@mastery_test = summoner.masteries
+			@page_test = summoner.masteries
 		end
 
-		it "should good attributes" do
-			tab_mastery = Array.new
-			tab_mastery << FactoryGirl.build(:mastery, :id_mastery => 37482369, :name => "support", :current => false, :talents => [RiotLolApi::Model::Talent.new(:id_talent => 4212,:rank => 2),RiotLolApi::Model::Talent.new(:id_talent => 4233,:rank => 3)])
-			tab_mastery << FactoryGirl.build(:mastery, :id_mastery => 37482370, :name => "jungler", :current => false, :talents => [RiotLolApi::Model::Talent.new(:id_talent => 4233,:rank => 3),RiotLolApi::Model::Talent.new(:id_talent => 4242,:rank => 1)])
+		it "should have good attributes" do
+			tab_pages = Array.new
+			tab_pages << FactoryGirl.build(:page, :id => 37482369, :name => "support", :current => false, :masteries => [RiotLolApi::Model::Mastery.new(:id => 4212,:rank => 2),RiotLolApi::Model::Mastery.new(:id => 4233,:rank => 3)])
+			tab_pages << FactoryGirl.build(:page, :id => 37482370, :name => "jungler", :current => false, :masteries => [RiotLolApi::Model::Mastery.new(:id => 4233,:rank => 3),RiotLolApi::Model::Mastery.new(:id => 4242,:rank => 1)])
 
-			@mastery_test.each_with_index do |mastery,i|
-				expect(mastery.id_mastery).to eq(tab_mastery[i].id_mastery)
-				expect(mastery.name).to eq(tab_mastery[i].name)
-				expect(mastery.current).to eq(tab_mastery[i].current)
-				mastery.talents.each_with_index do |talent,j|
-					expect(talent.id_talent).to eq(tab_mastery[i].talents[j].id_talent)
-					expect(talent.rank).to eq(tab_mastery[i].talents[j].rank)
+			@page_test.each_with_index do |page,i|
+				expect(page.id).to eq(tab_pages[i].id)
+				expect(page.name).to eq(tab_pages[i].name)
+				expect(page.current).to eq(tab_pages[i].current)
+				page.masteries.each_with_index do |mastery,j|
+					expect(mastery.id).to eq(tab_pages[i].masteries[j].id)
+					expect(mastery.rank).to eq(tab_pages[i].masteries[j].rank)
 				end
 			end
 		end
@@ -100,23 +120,23 @@ describe RiotLolApi::Client do
 			summoner = FactoryGirl.build(:summoner)
 
 			api_response = File.read 'spec/mock_response/get_summoner_runes_by_id.json'
-			stub_request(:get, "https://prod.api.pvp.net/api/lol/euw/v1.4/summoner/#{summoner.id_summoner}/runes?api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
+			stub_request(:get, "https://prod.api.pvp.net/api/lol/euw/v1.4/summoner/#{summoner.id}/runes?api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
 
 			@rune_test = summoner.runes
 		end
 
-		it "should good attributes" do
+		it "should have good attributes" do
 			tab_runes = Array.new
-			tab_runes << FactoryGirl.build(:rune, :id_rune => 6182779, :name => "ad", :current => true, :slots => [RiotLolApi::Model::Slot.new(:id_slot => 5253,:rank => 1),RiotLolApi::Model::Slot.new(:id_slot => 5253,:rank => 2)])
-			tab_runes << FactoryGirl.build(:rune, :id_rune => 6182780, :name => "ap", :current => false, :slots => [RiotLolApi::Model::Slot.new(:id_slot => 5245,:rank => 1),RiotLolApi::Model::Slot.new(:id_slot => 5245,:rank => 2)])
+			tab_runes << FactoryGirl.build(:page, :id => 6182779, :name => "ad", :current => true, :slots => [RiotLolApi::Model::Slot.new(:rune_slot_id => 1,:rune_id => 5253),RiotLolApi::Model::Slot.new(:rune_slot_id => 2,:rune_id => 5253)])
+			tab_runes << FactoryGirl.build(:page, :id => 6182780, :name => "ap", :current => false, :slots => [RiotLolApi::Model::Slot.new(:rune_slot_id => 1,:rune_id => 5245),RiotLolApi::Model::Slot.new(:rune_slot_id => 2,:rune_id => 5245)])
 
 			@rune_test.each_with_index do |rune,i|
-				expect(rune.id_rune).to eq(tab_runes[i].id_rune)
+				expect(rune.id).to eq(tab_runes[i].id)
 				expect(rune.name).to eq(tab_runes[i].name)
 				expect(rune.current).to eq(tab_runes[i].current)
 				rune.slots.each_with_index do |slot,j|
-					expect(slot.id_slot).to eq(tab_runes[i].slots[j].id_slot)
-					expect(slot.rank).to eq(tab_runes[i].slots[j].rank)
+					expect(slot.rune_slot_id).to eq(tab_runes[i].slots[j].rune_slot_id)
+					expect(slot.rune_id).to eq(tab_runes[i].slots[j].rune_id)
 				end
 			end
 		end
@@ -129,14 +149,14 @@ describe RiotLolApi::Client do
 			summoner = FactoryGirl.build(:summoner)
 
 			api_response = File.read 'spec/mock_response/get_summoner_games_by_id.json'
-			stub_request(:get, "https://prod.api.pvp.net/api/lol/euw/v1.3/game/by-summoner/#{summoner.id_summoner}/recent?api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
+			stub_request(:get, "https://prod.api.pvp.net/api/lol/euw/v1.3/game/by-summoner/#{summoner.id}/recent?api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
 
 			@game_tests = summoner.games
 		end
 
-		it "should good attributes" do
-			game = FactoryGirl.build(:game, :fellow_players => [RiotLolApi::Model::Player.new(:summoner_id => 228437,:team_id => 200, :champion_id => 102),RiotLolApi::Model::Player.new(:summoner_id => 25235641,:team_id => 100, :champion_id => 48)], :stats => 
-				RiotLolApi::Model::Stat.new(:ward_killed => 0, :vision_wards_bought => 0, :victory_point_total => 0, :unreal_kills => 0, :turrets_killed => 0, :true_damage_taken => 0, :true_damage_dealt_to_champions => 0, :true_damage_dealt_player => 0, :triple_kills => 0, :total_score_rank => 0, :total_player_score => 0, :team_objective => 0, :super_monster_killed => 0, :summon_spell2_cast => 0, :summon_spell1_cast => 0, :spell4_cast => 0, :spell3_cast => 0, :spell2_cast => 0, :spell1_cast => 0, :quadra_kills => 0, :penta_kills => 0, :objective_player_score => 0, :num_items_bought => 0, :node_neutralize_assist => 0, :node_neutralize => 0, :node_capture_assist => 0,:node_capture => 0, :nexus_killed => false, :neutral_minions_killed_your_jungle => 0,:neutral_minions_killed_enemy_jungle => 0,:neutral_minions_killed => 0, :minions_denied => 0, :legendary_items_created => nil,:largest_multi_kill => nil, :largest_killing_spree =>nil, :largest_critical_strike => nil, :killing_sprees => 0, :items_purchased => 0,:item5 => nil, :gold_earned => 5969, :gold_spent => 5630,:first_blood => 0,:double_kills => 0,:consumables_purchased => nil, :combat_player_score => 0, :champions_killed => 0, :barracks_killed => 0,:level => 13, :num_deaths => 2, :minions_killed => 10, :total_damage_dealt => 19848, :total_damage_taken => 16127, :team => 200, :win => false, :physical_damage_dealt_player => 7116, :magic_damage_dealt_player => 12732, :physical_damage_taken => 7806, :magic_damage_taken => 8069, :time_played => 1597, :total_heal => 9241, :total_units_healed => 4, :assists => 8, :item0 => 3301, :item1 => 2049, :item2 => 3047, :item3 => 3110, :item4 => 1057, :item6 => 3340, :sight_wards_bought => 1, :magic_damage_dealt_to_champions => 3100, :physical_damage_dealt_to_champions => 1230, :total_damage_dealt_to_champions => 4330, :true_damage_taken => 252, :ward_placed => 14, :total_time_crowd_control_dealt => 602))
+		it "should have good attributes" do
+			game = FactoryGirl.build(:game, :fellow_players => [RiotLolApi::Model::FellowPlayer.new(:summoner_id => 228437,:team_id => 200, :champion_id => 102),RiotLolApi::Model::FellowPlayer.new(:summoner_id => 25235641,:team_id => 100, :champion_id => 48)], :stats => 
+				RiotLolApi::Model::Stat.new(:ward_killed => nil, :vision_wards_bought => nil, :victory_point_total => nil, :unreal_kills => nil, :turrets_killed => nil, :true_damage_taken => nil, :true_damage_dealt_to_champions => nil, :true_damage_dealt_player => nil, :triple_kills => nil, :total_score_rank => nil, :total_player_score => nil, :team_objective => nil, :super_monster_killed => nil, :summon_spell2_cast => nil, :summon_spell1_cast => nil, :spell4_cast => nil, :spell3_cast => nil, :spell2_cast => nil, :spell1_cast => nil, :quadra_kills => nil, :penta_kills => nil, :objective_player_score => nil, :num_items_bought => nil, :node_neutralize_assist => nil, :node_neutralize => nil, :node_capture_assist => nil,:node_capture => nil, :nexus_killed => nil, :neutral_minions_killed_your_jungle => nil,:neutral_minions_killed_enemy_jungle => nil,:neutral_minions_killed => nil, :minions_denied => nil, :legendary_items_created => nil,:largest_multi_kill => nil, :largest_killing_spree =>nil, :largest_critical_strike => nil, :killing_sprees => nil, :items_purchased => nil,:item5 => nil, :gold_earned => 5969, :gold_spent => 5630,:first_blood => nil,:double_kills => nil,:consumables_purchased => nil, :combat_player_score => nil, :champions_killed => nil, :barracks_killed => nil,:level => 13, :num_deaths => 2, :minions_killed => 10, :total_damage_dealt => 19848, :total_damage_taken => 16127, :team => 200, :win => false, :physical_damage_dealt_player => 7116, :magic_damage_dealt_player => 12732, :physical_damage_taken => 7806, :magic_damage_taken => 8069, :time_played => 1597, :total_heal => 9241, :total_units_healed => 4, :assists => 8, :item0 => 3301, :item1 => 2049, :item2 => 3047, :item3 => 3110, :item4 => 1057, :item6 => 3340, :sight_wards_bought => 1, :magic_damage_dealt_to_champions => 3100, :physical_damage_dealt_to_champions => 1230, :total_damage_dealt_to_champions => 4330, :true_damage_taken => 252, :ward_placed => 14, :total_time_crowd_control_dealt => 602))
 
 			@game_tests.each do |game_test|
 				expect(game_test.game_id).to eq(game.game_id)
@@ -235,6 +255,60 @@ describe RiotLolApi::Client do
 			end
 		end
 
+	end
+
+	describe "get_champion_by_id" do
+
+		before(:each) do
+			# Create client
+			client = FactoryGirl.build(:client)
+			id_champion = 412
+
+			api_response = File.read 'spec/mock_response/get_champion_by_id.json'
+			stub_request(:get, "https://prod.api.pvp.net/api/lol/static-data/euw/v1.2/champion/#{id_champion}?local=fr_FR&api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
+
+			@champion_test = client.get_champion_by_id(id_champion)
+		end
+
+		it "should get summoner object" do
+			expect(@champion_test).to be_a RiotLolApi::Model::Champion
+		end
+
+		it "should have good attributes" do
+			champion = FactoryGirl.build(:champion)
+
+			expect(@champion_test.id).to eq(champion.id)
+			expect(@champion_test.key).to eq(champion.key)
+			expect(@champion_test.name).to eq(champion.name)
+			expect(@champion_test.title).to eq(champion.title)
+		end
+	end
+
+	describe "get_champion_by_id_all_data" do
+
+		before(:each) do
+			# Create client
+			client = FactoryGirl.build(:client)
+			id_champion = 412
+
+			api_response = File.read 'spec/mock_response/get_champion_by_id_all_data.json'
+			stub_request(:get, "https://prod.api.pvp.net/api/lol/static-data/euw/v1.2/champion/#{id_champion}?local=fr_FR&champData=all&api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
+
+			@champion_test = client.get_champion_by_id(id_champion,{:champData => 'all'})
+		end
+
+		it "should get summoner object" do
+			expect(@champion_test).to be_a RiotLolApi::Model::Champion
+		end
+
+		it "should have good attributes" do
+			champion = FactoryGirl.build(:champion)
+
+			expect(@champion_test.id).to eq(champion.id)
+			expect(@champion_test.key).to eq(champion.key)
+			expect(@champion_test.name).to eq(champion.name)
+			expect(@champion_test.title).to eq(champion.title)
+		end
 	end
 
 end

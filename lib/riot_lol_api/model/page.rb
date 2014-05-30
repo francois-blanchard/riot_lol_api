@@ -1,8 +1,9 @@
+require 'riot_lol_api/model/mastery'
+require 'riot_lol_api/model/slot'
+
 module RiotLolApi
   module Model
-    class Mastery
-
-      # attr :id_mastery, :name, :current, :talents
+    class Page
 
       def initialize(options = {})
         options.each do |key, value|

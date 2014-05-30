@@ -1,8 +1,10 @@
+require 'riot_lol_api/model/leveltip'
+require 'riot_lol_api/model/image'
+require 'riot_lol_api/model/var'
+
 module RiotLolApi
   module Model
-    class Mastery
-
-      # attr :id_mastery, :name, :current, :talents
+    class Spell
 
       def initialize(options = {})
         options.each do |key, value|
