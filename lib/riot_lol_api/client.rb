@@ -61,11 +61,11 @@ module RiotLolApi
 
 		# CHAMPION
 
-		def get_champion_by_id id, data = nil, local = 'fr_FR'
+		def get_champion_by_id id, data = nil, locale = 'fr_FR'
 			if data.nil?
-				data = {:local => local}
+				data = {:locale => locale}
 			else
-				data.merge!({:local => local})
+				data.merge!({:locale => locale})
 			end
 			
 	        response = Client.get("https://prod.api.pvp.net/api/lol/static-data/#{@region}/v1.2/champion/#{id}",data)

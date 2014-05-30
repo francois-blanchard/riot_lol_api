@@ -265,7 +265,7 @@ describe RiotLolApi::Client do
 			id_champion = 412
 
 			api_response = File.read 'spec/mock_response/get_champion_by_id.json'
-			stub_request(:get, "https://prod.api.pvp.net/api/lol/static-data/euw/v1.2/champion/#{id_champion}?local=fr_FR&api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
+			stub_request(:get, "https://prod.api.pvp.net/api/lol/static-data/euw/v1.2/champion/#{id_champion}?locale=fr_FR&api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
 
 			@champion_test = client.get_champion_by_id(id_champion)
 		end
@@ -292,7 +292,7 @@ describe RiotLolApi::Client do
 			id_champion = 412
 
 			api_response = File.read 'spec/mock_response/get_champion_by_id_all_data.json'
-			stub_request(:get, "https://prod.api.pvp.net/api/lol/static-data/euw/v1.2/champion/#{id_champion}?local=fr_FR&champData=all&api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
+			stub_request(:get, "https://prod.api.pvp.net/api/lol/static-data/euw/v1.2/champion/#{id_champion}?locale=fr_FR&champData=all&api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
 
 			@champion_test = client.get_champion_by_id(id_champion,{:champData => 'all'})
 		end
