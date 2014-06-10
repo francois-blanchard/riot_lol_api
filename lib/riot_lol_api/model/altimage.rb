@@ -1,11 +1,6 @@
-require 'riot_lol_api/model/leveltip'
-require 'riot_lol_api/model/image'
-require 'riot_lol_api/model/var'
-require 'riot_lol_api/model/altimage'
-
 module RiotLolApi
   module Model
-    class Spell
+    class Altimage
 
       def initialize(options = {})
         options.each do |key, value|

@@ -339,4 +339,43 @@ describe RiotLolApi::Client do
 		end
 	end
 
+	describe "get_all_champions_by_ids" do
+
+		before(:each) do
+			# Create client
+			client = FactoryGirl.build(:client)
+
+			api_response = File.read 'spec/mock_response/get_all_champions_by_ids.json'
+			stub_request(:get, "https://euw.api.pvp.net/api/lol/static-data/euw/v1.2/champion?locale=fr_FR&dataById=true&api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
+
+			@all_champion_test = client.get_all_champions(nil,true)
+		end
+
+		it "should have good attributes" do
+			@all_champion_test.each do |champion|
+				expect(champion).to be_a RiotLolApi::Model::Champion
+			end
+		end
+	end
+
+	describe "get_all_champions_by_ids_all_data" do
+
+		before(:each) do
+			# Create client
+			client = FactoryGirl.build(:client)
+
+			api_response = File.read 'spec/mock_response/get_all_champions_by_ids_all_data.json'
+			stub_request(:get, "https://euw.api.pvp.net/api/lol/static-data/euw/v1.2/champion?locale=fr_FR&dataById=false&champData=all&api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
+
+			@all_champion_test = client.get_all_champions({:champData => 'all'})
+		end
+
+		it "should have good attributes" do
+			@all_champion_test.each do |champion|
+				expect(champion).to be_a RiotLolApi::Model::Champion
+				expect(champion.stats).to be_a RiotLolApi::Model::Stat
+			end
+		end
+	end
+
 end

@@ -87,13 +87,31 @@ module RiotLolApi
 				data.merge!({:locale => locale})
 			end
 			
-					response = Client.get("https://prod.api.pvp.net/api/lol/static-data/#{@region}/v1.2/champion/#{id}",data)
-					unless response.nil?
+			response = Client.get("https://prod.api.pvp.net/api/lol/static-data/#{@region}/v1.2/champion/#{id}",data)
+			unless response.nil?
 				RiotLolApi::Model::Champion.new(response.to_symbol)
-					else
+			else
 				nil
-					end
+			end
+		end
+
+		def get_all_champions data = nil, sort_id = 'false', locale = 'fr_FR'
+			if data.nil?
+				data = {:locale => locale, :dataById => sort_id}
+			else
+				data.merge!({:locale => locale, :dataById => sort_id})
 			end
 
+			response = Client.get("https://euw.api.pvp.net/api/lol/static-data/#{@region}/v1.2/champion",data)
+			unless response.nil?
+				tab_champions = Array.new
+				response["data"].each do |champion|
+					tab_champions << RiotLolApi::Model::Champion.new(champion[1].to_symbol)
+				end
+				tab_champions
+			else
+				nil
+			end
+		end
 	end
 end
