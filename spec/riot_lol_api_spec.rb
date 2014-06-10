@@ -378,4 +378,25 @@ describe RiotLolApi::Client do
 		end
 	end
 
+	describe "get_stat_summaries" do
+
+		before(:each) do
+			# Create client
+			summoner = FactoryGirl.build(:summoner)
+
+			api_response = File.read 'spec/mock_response/get_player_stat_summaries.json'
+			stub_request(:get, "https://euw.api.pvp.net/api/lol/euw/v1.3/stats/by-summoner/20639710/summary?season=SEASON4&api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
+
+			@stat_summaries_test = summoner.stat_summaries("SEASON4")
+			puts @stat_summaries_test.inspect
+		end
+
+		it "should have good attributes" do
+			@stat_summaries_test.each do |stat_summary|
+				expect(stat_summary).to be_a RiotLolApi::Model::PlayerStatSummary
+				expect(stat_summary.aggregated_stats).to be_a RiotLolApi::Model::AggregatedStat
+			end
+		end
+	end
+
 end
