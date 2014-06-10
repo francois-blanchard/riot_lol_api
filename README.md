@@ -11,8 +11,9 @@ In work ...
 ## Installation
 
 Add this line to your application's Gemfile:
-
-    gem 'riot_lol_api'
+```ruby
+gem 'riot_lol_api'
+```
 
 And then execute:
 
