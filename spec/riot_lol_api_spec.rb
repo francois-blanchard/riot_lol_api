@@ -7,7 +7,7 @@ describe RiotLolApi::Client do
 	before(:each) do
 
 		realm_response = File.read 'spec/mock_response/get_realm.json'
-		stub_request(:get, "https://euw.api.pvp.net/api/lol/static-data/euw/v1.2/realm?api_key=#{RiotLolApi::TOKEN}").to_return(realm_response)		
+		stub_request(:get, "https://global.api.pvp.net/api/lol/static-data/euw/v1.2/realm?api_key=#{RiotLolApi::TOKEN}").to_return(realm_response)		
 
 	end
 
@@ -48,7 +48,7 @@ describe RiotLolApi::Client do
 			name = "pacoloco"
 
 			api_response = File.read 'spec/mock_response/get_summoner_by_name.json'
-			stub_request(:get, "https://prod.api.pvp.net/api/lol/euw/v1.4/summoner/by-name/#{name}?api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
+			stub_request(:get, "https://#{client.region}.api.pvp.net/api/lol/euw/v1.4/summoner/by-name/#{name}?api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
 
 			@summoner_test = client.get_summoner_by_name(name)
 		end
@@ -77,7 +77,7 @@ describe RiotLolApi::Client do
 			id = 20639710
 
 			api_response = File.read 'spec/mock_response/get_summoner_by_id.json'
-			stub_request(:get, "https://prod.api.pvp.net/api/lol/euw/v1.4/summoner/#{id}?api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
+			stub_request(:get, "https://#{client.region}.api.pvp.net/api/lol/euw/v1.4/summoner/#{id}?api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
 
 			@summoner_test = client.get_summoner_by_id(id)
 		end
@@ -105,7 +105,7 @@ describe RiotLolApi::Client do
 			summoner = FactoryGirl.build(:summoner)
 
 			api_response = File.read 'spec/mock_response/get_summoner_masteries_by_id.json'
-			stub_request(:get, "https://prod.api.pvp.net/api/lol/euw/v1.4/summoner/#{summoner.id}/masteries?api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
+			stub_request(:get, "https://#{summoner.region}.api.pvp.net/api/lol/euw/v1.4/summoner/#{summoner.id}/masteries?api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
 
 			@page_test = summoner.masteries
 		end
@@ -134,7 +134,7 @@ describe RiotLolApi::Client do
 			summoner = FactoryGirl.build(:summoner)
 
 			api_response = File.read 'spec/mock_response/get_summoner_runes_by_id.json'
-			stub_request(:get, "https://prod.api.pvp.net/api/lol/euw/v1.4/summoner/#{summoner.id}/runes?api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
+			stub_request(:get, "https://#{summoner.region}.api.pvp.net/api/lol/euw/v1.4/summoner/#{summoner.id}/runes?api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
 
 			@rune_test = summoner.runes
 		end
@@ -163,7 +163,7 @@ describe RiotLolApi::Client do
 			summoner = FactoryGirl.build(:summoner)
 
 			api_response = File.read 'spec/mock_response/get_summoner_games_by_id.json'
-			stub_request(:get, "https://prod.api.pvp.net/api/lol/euw/v1.3/game/by-summoner/#{summoner.id}/recent?api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
+			stub_request(:get, "https://#{summoner.region}.api.pvp.net/api/lol/euw/v1.3/game/by-summoner/#{summoner.id}/recent?api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
 
 			@game_tests = summoner.games
 		end
@@ -279,7 +279,7 @@ describe RiotLolApi::Client do
 			id_champion = 412
 
 			api_response = File.read 'spec/mock_response/get_champion_by_id.json'
-			stub_request(:get, "https://prod.api.pvp.net/api/lol/static-data/euw/v1.2/champion/#{id_champion}?locale=fr_FR&api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
+			stub_request(:get, "https://global.api.pvp.net/api/lol/static-data/euw/v1.2/champion/#{id_champion}?locale=fr_FR&api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
 
 			@champion_test = client.get_champion_by_id(id_champion)
 		end
@@ -306,7 +306,7 @@ describe RiotLolApi::Client do
 			id_champion = 412
 
 			api_response = File.read 'spec/mock_response/get_champion_by_id_all_data.json'
-			stub_request(:get, "https://prod.api.pvp.net/api/lol/static-data/euw/v1.2/champion/#{id_champion}?locale=fr_FR&champData=all&api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
+			stub_request(:get, "https://global.api.pvp.net/api/lol/static-data/euw/v1.2/champion/#{id_champion}?locale=fr_FR&champData=all&api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
 
 			@champion_test = client.get_champion_by_id(id_champion,{:champData => 'all'})
 		end
@@ -346,7 +346,7 @@ describe RiotLolApi::Client do
 			client = FactoryGirl.build(:client)
 
 			api_response = File.read 'spec/mock_response/get_all_champions_by_ids.json'
-			stub_request(:get, "https://euw.api.pvp.net/api/lol/static-data/euw/v1.2/champion?locale=fr_FR&dataById=true&api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
+			stub_request(:get, "https://global.api.pvp.net/api/lol/static-data/euw/v1.2/champion?locale=fr_FR&dataById=true&api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
 
 			@all_champion_test = client.get_all_champions(nil,true)
 		end
@@ -365,7 +365,7 @@ describe RiotLolApi::Client do
 			client = FactoryGirl.build(:client)
 
 			api_response = File.read 'spec/mock_response/get_all_champions_by_ids_all_data.json'
-			stub_request(:get, "https://euw.api.pvp.net/api/lol/static-data/euw/v1.2/champion?locale=fr_FR&dataById=false&champData=all&api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
+			stub_request(:get, "https://global.api.pvp.net/api/lol/static-data/euw/v1.2/champion?locale=fr_FR&dataById=false&champData=all&api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
 
 			@all_champion_test = client.get_all_champions({:champData => 'all'})
 		end
@@ -385,10 +385,9 @@ describe RiotLolApi::Client do
 			summoner = FactoryGirl.build(:summoner)
 
 			api_response = File.read 'spec/mock_response/get_player_stat_summaries.json'
-			stub_request(:get, "https://euw.api.pvp.net/api/lol/euw/v1.3/stats/by-summoner/20639710/summary?season=SEASON4&api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
+			stub_request(:get, "https://#{summoner.region}.api.pvp.net/api/lol/euw/v1.3/stats/by-summoner/20639710/summary?season=SEASON4&api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
 
 			@stat_summaries_test = summoner.stat_summaries("SEASON4")
-			puts @stat_summaries_test.inspect
 		end
 
 		it "should have good attributes" do

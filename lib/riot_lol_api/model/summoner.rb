@@ -16,7 +16,7 @@ module RiotLolApi
 		end
 
 		def masteries
-			response = Client.get("https://prod.api.pvp.net/api/lol/#{@region}/v1.4/summoner/#{@id}/masteries")
+			response = Client.get("#{@region}/v1.4/summoner/#{@id}/masteries",@region)
 			unless response.nil?
 				tab_pages = Array.new
 				response[self.id.to_s]['pages'].each do |page|
@@ -29,7 +29,7 @@ module RiotLolApi
 		end
 
 		def runes
-			response = Client.get("https://prod.api.pvp.net/api/lol/#{@region}/v1.4/summoner/#{@id}/runes")
+			response = Client.get("#{@region}/v1.4/summoner/#{@id}/runes", @region)
 			unless response.nil?
 				tab_pages = Array.new
 				response[self.id.to_s]['pages'].each do |page|
@@ -42,7 +42,7 @@ module RiotLolApi
 		end
 
 		def games
-			response = Client.get("https://prod.api.pvp.net/api/lol/#{@region}/v1.3/game/by-summoner/#{@id}/recent")
+			response = Client.get("#{@region}/v1.3/game/by-summoner/#{@id}/recent", @region)
 			unless response.nil?
 				games = response['games']
 
@@ -58,7 +58,7 @@ module RiotLolApi
 		end
 
 		def stat_summaries season="SEASON4"
-			response = Client.get("https://#{@region}.api.pvp.net/api/lol/#{@region}/v1.3/stats/by-summoner/#{@id}/summary",{:season => season})
+			response = Client.get("#{@region}/v1.3/stats/by-summoner/#{@id}/summary",@region,{:season => season})
 			unless response.nil?
 				stat_summaries = response['playerStatSummaries']
 

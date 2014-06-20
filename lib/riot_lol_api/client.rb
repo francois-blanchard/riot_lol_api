@@ -3,6 +3,10 @@ require 'json'
 
 module RiotLolApi
 	class Client
+		# Constant URL
+
+		BASE_URL_API = "api.pvp.net/api/lol/"
+
 		# attr
 		# - region
 		def initialize(options = {})
@@ -20,7 +24,7 @@ module RiotLolApi
 		end
 
 		def get_realm
-			response = Client.get("https://euw.api.pvp.net/api/lol/static-data/#{self.region}/v1.2/realm")
+			response = Client.get("static-data/#{self.region}/v1.2/realm", "global")
 			unless response.nil?
 				self.class.realm = response
 			else
@@ -32,14 +36,19 @@ module RiotLolApi
 		# Set callback to get realm constants
 		# 
 
-		def self.get url, data = nil
+		def self.get url, domaine,data = nil
 			unless RiotLolApi::TOKEN.nil?
+				# Set data params
 				if data.nil?
 					data = {:api_key => RiotLolApi::TOKEN}
 				else
 					data.merge!({:api_key => RiotLolApi::TOKEN})
 				end
-				response = HTTParty.get(url, :query => data)
+
+				# Set domaine url
+				domaine_url = "#{domaine}.#{BASE_URL_API}"
+
+				response = HTTParty.get("https://#{domaine_url}#{url}", :query => data)
 				case response.code
 					when 200
 						JSON.parse(response.body)
@@ -61,7 +70,7 @@ module RiotLolApi
 		def get_summoner_by_name name
 			name = name.downcase
 			name.strip!
-			response = Client.get("https://prod.api.pvp.net/api/lol/#{@region}/v1.4/summoner/by-name/#{name}")
+			response = Client.get("#{@region}/v1.4/summoner/by-name/#{name}",@region)
 			unless response.nil?
 				RiotLolApi::Model::Summoner.new(response[name].to_symbol.merge({:region => @region}))
 			else
@@ -70,7 +79,7 @@ module RiotLolApi
 		end
 
 		def get_summoner_by_id id
-			response = Client.get("https://prod.api.pvp.net/api/lol/#{@region}/v1.4/summoner/#{id}")
+			response = Client.get("#{@region}/v1.4/summoner/#{id}",@region)
 			unless response.nil?
 				RiotLolApi::Model::Summoner.new(response[id.to_s].to_symbol.merge({:region => @region}))
 			else
@@ -87,7 +96,7 @@ module RiotLolApi
 				data.merge!({:locale => locale})
 			end
 			
-			response = Client.get("https://prod.api.pvp.net/api/lol/static-data/#{@region}/v1.2/champion/#{id}",data)
+			response = Client.get("static-data/#{@region}/v1.2/champion/#{id}","global",data)
 			unless response.nil?
 				RiotLolApi::Model::Champion.new(response.to_symbol)
 			else
@@ -102,7 +111,7 @@ module RiotLolApi
 				data.merge!({:locale => locale, :dataById => sort_id})
 			end
 
-			response = Client.get("https://euw.api.pvp.net/api/lol/static-data/#{@region}/v1.2/champion",data)
+			response = Client.get("static-data/#{@region}/v1.2/champion","global",data)
 			unless response.nil?
 				tab_champions = Array.new
 				response["data"].each do |champion|
