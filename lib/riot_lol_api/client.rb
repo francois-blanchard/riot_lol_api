@@ -122,5 +122,26 @@ module RiotLolApi
 				nil
 			end
 		end
+
+		# ITEM
+		
+		def get_all_items data = nil, locale = 'fr_FR'
+			if data.nil?
+				data = {:locale => locale}
+			else
+				data.merge!({:locale => locale})
+			end
+
+			response = Client.get("static-data/#{@region}/v1.2/item","global",data)
+			unless response.nil?
+				tab_items = Array.new
+				response["data"].each do |item|
+					tab_items << RiotLolApi::Model::Item.new(item[1].to_symbol)
+				end
+				tab_items
+			else
+				nil
+			end
+		end
 	end
 end

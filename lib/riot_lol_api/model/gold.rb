@@ -1,9 +1,6 @@
-require 'riot_lol_api/model/gold'
-require 'riot_lol_api/model/map'
-
 module RiotLolApi
   module Model
-    class Item
+    class Gold
 
       def initialize(options = {})
         options.each do |key, value|
