@@ -158,5 +158,26 @@ module RiotLolApi
 				nil
 			end
 		end
+
+		# MASTERY
+		
+		def get_all_masteries data = nil, locale = 'fr_FR'
+			if data.nil?
+				data = {:locale => locale}
+			else
+				data.merge!({:locale => locale})
+			end
+
+			response = Client.get("static-data/#{@region}/v1.2/mastery","global",data)
+			unless response.nil?
+				tab_masteries = Array.new
+				response["data"].each do |mastery|
+					tab_masteries << RiotLolApi::Model::Mastery.new(mastery[1].to_symbol)
+				end
+				tab_masteries
+			else
+				nil
+			end
+		end
 	end
 end

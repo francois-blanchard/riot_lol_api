@@ -13,10 +13,24 @@
 
 Under development.
 
+```
 champion-v1.2 ... NO IMPLEMENT
 game-v1.3 ... OK
 league-v2.4 ... NO IMPLEMENT
-
+lol-static-data-v1.2 ... DEV
+	/champion ... OK
+	/champion/{id} ... OK
+	/item ... OK
+	/item/{id} ... OK
+	/mastery ... OK
+	/mastery/{id} ... OK
+	/realm ... OK
+stats-v1.3 ... DEV
+	/{summonerId}/summary ... OK
+summoner-v1.4 ... OK
+	/{summonerIds}/name ... NO IMPLEMENT
+team-v2.3 ... NO IMPLEMENT
+```
 
 ## Installation
 
