@@ -13,6 +13,11 @@
 
 Under development.
 
+champion-v1.2 ... NO IMPLEMENT
+game-v1.3 ... OK
+league-v2.4 ... NO IMPLEMENT
+
+
 ## Installation
 
 Add this line to your application's Gemfile:

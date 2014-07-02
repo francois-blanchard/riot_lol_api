@@ -407,7 +407,6 @@ describe RiotLolApi::Client do
 			stub_request(:get, "https://global.api.pvp.net/api/lol/static-data/euw/v1.2/item?locale=fr_FR&itemListData=all&api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
 
 			@all_item_test = client.get_all_items({:itemListData => 'all'})
-			puts @all_item_test.first.inspect
 		end
 
 		it "should have good attributes" do
@@ -415,6 +414,24 @@ describe RiotLolApi::Client do
 				expect(item).to be_a RiotLolApi::Model::Item
 				expect(item.image).to be_a RiotLolApi::Model::Image
 			end
+		end
+	end
+
+	describe "get_item_by_id" do
+		before(:each) do
+			# Create client
+			client = FactoryGirl.build(:client)
+
+			api_response = File.read 'spec/mock_response/get_item_by_id.json'
+			stub_request(:get, "https://global.api.pvp.net/api/lol/static-data/euw/v1.2/item/2009?locale=fr_FR&itemListData=all&api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
+
+			@item_test = client.get_item_by_id(2009,{:itemListData => 'all'})
+		end
+
+		it "should have good attributes" do
+			expect(@item_test).to be_a RiotLolApi::Model::Item
+			expect(@item_test.image).to be_a RiotLolApi::Model::Image
+			expect(@item_test.gold).to be_a RiotLolApi::Model::Gold
 		end
 	end
 

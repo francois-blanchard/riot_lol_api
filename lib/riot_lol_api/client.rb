@@ -143,5 +143,20 @@ module RiotLolApi
 				nil
 			end
 		end
+
+		def get_item_by_id id, data = nil, locale = 'fr_FR'
+			if data.nil?
+				data = {:locale => locale}
+			else
+				data.merge!({:locale => locale})
+			end
+
+			response = Client.get("static-data/#{@region}/v1.2/item/#{id}","global",data)
+			unless response.nil?
+				RiotLolApi::Model::Item.new(response.to_symbol)
+			else
+				nil
+			end
+		end
 	end
 end
