@@ -454,4 +454,21 @@ describe RiotLolApi::Client do
 		end
 	end
 
+	describe "get_mastery_by_id" do
+		before(:each) do
+			# Create client
+			client = FactoryGirl.build(:client)
+
+			api_response = File.read 'spec/mock_response/get_mastery_by_id.json'
+			stub_request(:get, "https://global.api.pvp.net/api/lol/static-data/euw/v1.2/mastery/4353?locale=fr_FR&masteryData=all&api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
+
+			@mastery_test = client.get_mastery_by_id(4353,{:masteryData => 'all'})
+		end
+
+		it "should have good attributes" do
+			expect(@mastery_test).to be_a RiotLolApi::Model::Mastery
+			expect(@mastery_test.image).to be_a RiotLolApi::Model::Image
+		end
+	end
+
 end

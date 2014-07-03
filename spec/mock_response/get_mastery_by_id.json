@@ -1,0 +1,13 @@
+HTTP/1.1 200 OK
+Access-Control-Allow-Headers: Content-Type
+Access-Control-Allow-Methods: GET, POST, DELETE, PUT
+Access-Control-Allow-Origin: *
+Content-Type: application/json; charset=UTF-8
+Date: Thu, 03 Jul 2014 07:03:29 GMT
+Server: Jetty(9.1.1.v20140108)
+Vary: Accept-Encoding, User-Agent
+X-NewRelic-App-Data: PxQFWFFSDwQTVlhTBAcHX0YdFGQHBDcQUQxLA1tMXV1dORYzVBBGBxdCdhUSEVFRRRAEPhhQRw84HlpcDjpMEUQDTAtbFVBTRwRlTlQURD5LHGtOCwJLR1UWGD4YGxVKVB8GH1JIU1IFUA9UCQEFHh5UFUMAWFYEVQ8ABwQFCFADVlEEFWw=
+transfer-encoding: chunked
+Connection: keep-alive
+
+{"id":4353,"name":"Intelligence","description":["+2% réduction des délais de récupération et réduit de 4% les délais de récupération des objets activés.","+3,5% réduction des délais de récupération et réduit de 7% les délais de récupération des objets activés.","+5% réduction des délais de récupération et réduit de 10% les délais de récupération des objets activés."],"sanitizedDescription":["+2% réduction des délais de récupération et réduit de 4% les délais de récupération des objets activés.","+3,5% réduction des délais de récupération et réduit de 7% les délais de récupération des objets activés.","+5% réduction des délais de récupération et réduit de 10% les délais de récupération des objets activés."],"ranks":3,"prereq":"0","image":{"full":"4353.png","sprite":"mastery0.png","group":"gray_mastery","x":240,"y":240,"w":48,"h":48}}
