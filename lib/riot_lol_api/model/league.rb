@@ -1,10 +1,8 @@
-require 'riot_lol_api/model/mastery'
-require 'riot_lol_api/model/slot'
-require 'riot_lol_api/model/rune'
+require 'riot_lol_api/model/entry'
 
 module RiotLolApi
   module Model
-    class Page
+    class League
 
       def initialize(options = {})
         options.each do |key, value|

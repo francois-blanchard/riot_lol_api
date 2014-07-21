@@ -194,5 +194,87 @@ module RiotLolApi
 				nil
 			end
 		end
+
+		# RUNE
+		
+		def get_all_runes data = nil, locale = 'fr_FR'
+			if data.nil?
+				data = {:locale => locale}
+			else
+				data.merge!({:locale => locale})
+			end
+
+			response = Client.get("static-data/#{@region}/v1.2/rune","global",data)
+			unless response.nil?
+				tab_runes = Array.new
+				response["data"].each do |rune|
+					tab_runes << RiotLolApi::Model::Rune.new(rune[1].to_symbol)
+				end
+				tab_runes
+			else
+				nil
+			end
+		end
+
+		def get_rune_by_id id, data = nil, locale = 'fr_FR'
+			if data.nil?
+				data = {:locale => locale}
+			else
+				data.merge!({:locale => locale})
+			end
+
+			response = Client.get("static-data/#{@region}/v1.2/rune/#{id}","global",data)
+			unless response.nil?
+				RiotLolApi::Model::Rune.new(response.to_symbol)
+			else
+				nil
+			end
+		end
+
+		# SUMMONER SPELL
+
+		def get_all_summoner_spells data = nil, sort_id = 'false', locale = 'fr_FR'
+			if data.nil?
+				data = {:locale => locale, :dataById => sort_id}
+			else
+				data.merge!({:locale => locale, :dataById => sort_id})
+			end
+
+			response = Client.get("static-data/#{@region}/v1.2/summoner-spell","global",data)
+			unless response.nil?
+				tab_summoner_spells = Array.new
+				response["data"].each do |summoner_spell|
+					tab_summoner_spells << RiotLolApi::Model::Spell.new(summoner_spell[1].to_symbol)
+				end
+				tab_summoner_spells
+			else
+				nil
+			end
+		end
+
+		def get_summoner_spell_by_id id, data = nil, locale = 'fr_FR'
+			if data.nil?
+				data = {:locale => locale}
+			else
+				data.merge!({:locale => locale})
+			end
+
+			response = Client.get("static-data/#{@region}/v1.2/summoner-spell/#{id}","global",data)
+			unless response.nil?
+				RiotLolApi::Model::Spell.new(response.to_symbol)
+			else
+				nil
+			end
+		end
+
+		def get_versions
+			response = Client.get("static-data/#{@region}/v1.2/versions","global")
+			unless response.nil?
+				response
+			else
+				nil
+			end
+		end
+
 	end
 end

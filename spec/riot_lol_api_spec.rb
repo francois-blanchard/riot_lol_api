@@ -398,6 +398,26 @@ describe RiotLolApi::Client do
 		end
 	end
 
+	describe "get_stat_ranks" do
+
+		before(:each) do
+			# Create client
+			summoner = FactoryGirl.build(:summoner)
+
+			api_response = File.read 'spec/mock_response/get_player_stat_ranked.json'
+			stub_request(:get, "https://#{summoner.region}.api.pvp.net/api/lol/euw/v1.3/stats/by-summoner/20639710/ranked?season=SEASON4&api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
+
+			@stat_ranks_test = summoner.stat_ranks("SEASON4")
+		end
+
+		it "should have good attributes" do
+			@stat_ranks_test.each do |stat_rank|
+				expect(stat_rank).to be_a RiotLolApi::Model::PlayerStatRank
+				expect(stat_rank.stats).to be_a RiotLolApi::Model::Stat
+			end
+		end
+	end
+
 	describe "get_all_items" do
 		before(:each) do
 			# Create client
@@ -468,6 +488,131 @@ describe RiotLolApi::Client do
 		it "should have good attributes" do
 			expect(@mastery_test).to be_a RiotLolApi::Model::Mastery
 			expect(@mastery_test.image).to be_a RiotLolApi::Model::Image
+		end
+	end
+
+	describe "get_all_runes" do
+		before(:each) do
+			# Create client
+			client = FactoryGirl.build(:client)
+
+			api_response = File.read 'spec/mock_response/get_all_runes.json'
+			stub_request(:get, "https://global.api.pvp.net/api/lol/static-data/euw/v1.2/rune?locale=fr_FR&runeListData=all&api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
+
+			@all_rune_test = client.get_all_runes({:runeListData => 'all'})
+		end
+
+		it "should have good attributes" do
+			@all_rune_test.each do |rune|
+				expect(rune).to be_a RiotLolApi::Model::Rune
+				expect(rune.image).to be_a RiotLolApi::Model::Image
+			end
+		end
+	end
+
+	describe "get_rune_by_id" do
+		before(:each) do
+			# Create client
+			client = FactoryGirl.build(:client)
+
+			api_response = File.read 'spec/mock_response/get_rune_by_id.json'
+			stub_request(:get, "https://global.api.pvp.net/api/lol/static-data/euw/v1.2/rune/5235?locale=fr_FR&runeData=all&api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
+
+			@rune_test = client.get_rune_by_id(5235,{:runeData => 'all'})
+		end
+
+		it "should have good attributes" do
+			expect(@rune_test).to be_a RiotLolApi::Model::Rune
+			expect(@rune_test.image).to be_a RiotLolApi::Model::Image
+		end
+	end
+
+	describe "get_all_summoner_spells" do
+
+		before(:each) do
+			# Create client
+			client = FactoryGirl.build(:client)
+
+			api_response = File.read 'spec/mock_response/get_all_summoner_spells.json'
+			stub_request(:get, "https://global.api.pvp.net/api/lol/static-data/euw/v1.2/summoner-spell?locale=fr_FR&dataById=false&spellData=all&api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
+
+			@all_summoner_spells = client.get_all_summoner_spells({:spellData => 'all'})
+		end
+
+		it "should have good attributes" do
+			@all_summoner_spells.each do |summoner_spell|
+				expect(summoner_spell).to be_a RiotLolApi::Model::Spell
+				expect(summoner_spell.image).to be_a RiotLolApi::Model::Image
+			end
+		end
+	end
+
+	describe "get_all_summoner_spells_by_ids" do
+
+		before(:each) do
+			# Create client
+			client = FactoryGirl.build(:client)
+
+			api_response = File.read 'spec/mock_response/get_all_summoner_spells_by_ids.json'
+			stub_request(:get, "https://global.api.pvp.net/api/lol/static-data/euw/v1.2/summoner-spell?locale=fr_FR&dataById=true&spellData=all&api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
+
+			@all_summoner_spells = client.get_all_summoner_spells({:spellData => 'all'},true)
+		end
+
+		it "should have good attributes" do
+			@all_summoner_spells.each do |summoner_spell|
+				expect(summoner_spell).to be_a RiotLolApi::Model::Spell
+				expect(summoner_spell.image).to be_a RiotLolApi::Model::Image
+			end
+		end
+	end
+
+	describe "get_summoner_spell_by_id" do
+		before(:each) do
+			# Create client
+			client = FactoryGirl.build(:client)
+
+			api_response = File.read 'spec/mock_response/get_summoner_spell_by_id.json'
+			stub_request(:get, "https://global.api.pvp.net/api/lol/static-data/euw/v1.2/summoner-spell/17?locale=fr_FR&spellData=all&api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
+
+			@summoner_spell_test = client.get_summoner_spell_by_id(17,{:spellData => 'all'})
+		end
+
+		it "should have good attributes" do
+			expect(@summoner_spell_test).to be_a RiotLolApi::Model::Spell
+			expect(@summoner_spell_test.image).to be_a RiotLolApi::Model::Image
+		end
+	end
+
+	describe "get_versions" do
+		before(:each) do
+			# Create client
+			client = FactoryGirl.build(:client)
+
+			api_response = File.read 'spec/mock_response/get_version.json'
+			stub_request(:get, "https://global.api.pvp.net/api/lol/static-data/euw/v1.2/versions?api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
+
+			@version_test = client.get_versions
+		end
+
+		it "should have good attributes" do
+			expect(@version_test).to be_a Array
+		end
+	end
+
+	describe "get_league_stats" do
+		before(:each) do
+			# Create client
+			summoner = FactoryGirl.build(:summoner)
+
+			api_response = File.read 'spec/mock_response/get_player_league.json'
+			stub_request(:get, "https://euw.api.pvp.net/api/lol/euw/v2.4/league/by-summoner/20639710/entry?api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
+
+			@get_league = summoner.get_league_stats
+		end
+
+		it "should have good attributes" do
+			expect(@get_league).to be_a Array
 		end
 	end
 

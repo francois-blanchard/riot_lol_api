@@ -1,0 +1,11 @@
+HTTP/1.1 200 OK
+Access-Control-Allow-Headers: Content-Type
+Access-Control-Allow-Methods: GET, POST, DELETE, PUT
+Access-Control-Allow-Origin: *
+Content-Type: application/json; charset=UTF-8
+Date: Sun, 20 Jul 2014 11:06:27 GMT
+Server: Jetty(9.1.2.v20140210)
+Content-Length: 281
+Connection: keep-alive
+
+{"20639710":[{"name":"Nautilus's Dragoons","tier":"SILVER","queue":"RANKED_SOLO_5x5","entries":[{"playerOrTeamId":"20639710","playerOrTeamName":"PacoLoco","division":"IV","leaguePoints":96,"wins":46,"isHotStreak":false,"isVeteran":false,"isFreshBlood":false,"isInactive":false}]}]}

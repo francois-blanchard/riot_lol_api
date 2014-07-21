@@ -1,0 +1,13 @@
+HTTP/1.1 200 OK
+Access-Control-Allow-Headers: Content-Type
+Access-Control-Allow-Methods: GET, POST, DELETE, PUT
+Access-Control-Allow-Origin: *
+Content-Type: application/json; charset=UTF-8
+Date: Thu, 03 Jul 2014 10:39:41 GMT
+Server: Jetty(9.1.1.v20140108)
+Vary: Accept-Encoding, User-Agent
+X-NewRelic-App-Data: PxQFWFFSDwQTVlhTBAcHX0YdFGQHBDcQUQxLA1tMXV1dORYzVBBGBxdCdhUSEVFRRRAEPhhQRw84HlpcDjpMEUQDTAtbFVBTRwRlTlQURD5LHGtOFBZWVmxLS0AbARlWSAEYA1NUVVUFWg1UFBUFHhEDXAMBUFBQUQJVBVFUWwJRRjw=
+transfer-encoding: chunked
+Connection: keep-alive
+
+{"id":5235,"name":"Quintessence de puissance","description":"+3,85 puissance","sanitizedDescription":"+3,85 puissance","tags":["magic","flat","quintessence"],"image":{"full":"bl_3_2.png","sprite":"rune0.png","group":"rune","x":96,"y":144,"w":48,"h":48},"stats":{"FlatMagicDamageMod":3.85},"rune":{"isRune":true,"tier":"2","type":"black"}}
