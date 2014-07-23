@@ -159,9 +159,6 @@ client.get_all_summoner_spells data = {:version => num_version, :spellData => 'a
 # Get version
 client.get_versions
 
-# Get realm
-client.get_realm
-
 # SUMMONER
 
 # Create summoner object

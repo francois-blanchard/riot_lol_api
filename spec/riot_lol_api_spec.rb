@@ -78,7 +78,7 @@ describe RiotLolApi::Client do
 
 			api_response = File.read 'spec/mock_response/get_summoner_by_id.json'
 			stub_request(:get, "https://#{client.region}.api.pvp.net/api/lol/euw/v1.4/summoner/#{id}?api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
-
+			
 			@summoner_test = client.get_summoner_by_id(id)
 		end
 

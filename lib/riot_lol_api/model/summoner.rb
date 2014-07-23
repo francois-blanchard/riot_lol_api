@@ -22,7 +22,7 @@ module RiotLolApi
 			unless response.nil?
 				tab_pages = Array.new
 				response[self.id.to_s]['pages'].each do |page|
-					tab_pages << RiotLolApi::Model::Page.new(page.to_symbol.merge({:region => @region}))
+					tab_pages << RiotLolApi::Model::Page.new(page.to_symbol)
 				end
 				tab_pages
 			else

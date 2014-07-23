@@ -16,7 +16,8 @@ module RiotLolApi
           data.merge!({:locale => locale})
         end
 
-        response = Client.get("static-data/#{@region}/v1.2/mastery/#{@id}","global",data)
+        # hack : set region by default euw
+        response = Client.get("static-data/euw/v1.2/mastery/#{@id}","global",data)
         unless response.nil?
           RiotLolApi::Model::Mastery.new(response.to_symbol)
         else
