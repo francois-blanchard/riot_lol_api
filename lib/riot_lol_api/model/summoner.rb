@@ -106,6 +106,10 @@ module RiotLolApi
 				nil
 			end
 		end
+
+		def profile_icon
+			"#{RiotLolApi::Client.realm["cdn"]}/#{RiotLolApi::Client.realm["v"]}/img/profileicon/#{self.profile_icon_id}.png"
+		end
 	end
   end
 end
