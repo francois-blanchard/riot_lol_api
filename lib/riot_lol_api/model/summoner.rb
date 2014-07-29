@@ -3,7 +3,6 @@ require 'riot_lol_api/model/player_stat_rank'
 require 'riot_lol_api/model/page'
 require 'riot_lol_api/model/game'
 require 'riot_lol_api/model/league'
-require 'riot_lol_api/model/mini_sery'
 
 module RiotLolApi
   module Model

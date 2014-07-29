@@ -1,6 +1,6 @@
 module RiotLolApi
   module Model
-    class MiniSery
+    class MiniSeries
 
       def initialize(options = {})
         options.each do |key, value|

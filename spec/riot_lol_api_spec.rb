@@ -613,6 +613,7 @@ describe RiotLolApi::Client do
 
 		it "should have good attributes" do
 			expect(@get_league).to be_a Array
+			# expect(@get_league.first.entries.first.mini_series).to be_a RiotLolApi::Model::MiniSeries
 		end
 	end
 

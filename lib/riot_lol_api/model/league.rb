@@ -1,4 +1,5 @@
 require 'riot_lol_api/model/entry'
+require 'riot_lol_api/model/mini_sery'
 
 module RiotLolApi
   module Model
