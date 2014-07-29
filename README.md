@@ -181,6 +181,11 @@ summoner.get_league_stats
 
 ```
 
+## Change logs
+
+- v 0.1.1 : Add class mini_sery for league entry
+- v 0.1.0 : First stable version
+
 ## Contributing
 
 1. Fork it ( http://github.com/<my-github-username>/riot_lol_api/fork )
