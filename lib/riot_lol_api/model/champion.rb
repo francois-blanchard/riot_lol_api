@@ -5,6 +5,7 @@ require 'riot_lol_api/model/spell'
 require 'riot_lol_api/model/info'
 require 'riot_lol_api/model/passive'
 require 'riot_lol_api/model/skin'
+require 'riot_lol_api/model/datum'
 
 module RiotLolApi
   module Model

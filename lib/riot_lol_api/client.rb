@@ -38,6 +38,15 @@ module RiotLolApi
 
 		def self.get url, domaine,data = nil
 			unless RiotLolApi::TOKEN.nil?
+
+				# Check limit rate
+				# RiotLolApi::RATE_LIMIT += 1
+				# if Time.now - RiotLolApi::RATE_LIMIT_RESET_DATE > RiotLolApi::RATE_LIMIT_SEC_MAX
+				# 	RiotLolApi::RATE_LIMIT_RESET_DATE = Time.now
+				# else
+				# 	if RiotLolApi::RATE_LIMIT == RiotLolApi::RATE_LIMIT_REQ_MAX
+				# end
+
 				# Set data params
 				if data.nil?
 					data = {:api_key => RiotLolApi::TOKEN}
