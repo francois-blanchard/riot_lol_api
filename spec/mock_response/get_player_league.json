@@ -3,9 +3,11 @@ Access-Control-Allow-Headers: Content-Type
 Access-Control-Allow-Methods: GET, POST, DELETE, PUT
 Access-Control-Allow-Origin: *
 Content-Type: application/json; charset=UTF-8
-Date: Tue, 29 Jul 2014 07:10:48 GMT
+Date: Mon, 29 Sep 2014 22:10:07 GMT
 Server: Jetty(9.1.2.v20140210)
-transfer-encoding: chunked
+Vary: Accept-Encoding
+X-NewRelic-App-Data: PxQFWFFSDwQTV1FWAQUHU0YdFGQHBDcQUQxLA1tMXV1dORYzVBJHNQFUZAQUFVFQVThOA0dYa0kIXlpvTR0RB1cLVwxFZBtEAUsNPR4NVgMDQ1I9SQFBHkMRDA9YX1IUOB5NQBcLDg1eB0orXEtJbhwAVxVDGBNKI3NjSERPCB0ASFFMBwEFUVcEAABRSk5THEAOWgkIVVFSBg1QAwALWwUHFTw=
+Content-Length: 280
 Connection: keep-alive
 
-{"20639710":[{"name":"Nautilus's Dragoons","tier":"SILVER","queue":"RANKED_SOLO_5x5","entries":[{"playerOrTeamId":"20639710","playerOrTeamName":"PacoLoco","division":"IV","leaguePoints":100,"wins":47,"isHotStreak":true,"isVeteran":false,"isFreshBlood":false,"isInactive":false,"miniSeries":{"target":2,"wins":0,"losses":0,"progress":"NNN"}}]}]}
+{"20639710":[{"name":"Nautilus's Dragoons","tier":"SILVER","queue":"RANKED_SOLO_5x5","entries":[{"playerOrTeamId":"20639710","playerOrTeamName":"PacoLoco","division":"IV","leaguePoints":70,"wins":57,"isHotStreak":true,"isVeteran":false,"isFreshBlood":false,"isInactive":false}]}]}

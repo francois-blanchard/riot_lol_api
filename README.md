@@ -1,27 +1,29 @@
 [![Gem Version](https://badge.fury.io/rb/riot_lol_api.svg)](http://badge.fury.io/rb/riot_lol_api)
 
 ```
- __________.__        __                                      _____ __________.___ 
+ __________.__        __                                      _____ __________.___
  \______   \__| _____/  |_     _________    _____   ____     /  _  \\______   \   |
   |       _/  |/  _ \   __\   / ___\__  \  /     \_/ __ \   /  /_\  \|     ___/   |
   |    |   \  (  <_> )  |    / /_/  > __ \|  Y Y  \  ___/  /    |    \    |   |   |
   |____|_  /__|\____/|__|    \___  (____  /__|_|  /\___  > \____|__  /____|   |___|
-         \/                 /_____/     \/      \/     \/          \/              
+         \/                 /_____/     \/      \/     \/          \/
 ```
 
-## Status 
+## Status
 
 ###V 0.1.0
 
 ```
 - champion-v1.2 ... NO IMPLEMENT
 - game-v1.3 ... OK
-- league-v2.4 ... 
-	/by-summoner/{summonerIds}/entry ... OK
+- league-v2.4 ... PROGRESS
+  - /by-summoner/{summonerIds}/entry ... OK
 - lol-static-data-v1.2 ... OK
+- lol-status-v1.0 ... NO IMPLEMENT
+- match-v2.2 ... PROGRESS
 - stats-v1.3 ... OK
 - summoner-v1.4 ... OK
-	/{summonerIds}/name ... NO IMPLEMENT
+  - /{summonerIds}/name ... NO IMPLEMENT
 - team-v2.3 ... NO IMPLEMENT
 ```
 
@@ -80,15 +82,15 @@ client.get_summoner_by_id 20639710
 # CHAMPION
 
 # Get champion by id
-# params : 
-# id => integer, 
-# data => hash (version, champData) - default => nill, 
+# params :
+# id => integer,
+# data => hash (version, champData) - default => nill,
 # locale => string ('fr_FR','en_EN', ...) - default => 'fr_FR'
 client.get_champion_by_id id_champ, data = {:version => num_version, :champData => 'all'}, locale = 'fr_FR'
 
 # Get all champions
 # params :
-# data => hash (version, champData) - default => nill, 
+# data => hash (version, champData) - default => nill,
 # sort_id => boolean - default => false
 # locale => string ('fr_FR','en_EN', ...) - default => 'fr_FR'
 client.get_all_champions data = {:version => num_version, :champData => 'all'}, sort_id = 'false', locale = 'fr_FR'
@@ -97,14 +99,14 @@ client.get_all_champions data = {:version => num_version, :champData => 'all'}, 
 
 # Get item by id
 # params :
-# id => integer, 
+# id => integer,
 # data => hash (version, itemListData) - default => nill,
 # locale => string ('fr_FR','en_EN', ...) - default => 'fr_FR'
 client.get_item_by_id id, data = {:version => num_version, :itemListData => 'all'}, locale = 'fr_FR'
 
 # Get all items
 # params :
-# data => hash (version, itemListData) - default => nill, 
+# data => hash (version, itemListData) - default => nill,
 # locale => string ('fr_FR','en_EN', ...) - default => 'fr_FR'
 client.get_all_items data = {:version => num_version, :itemListData => 'all'}, locale = 'fr_FR'
 
@@ -112,14 +114,14 @@ client.get_all_items data = {:version => num_version, :itemListData => 'all'}, l
 
 # Get masteries by id
 # params :
-# id => integer, 
-# data => hash (version, masteryListData) - default => nill, 
+# id => integer,
+# data => hash (version, masteryListData) - default => nill,
 # locale => string ('fr_FR','en_EN', ...) - default => 'fr_FR'
 client.get_mastery_by_id id, data = {:version => num_version, :masteryListData => 'all'}, locale = 'fr_FR'
 
 # Get all masteries
 # params :
-# data => hash (version, masteryListData) - default => nill, 
+# data => hash (version, masteryListData) - default => nill,
 # locale => string ('fr_FR','en_EN', ...) - default => 'fr_FR'
 client.get_all_masteries data = {:version => num_version, :masteryListData => 'all'}, locale = 'fr_FR'
 
@@ -127,14 +129,14 @@ client.get_all_masteries data = {:version => num_version, :masteryListData => 'a
 
 # Get rune by id
 # params :
-# id => integer, 
-# data => hash (version, runeListData) - default => nill, 
+# id => integer,
+# data => hash (version, runeListData) - default => nill,
 # locale => string ('fr_FR','en_EN', ...) - default => 'fr_FR'
 client.get_rune_by_id id, data = {:version => num_version, :runeListData => 'all'}, locale = 'fr_FR'
 
 # Get all rune
-# params : 
-# data => hash (version, runeListData) - default => nill, 
+# params :
+# data => hash (version, runeListData) - default => nill,
 # locale => string ('fr_FR','en_EN', ...) - default => 'fr_FR'
 client.get_all_runes data = {:version => num_version, :runeListData => 'all'}, locale = 'fr_FR'
 
@@ -142,14 +144,14 @@ client.get_all_runes data = {:version => num_version, :runeListData => 'all'}, l
 
 # Get summoner spell by id
 # params :
-# id => integer, 
-# data => hash (version, spellData) - default => nill, 
+# id => integer,
+# data => hash (version, spellData) - default => nill,
 # locale => string ('fr_FR','en_EN', ...) - default => 'fr_FR'
 client.get_summoner_spell_by_id id, data = {:version => num_version, :spellData => 'all'}, locale = 'fr_FR'
 
 # Get all summoner spell
-# params : 
-# data => hash (version, spellData) - default => nill, 
+# params :
+# data => hash (version, spellData) - default => nill,
 # sort_id => boolean - default => false
 # locale => string ('fr_FR','en_EN', ...) - default => 'fr_FR'
 client.get_all_summoner_spells data = {:version => num_version, :spellData => 'all'}, sort_id = 'false', locale = 'fr_FR'
