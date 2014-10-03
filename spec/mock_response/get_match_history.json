@@ -1,7 +1,7 @@
 HTTP/1.1 401 Unauthorized
 Content-Type: application/json; charset=UTF-8
 Server: Jetty(9.1.5.v20140505)
-Content-Length: 60
+Content-Length: 62
 Connection: keep-alive
 
-{"status": {"message": "Access denied", "status_code": 401}}
+{"status": {"message": "Missing api key", "status_code": 401}}
