@@ -1,3 +1,5 @@
+# Gem Riot games API wrapper for Ruby - League of Legends
+
 [![Gem Version](https://badge.fury.io/rb/riot_lol_api.svg)](http://badge.fury.io/rb/riot_lol_api)
 
 ```

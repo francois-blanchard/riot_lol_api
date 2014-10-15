@@ -3,6 +3,7 @@ API_KEY = ARGV[0]
 
 # Tab files
 TAB_CALLS = [
+  # lol-static-data-v1.2
   {
     :url => "global.api.pvp.net/api/lol/static-data/euw/v1.2/champion",
     :filename => "get_all_champions_by_ids",
@@ -43,16 +44,52 @@ TAB_CALLS = [
     }
   },
   {
+    :url => "global.api.pvp.net/api/lol/static-data/euw/v1.2/summoner-spell",
+    :filename => "get_all_summoner_spells",
+    :params => {
+      :locale => 'fr_FR',
+      :dataById => 'false',
+      :spellData => 'all'
+    }
+  },
+  {
+    :url => "global.api.pvp.net/api/lol/static-data/euw/v1.2/summoner-spell",
+    :filename => "get_all_summoner_spells_by_ids",
+    :params => {
+      :locale => 'fr_FR',
+      :dataById => 'true',
+      :spellData => 'all'
+    }
+  },
+  {
+    :url => "global.api.pvp.net/api/lol/static-data/euw/v1.2/champion/412",
+    :filename => "get_champion_by_id",
+    :params => {
+      :locale => 'fr_FR'
+    }
+  },
+  {
+    :url => "global.api.pvp.net/api/lol/static-data/euw/v1.2/champion/412",
+    :filename => "get_champion_by_id_all_data",
+    :params => {
+      :locale => 'fr_FR',
+      :champData => 'all'
+    }
+  },
+  # league-v2.5
+  {
     :url => "euw.api.pvp.net/api/lol/euw/v2.4/league/by-summoner/20639710/entry",
     :filename => "get_player_league",
     :params => nil
   },
+  # match-v2.2
   {
     # A faire
     :url => "euw.api.pvp.net/api/lol/euw/v2.2/match/1617870200",
     :filename => "get_match_by_id",
     :params => nil
   },
+  # matchhistory-v2.2
   {
     # A faire
     :url => "euw.api.pvp.net/api/lol/euw/v2.2/matchhistory/20639710",
@@ -66,8 +103,8 @@ class Mock
 
   def format_url
     full_url = "https://#{self.data[:url]}"
+    full_url += "\?"
     unless self.data[:params].nil?
-      full_url += "\?"
       self.data[:params].each do |key,val|
         full_url+= "#{key}\=#{val}"
         full_url+= "\&"
@@ -93,7 +130,8 @@ TAB_CALLS.each do |call|
   mock.data = call
   mock.format_url
   mock.call_curl
-  puts "-> #{mock.file} was successfully updated at [#{Time.now.strftime '%H:%M:%S'}]"
+  puts "[#{Time.now.strftime '%H:%M:%S'}] -> #{mock.file}"
+  sleep(2)
 end
 
 puts "Done at [#{Time.now.strftime '%H:%M:%S'}]"

@@ -1,7 +1,13 @@
-HTTP/1.1 401 Unauthorized
+HTTP/1.1 200 OK
+Access-Control-Allow-Headers: Content-Type
+Access-Control-Allow-Methods: GET, POST, DELETE, PUT
+Access-Control-Allow-Origin: *
 Content-Type: application/json; charset=UTF-8
-Server: Jetty(9.1.5.v20140505)
-Content-Length: 60
+Date: Wed, 15 Oct 2014 22:16:47 GMT
+Server: Jetty(9.1.2.v20140210)
+Vary: Accept-Encoding
+X-NewRelic-App-Data: PxQFWFFSDwQTV1FWAQUHU0YdFGQHBDcQUQxLA1tMXV1dORYzVBJHNQFUZAQUFVFQVThOA0dYa0kIXlpvTR0RB1cLVwxFZBtEAUsNPR4NVgMDQ1I9SQFBHkMRDA9YX1IUOB5NQBcLDg1eB0orXEtJbhwAVxVDGBNKI3NjSERPCB0ASFFMBwUEV10HBgZQSk5THEBaAwALBQIDBwFXVVIEWlEOFTw=
+Content-Length: 281
 Connection: keep-alive
 
-{"status": {"message": "Access denied", "status_code": 401}}
+{"20639710":[{"name":"Nautilus's Dragoons","tier":"SILVER","queue":"RANKED_SOLO_5x5","entries":[{"playerOrTeamId":"20639710","playerOrTeamName":"PacoLoco","division":"IV","leaguePoints":38,"wins":57,"isHotStreak":false,"isVeteran":false,"isFreshBlood":false,"isInactive":false}]}]}
