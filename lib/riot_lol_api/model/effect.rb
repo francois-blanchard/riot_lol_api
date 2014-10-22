@@ -1,10 +1,6 @@
-require 'riot_lol_api/model/gold'
-require 'riot_lol_api/model/effect'
-require 'riot_lol_api/model/map'
-
 module RiotLolApi
   module Model
-    class Item
+    class Effect
 
       def initialize(options = {})
         options.each do |key, value|
