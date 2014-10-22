@@ -3,11 +3,11 @@ Access-Control-Allow-Headers: Content-Type
 Access-Control-Allow-Methods: GET, POST, DELETE, PUT
 Access-Control-Allow-Origin: *
 Content-Type: application/json; charset=UTF-8
-Date: Sun, 19 Oct 2014 12:22:13 GMT
-Server: Jetty(9.1.2.v20140210)
+Date: Wed, 22 Oct 2014 21:43:26 GMT
+Server: Jetty(9.1.5.v20140505)
 Vary: Accept-Encoding, User-Agent
-X-NewRelic-App-Data: PxQFWFFSDwQTVVdUBAgPUkYdFGQHBDcQUQxLA1tMXV1dORYzVBBGBxdCdhUSEVFRRRAEPhhQRw84HlpcDjpMB0UVZE1OCRoGb0pKFFwMXAwBRGtOFRZVXl8KBBB+VURESAEYA05QTVMGUQ5afRUAHh5UFUMCUgBTAlIEBFJUXQNTUlMGFWw=
+X-NewRelic-App-Data: PxQFWFFSDwQTVVdUBAgPUkYdFGQHBDcQUQxLA1tMXV1dORYzVBBGBxdCdhUSEVFRRRAEPhhQRw84HlpcDjpMB0UVZE1OCRoGb0pKFFwMXAwBRGtOFRZVXl8KBBB+VURESAEYA05TTVsDVwlVfRUAHh5UFUMGV1ZQVFRVVVIBD1JSUQMGFWw=
 Content-Length: 114
 Connection: keep-alive
 
-{"20639710":{"id":20639710,"name":"PacoLoco","profileIconId":693,"summonerLevel":30,"revisionDate":1413720860000}}
+{"20639710":{"id":20639710,"name":"PacoLoco","profileIconId":693,"summonerLevel":30,"revisionDate":1414008147000}}

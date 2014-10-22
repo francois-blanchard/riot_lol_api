@@ -3,11 +3,11 @@ Access-Control-Allow-Headers: Content-Type
 Access-Control-Allow-Methods: GET, POST, DELETE, PUT
 Access-Control-Allow-Origin: *
 Content-Type: application/json; charset=UTF-8
-Date: Sun, 19 Oct 2014 12:21:28 GMT
+Date: Wed, 22 Oct 2014 21:42:25 GMT
 Server: Jetty(9.1.1.v20140108)
 Vary: Accept-Encoding, User-Agent
-X-NewRelic-App-Data: PxQFWFFSDwQTVlhTBAcHX0YdFGQHBDcQUQxLA1tMXV1dORYzVBBGBxdCdhUSEVFRRRAEPhhQRw84HlpcDjpMEUQDTAtbFVBTRwRlTlQURD5LHGtODxddXmxLS0AbARlWSAEYA1NWV1ADUQBTFBUFHhFWCAQIVlZaXQZRVgNXDAZTRjw=
+X-NewRelic-App-Data: PxQFWFFSDwQTVlhTBAcHX0YdFGQHBDcQUQxLA1tMXV1dORYzVBBGBxdCdhUSEVFRRRAEPhhQRw84HlpcDjpMEUQDTAtbFVBTRwRlTlQURD5LHGtODxddXmxLS0AbARlWSAEYA1NXUFABVg1VFBUFHhFTCwJSVQYHXQBUUgdVCwsFRjw=
 transfer-encoding: chunked
 Connection: keep-alive
 
-{"id":2009,"name":"Biscuit de rajeunissement","description":"<consumable>Cliquer pour consommer :</consumable> rend 80 PV et 50 mana en 10 secondes."}
+{"id":2009,"name":"Biscuit de rajeunissement","gold":{"base":0,"total":0,"sell":0,"purchasable":false},"description":"<consumable>Cliquer pour consommer :</consumable> rend 80 PV et 50 mana en 10 secondes.","sanitizedDescription":"Cliquer pour consommer : rend 80 PV et 50 mana en 10 secondes.","consumed":true,"inStore":false,"image":{"full":"2009.png","sprite":"item0.png","group":"item","x":144,"y":144,"w":48,"h":48},"stats":{}}

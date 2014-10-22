@@ -3,10 +3,11 @@ Access-Control-Allow-Headers: Content-Type
 Access-Control-Allow-Methods: GET, POST, DELETE, PUT
 Access-Control-Allow-Origin: *
 Content-Type: application/json; charset=UTF-8
-Date: Sun, 27 Apr 2014 10:55:27 GMT
-Server: Jetty(9.1.1.v20140108)
+Date: Wed, 22 Oct 2014 21:43:22 GMT
+Server: Jetty(9.1.2.v20140210)
 Vary: Accept-Encoding, User-Agent
-Content-Length: 112
+X-NewRelic-App-Data: PxQFWFFSDwQTVVdUBAgPUkYdFGQHBDcQUQxLA1tMXV1dORYzVBBGBxdCdhUSEVFRRRAEPhhQRw84HlpcDjpMB0UVZE1OCRoGb0oTPR4DSk8KV1oEOkwSERxUT1IbCRlVXQEEBydLV04dUxRAAQ4MUFYBD1gFWVIBXFcCB0Q+
+transfer-encoding: chunked
 Connection: keep-alive
 
-{"pacoloco":{"id":20639710,"name":"PacoLoco","profileIconId":8,"summonerLevel":30,"revisionDate":1398345588000}}
+{"pacoloco":{"id":20639710,"name":"PacoLoco","profileIconId":693,"summonerLevel":30,"revisionDate":1414008147000}}
