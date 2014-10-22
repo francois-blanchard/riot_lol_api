@@ -66,7 +66,9 @@ summoner = client.get_summoner_by_name 'your_summoner_name'
 
 Methods
 ```ruby
-# CLIENT
+##########
+# CLIENT #
+##########
 
 # Create client object
 client = RiotLolApi::Client.new(:region => 'your_region')
@@ -80,6 +82,21 @@ client.get_summoner_by_name 'pacoloco'
 # Get summoner by id
 # params : id => integer
 client.get_summoner_by_id 20639710
+
+# Get sumoner masteries
+summoner.masteries
+
+# Get sumoner runes
+summoner.runes
+
+# Get sumoner games
+summoner.games
+
+# Get sumoner stat_summaries
+summoner.stat_summaries
+
+# Get sumoner get_league_stats
+summoner.get_league_stats
 
 # CHAMPION
 
@@ -162,26 +179,6 @@ client.get_all_summoner_spells {:version => num_version, :spellData => 'all'}, '
 
 # Get version
 client.get_versions
-
-# SUMMONER
-
-# Create summoner object
-summoner = client.get_summoner_by_name 'pacoloco'
-
-# Get sumoner masteries
-summoner.masteries
-
-# Get sumoner runes
-summoner.runes
-
-# Get sumoner games
-summoner.games
-
-# Get sumoner stat_summaries
-summoner.stat_summaries
-
-# Get sumoner get_league_stats
-summoner.get_league_stats
 
 ```
 
