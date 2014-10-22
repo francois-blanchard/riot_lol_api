@@ -1,0 +1,13 @@
+HTTP/1.1 200 OK
+Access-Control-Allow-Headers: Content-Type
+Access-Control-Allow-Methods: GET, POST, DELETE, PUT
+Access-Control-Allow-Origin: *
+Content-Type: application/json; charset=UTF-8
+Date: Sun, 19 Oct 2014 12:22:10 GMT
+Server: Jetty(9.1.2.v20140210)
+Vary: Accept-Encoding, User-Agent
+X-NewRelic-App-Data: PxQFWFFSDwQTVVdUBAgPUkYdFGQHBDcQUQxLA1tMXV1dORYzVBBGBxdCdhUSEVFRRRAEPhhQRw84HlpcDjpMB0UVZE1OCRoGb0oTPR4DSk8KV1oEOkwSERxUT1IbCRlRVggEBidLV04dUxRACQhVB1VVAQJSVwpUXVdTVkQ+
+transfer-encoding: chunked
+Connection: keep-alive
+
+{"pacoloco":{"id":20639710,"name":"PacoLoco","profileIconId":693,"summonerLevel":30,"revisionDate":1413720860000}}

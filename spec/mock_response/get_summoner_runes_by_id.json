@@ -3,10 +3,11 @@ Access-Control-Allow-Headers: Content-Type
 Access-Control-Allow-Methods: GET, POST, DELETE, PUT
 Access-Control-Allow-Origin: *
 Content-Type: application/json; charset=UTF-8
-Date: Mon, 05 May 2014 23:05:58 GMT
-Server: Jetty(9.1.1.v20140108)
+Date: Sun, 19 Oct 2014 12:22:18 GMT
+Server: Jetty(9.1.2.v20140210)
 Vary: Accept-Encoding, User-Agent
-Content-Length: 2053
+X-NewRelic-App-Data: PxQFWFFSDwQTVVdUBAgPUkYdFGQHBDcQUQxLA1tMXV1dORYzVBBGBxdCdhUSEVFRRRAEPhhQRw84HlpcDjpMB0UVZE1OCRoGb0oTPR4SRg8JWVkEFCpcQGxLS0AbARlWSAEYA1VSV1oCUwlOFQkYEFBRX1RXWQtbUQAEBwVVXAcSOQ==
+transfer-encoding: chunked
 Connection: keep-alive
 
-{"20639710":{"summonerId":20639710,"pages":[{"id":6182779,"name":"ad","current":true,"slots":[{"runeSlotId":1,"runeId":5253},{"runeSlotId":2,"runeId":5253}]},{"id":6182780,"name":"ap","current":false,"slots":[{"runeSlotId":1,"runeId":5245},{"runeSlotId":2,"runeId":5245}]}]}}
+{"20639710":{"summonerId":20639710,"pages":[{"id":6182779,"name":"ad","current":true,"slots":[{"runeSlotId":1,"runeId":5253},{"runeSlotId":2,"runeId":5253},{"runeSlotId":3,"runeId":5253},{"runeSlotId":4,"runeId":5253},{"runeSlotId":5,"runeId":5253},{"runeSlotId":6,"runeId":5253},{"runeSlotId":7,"runeId":5253},{"runeSlotId":8,"runeId":5253},{"runeSlotId":9,"runeId":5253},{"runeSlotId":10,"runeId":5317},{"runeSlotId":11,"runeId":5317},{"runeSlotId":12,"runeId":5317},{"runeSlotId":13,"runeId":5317},{"runeSlotId":14,"runeId":5317},{"runeSlotId":15,"runeId":5317},{"runeSlotId":16,"runeId":5317},{"runeSlotId":17,"runeId":5317},{"runeSlotId":18,"runeId":5317},{"runeSlotId":19,"runeId":5289},{"runeSlotId":20,"runeId":5289},{"runeSlotId":21,"runeId":5289},{"runeSlotId":22,"runeId":5289},{"runeSlotId":23,"runeId":5289},{"runeSlotId":24,"runeId":5289},{"runeSlotId":25,"runeId":5289},{"runeSlotId":26,"runeId":5289},{"runeSlotId":27,"runeId":5289},{"runeSlotId":28,"runeId":5335},{"runeSlotId":29,"runeId":5335},{"runeSlotId":30,"runeId":5335}]},{"id":6182780,"name":"ap","current":false,"slots":[{"runeSlotId":1,"runeId":5245},{"runeSlotId":2,"runeId":5245},{"runeSlotId":3,"runeId":5245},{"runeSlotId":4,"runeId":5245},{"runeSlotId":5,"runeId":5245},{"runeSlotId":6,"runeId":5245},{"runeSlotId":7,"runeId":5245},{"runeSlotId":8,"runeId":5245},{"runeSlotId":9,"runeId":5245},{"runeSlotId":10,"runeId":5317},{"runeSlotId":11,"runeId":5317},{"runeSlotId":12,"runeId":5317},{"runeSlotId":13,"runeId":5317},{"runeSlotId":14,"runeId":5317},{"runeSlotId":15,"runeId":5317},{"runeSlotId":16,"runeId":5317},{"runeSlotId":17,"runeId":5317},{"runeSlotId":18,"runeId":5317},{"runeSlotId":19,"runeId":5289},{"runeSlotId":20,"runeId":5289},{"runeSlotId":21,"runeId":5289},{"runeSlotId":22,"runeId":5289},{"runeSlotId":23,"runeId":5289},{"runeSlotId":24,"runeId":5289},{"runeSlotId":25,"runeId":5289},{"runeSlotId":26,"runeId":5289},{"runeSlotId":27,"runeId":5289},{"runeSlotId":28,"runeId":5345},{"runeSlotId":29,"runeId":5345},{"runeSlotId":30,"runeId":5347}]}]}}
