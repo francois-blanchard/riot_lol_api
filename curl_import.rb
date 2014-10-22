@@ -59,7 +59,7 @@ TAB_CALLS = [
     :filename => "get_item_by_id",
     :params => {
         :locale => 'fr_FR',
-        :itemListData => 'all'
+        :itemData => 'all'
       }
   },
   {
@@ -163,6 +163,11 @@ TAB_CALLS = [
   {
     :url => "euw.api.pvp.net/api/lol/euw/v1.4/summoner/by-name/pacoloco",
     :filename => "summoner",
+    :params => nil
+  },
+  {
+    :url => "euw.api.pvp.net/api/lol/euw/v1.4/summoner/by-name/pacoloco",
+    :filename => "get_summoner_by_name",
     :params => nil
   },
   {
