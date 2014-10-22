@@ -86,77 +86,77 @@ client.get_summoner_by_id 20639710
 # Get champion by id
 # params :
 # id => integer,
-# data => hash (version, champData) - default => nill,
+# data => hash (version, champData) - default => nil,
 # locale => string ('fr_FR','en_EN', ...) - default => 'fr_FR'
-client.get_champion_by_id id_champ, data = {:version => num_version, :champData => 'all'}, locale = 'fr_FR'
+client.get_champion_by_id id_champ, {:version => num_version, :champData => 'all'}, 'fr_FR'
 
 # Get all champions
 # params :
-# data => hash (version, champData) - default => nill,
+# data => hash (version, champData) - default => nil,
 # sort_id => boolean - default => false
 # locale => string ('fr_FR','en_EN', ...) - default => 'fr_FR'
-client.get_all_champions data = {:version => num_version, :champData => 'all'}, sort_id = 'false', locale = 'fr_FR'
+client.get_all_champions {:version => num_version, :champData => 'all'}, 'false', 'fr_FR'
 
 # ITEM
 
 # Get item by id
 # params :
 # id => integer,
-# data => hash (version, itemListData) - default => nill,
+# data => hash (version, itemListData) - default => nil,
 # locale => string ('fr_FR','en_EN', ...) - default => 'fr_FR'
-client.get_item_by_id id, data = {:version => num_version, :itemListData => 'all'}, locale = 'fr_FR'
+client.get_item_by_id id, {:version => num_version, :itemListData => 'all'}, 'fr_FR'
 
 # Get all items
 # params :
-# data => hash (version, itemListData) - default => nill,
+# data => hash (version, itemListData) - default => nil,
 # locale => string ('fr_FR','en_EN', ...) - default => 'fr_FR'
-client.get_all_items data = {:version => num_version, :itemListData => 'all'}, locale = 'fr_FR'
+client.get_all_items {:version => num_version, :itemListData => 'all'}, 'fr_FR'
 
 # MASTERY
 
 # Get masteries by id
 # params :
 # id => integer,
-# data => hash (version, masteryListData) - default => nill,
+# data => hash (version, masteryListData) - default => nil,
 # locale => string ('fr_FR','en_EN', ...) - default => 'fr_FR'
-client.get_mastery_by_id id, data = {:version => num_version, :masteryListData => 'all'}, locale = 'fr_FR'
+client.get_mastery_by_id id, {:version => num_version, :masteryListData => 'all'}, 'fr_FR'
 
 # Get all masteries
 # params :
-# data => hash (version, masteryListData) - default => nill,
+# data => hash (version, masteryListData) - default => nil,
 # locale => string ('fr_FR','en_EN', ...) - default => 'fr_FR'
-client.get_all_masteries data = {:version => num_version, :masteryListData => 'all'}, locale = 'fr_FR'
+client.get_all_masteries {:version => num_version, :masteryListData => 'all'}, 'fr_FR'
 
 # RUNE
 
 # Get rune by id
 # params :
 # id => integer,
-# data => hash (version, runeListData) - default => nill,
+# data => hash (version, runeListData) - default => nil,
 # locale => string ('fr_FR','en_EN', ...) - default => 'fr_FR'
-client.get_rune_by_id id, data = {:version => num_version, :runeListData => 'all'}, locale = 'fr_FR'
+client.get_rune_by_id id, {:version => num_version, :runeListData => 'all'}, 'fr_FR'
 
 # Get all rune
 # params :
-# data => hash (version, runeListData) - default => nill,
+# data => hash (version, runeListData) - default => nil,
 # locale => string ('fr_FR','en_EN', ...) - default => 'fr_FR'
-client.get_all_runes data = {:version => num_version, :runeListData => 'all'}, locale = 'fr_FR'
+client.get_all_runes {:version => num_version, :runeListData => 'all'}, 'fr_FR'
 
 # SUMMONER SPELL
 
 # Get summoner spell by id
 # params :
 # id => integer,
-# data => hash (version, spellData) - default => nill,
+# data => hash (version, spellData) - default => nil,
 # locale => string ('fr_FR','en_EN', ...) - default => 'fr_FR'
-client.get_summoner_spell_by_id id, data = {:version => num_version, :spellData => 'all'}, locale = 'fr_FR'
+client.get_summoner_spell_by_id id, {:version => num_version, :spellData => 'all'}, 'fr_FR'
 
 # Get all summoner spell
 # params :
-# data => hash (version, spellData) - default => nill,
+# data => hash (version, spellData) - default => nil,
 # sort_id => boolean - default => false
 # locale => string ('fr_FR','en_EN', ...) - default => 'fr_FR'
-client.get_all_summoner_spells data = {:version => num_version, :spellData => 'all'}, sort_id = 'false', locale = 'fr_FR'
+client.get_all_summoner_spells {:version => num_version, :spellData => 'all'}, 'false', 'fr_FR'
 
 # INFORMATION
 
