@@ -73,7 +73,9 @@ Methods
 # Create client object
 client = RiotLolApi::Client.new(:region => 'your_region')
 
-# SUMMONER
+############
+# SUMMONER #
+############
 
 # Get summoner by name
 # params : name => string
@@ -98,7 +100,9 @@ summoner.stat_summaries
 # Get sumoner get_league_stats
 summoner.get_league_stats
 
-# CHAMPION
+############
+# CHAMPION #
+############
 
 # Get champion by id
 # params :
@@ -114,7 +118,9 @@ client.get_champion_by_id id_champ, {:version => num_version, :champData => 'all
 # locale => string ('fr_FR','en_EN', ...) - default => 'fr_FR'
 client.get_all_champions {:version => num_version, :champData => 'all'}, 'false', 'fr_FR'
 
-# ITEM
+########
+# ITEM #
+########
 
 # Get item by id
 # params :
@@ -129,7 +135,9 @@ client.get_item_by_id id, {:version => num_version, :itemListData => 'all'}, 'fr
 # locale => string ('fr_FR','en_EN', ...) - default => 'fr_FR'
 client.get_all_items {:version => num_version, :itemListData => 'all'}, 'fr_FR'
 
-# MASTERY
+###########
+# MASTERY #
+###########
 
 # Get masteries by id
 # params :
@@ -144,7 +152,9 @@ client.get_mastery_by_id id, {:version => num_version, :masteryListData => 'all'
 # locale => string ('fr_FR','en_EN', ...) - default => 'fr_FR'
 client.get_all_masteries {:version => num_version, :masteryListData => 'all'}, 'fr_FR'
 
-# RUNE
+########
+# RUNE #
+########
 
 # Get rune by id
 # params :
@@ -159,7 +169,9 @@ client.get_rune_by_id id, {:version => num_version, :runeListData => 'all'}, 'fr
 # locale => string ('fr_FR','en_EN', ...) - default => 'fr_FR'
 client.get_all_runes {:version => num_version, :runeListData => 'all'}, 'fr_FR'
 
-# SUMMONER SPELL
+##################
+# SUMMONER SPELL #
+##################
 
 # Get summoner spell by id
 # params :
@@ -175,7 +187,9 @@ client.get_summoner_spell_by_id id, {:version => num_version, :spellData => 'all
 # locale => string ('fr_FR','en_EN', ...) - default => 'fr_FR'
 client.get_all_summoner_spells {:version => num_version, :spellData => 'all'}, 'false', 'fr_FR'
 
-# INFORMATION
+###############
+# INFORMATION #
+###############
 
 # Get version
 client.get_versions
