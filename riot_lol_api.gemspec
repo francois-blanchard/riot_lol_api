@@ -1,11 +1,11 @@
 # coding: utf-8
 
-# __________.__        __                                      _____ __________.___ 
+# __________.__        __                                      _____ __________.___
 # \______   \__| _____/  |_     _________    _____   ____     /  _  \\______   \   |
 #  |       _/  |/  _ \   __\   / ___\__  \  /     \_/ __ \   /  /_\  \|     ___/   |
 #  |    |   \  (  <_> )  |    / /_/  > __ \|  Y Y  \  ___/  /    |    \    |   |   |
 #  |____|_  /__|\____/|__|    \___  (____  /__|_|  /\___  > \____|__  /____|   |___|
-#         \/                 /_____/     \/      \/     \/          \/              
+#         \/                 /_____/     \/      \/     \/          \/
 
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
@@ -31,6 +31,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rspec", "~> 2.14.1"
   spec.add_development_dependency "factory_girl"
   spec.add_development_dependency "webmock"
-  
+  spec.add_development_dependency "pry"
+
   spec.add_dependency "httparty"
 end

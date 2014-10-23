@@ -521,7 +521,10 @@ describe RiotLolApi::Client do
 
     it "should have good attributes" do
       expect(@get_league).to be_a Array
-      # expect(@get_league.first.entries.first.mini_series).to be_a RiotLolApi::Model::MiniSeries
+      expect(@get_league.first.entries.first).to be_a RiotLolApi::Model::Entry
+      if @get_league.first.entries.first.respond_to?(:mini_series)
+        expect(@get_league.first.entries.first.mini_series).to be_a RiotLolApi::Model::MiniSeries
+      end
     end
   end
 
