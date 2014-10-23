@@ -528,4 +528,33 @@ describe RiotLolApi::Client do
     end
   end
 
+  describe "get_match_history" do
+    before(:each) do
+      # Create client
+      summoner = FactoryGirl.build(:summoner)
+
+      api_response = File.read 'spec/mock_response/get_match_history.json'
+      stub_request(:get, "https://#{summoner.region}.api.pvp.net/api/lol/#{summoner.region}/v2.2/matchhistory/#{summoner.id}?api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
+
+      @get_match_history = summoner.get_match_history
+    end
+
+    it "should have good attributes" do
+      expect(@get_match_history).to be_a Array
+      expect(@get_match_history.first.participants.first).to be_a RiotLolApi::Model::Participant
+      expect(@get_match_history.first.participants.first.stats).to be_a RiotLolApi::Model::Stat
+      expect(@get_match_history.first.participants.first.timeline).to be_a RiotLolApi::Model::Timeline
+      expect(@get_match_history.first.participants.first.timeline.xp_diff_per_min_deltas).to be_a RiotLolApi::Model::XpDiffPerMinDeltas
+      expect(@get_match_history.first.participants.first.timeline.damage_taken_diff_per_min_deltas).to be_a RiotLolApi::Model::DamageTakenDiffPerMinDeltas
+      expect(@get_match_history.first.participants.first.timeline.xp_per_min_deltas).to be_a RiotLolApi::Model::XpPerMinDeltas
+      expect(@get_match_history.first.participants.first.timeline.gold_per_min_deltas).to be_a RiotLolApi::Model::GoldPerMinDeltas
+      expect(@get_match_history.first.participants.first.timeline.creeps_per_min_deltas).to be_a RiotLolApi::Model::CreepsPerMinDeltas
+      expect(@get_match_history.first.participants.first.timeline.cs_diff_per_min_deltas).to be_a RiotLolApi::Model::CsDiffPerMinDeltas
+      expect(@get_match_history.first.participants.first.timeline.damage_taken_per_min_deltas).to be_a RiotLolApi::Model::DamageTakenPerMinDeltas
+      expect(@get_match_history.first.participants.first.timeline.damage_taken_per_min_deltas).to be_a RiotLolApi::Model::DamageTakenPerMinDeltas
+      expect(@get_match_history.first.participant_identities.first).to be_a RiotLolApi::Model::ParticipantIdentities
+      expect(@get_match_history.first.participant_identities.first.player).to be_a RiotLolApi::Model::Player
+    end
+  end
+
 end
