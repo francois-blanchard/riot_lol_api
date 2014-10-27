@@ -8,6 +8,8 @@ module RiotLolApi
   module Model
 	class Summoner
 
+		include RiotLolApi::HelperClass
+
 		# attr needs @id, @region
 		SEASON_TAB = %Q{SEASON4,SEASON3}
 		def initialize(options = {})

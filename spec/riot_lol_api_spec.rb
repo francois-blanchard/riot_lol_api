@@ -565,7 +565,7 @@ describe RiotLolApi::Client do
     end
 
     it "should have good attributes" do
-      expect(@list_methods).to be_a Hash
+      expect(@list_methods).to be_a Array
     end
 
   end
