@@ -557,4 +557,17 @@ describe RiotLolApi::Client do
     end
   end
 
+  describe "list_methods" do
+    before(:each) do
+      # Create client
+      client = FactoryGirl.build(:client)
+      @list_methods = client.list_methods
+    end
+
+    it "should have good attributes" do
+      expect(@list_methods).to be_a Hash
+    end
+
+  end
+
 end
