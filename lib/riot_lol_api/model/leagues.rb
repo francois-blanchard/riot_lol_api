@@ -1,11 +1,9 @@
-require 'riot_lol_api/model/leveltip'
-require 'riot_lol_api/model/image'
-require 'riot_lol_api/model/var'
-require 'riot_lol_api/model/altimage'
+require 'riot_lol_api/model/entries'
+require 'riot_lol_api/model/mini_series'
 
 module RiotLolApi
   module Model
-    class Spell
+    class League
 
       def initialize(options = {})
         options.each do |key, value|

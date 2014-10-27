@@ -1,9 +1,8 @@
-require 'riot_lol_api/model/entry'
-require 'riot_lol_api/model/mini_sery'
+require 'riot_lol_api/model/images'
 
 module RiotLolApi
   module Model
-    class League
+    class Passive
 
       def initialize(options = {})
         options.each do |key, value|

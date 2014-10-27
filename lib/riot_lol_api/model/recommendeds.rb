@@ -1,8 +1,8 @@
-require 'riot_lol_api/model/item'
+require 'riot_lol_api/model/blocks'
 
 module RiotLolApi
   module Model
-    class Block
+    class Recommended
 
       def initialize(options = {})
         options.each do |key, value|

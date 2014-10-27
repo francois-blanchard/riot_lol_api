@@ -1,8 +1,8 @@
-require 'riot_lol_api/model/image'
+require 'riot_lol_api/model/items'
 
 module RiotLolApi
   module Model
-    class Passive
+    class Block
 
       def initialize(options = {})
         options.each do |key, value|

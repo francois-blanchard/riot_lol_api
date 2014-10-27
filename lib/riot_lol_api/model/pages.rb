@@ -1,6 +1,6 @@
-require 'riot_lol_api/model/mastery'
-require 'riot_lol_api/model/slot'
-require 'riot_lol_api/model/rune'
+require 'riot_lol_api/model/masteries'
+require 'riot_lol_api/model/slots'
+require 'riot_lol_api/model/runes'
 
 module RiotLolApi
   module Model

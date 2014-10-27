@@ -1,8 +1,8 @@
-require 'riot_lol_api/model/player_stat_summary'
-require 'riot_lol_api/model/player_stat_rank'
-require 'riot_lol_api/model/page'
-require 'riot_lol_api/model/game'
-require 'riot_lol_api/model/league'
+require 'riot_lol_api/model/player_stat_summaries'
+require 'riot_lol_api/model/player_stat_ranks'
+require 'riot_lol_api/model/pages'
+require 'riot_lol_api/model/games'
+require 'riot_lol_api/model/leagues'
 
 module RiotLolApi
   module Model
@@ -95,7 +95,7 @@ module RiotLolApi
 			response = Client.get("#{@region}/v2.4/league/by-summoner/#{@id}/entry",@region)
 			unless response.nil?
 				league_stats = response["#{@id}"]
-				
+
 				tab_league_stats = Array.new
 				league_stats.each do |league_stat|
 					tab_league_stats << RiotLolApi::Model::League.new(league_stat.to_symbol)

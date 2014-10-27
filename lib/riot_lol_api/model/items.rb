@@ -1,8 +1,10 @@
-require 'riot_lol_api/model/block'
+require 'riot_lol_api/model/golds'
+require 'riot_lol_api/model/effects'
+require 'riot_lol_api/model/maps'
 
 module RiotLolApi
   module Model
-    class Recommended
+    class Item
 
       def initialize(options = {})
         options.each do |key, value|

@@ -1,10 +1,8 @@
-require 'riot_lol_api/model/gold'
-require 'riot_lol_api/model/effect'
-require 'riot_lol_api/model/map'
+require 'riot_lol_api/model/aggregated_stats'
 
 module RiotLolApi
   module Model
-    class Item
+    class PlayerStatRank
 
       def initialize(options = {})
         options.each do |key, value|

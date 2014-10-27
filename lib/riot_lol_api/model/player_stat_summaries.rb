@@ -1,4 +1,4 @@
-require 'riot_lol_api/model/aggregated_stat'
+require 'riot_lol_api/model/aggregated_stats'
 
 module RiotLolApi
   module Model
