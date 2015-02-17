@@ -149,14 +149,14 @@ TAB_CALLS = [
     :url => "euw.api.pvp.net/api/lol/euw/v1.3/stats/by-summoner/20639710/ranked",
     :filename => "get_player_stat_ranked",
     :params => {
-      :season => 'SEASON4'
+      :season => 'SEASON5'
     }
   },
   {
     :url => "euw.api.pvp.net/api/lol/euw/v1.3/stats/by-summoner/20639710/summary",
     :filename => "get_player_stat_summaries",
     :params => {
-      :season => 'SEASON4'
+      :season => 'SEASON5'
     }
   },
   # summoner-v1.4
