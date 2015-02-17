@@ -24,7 +24,7 @@ module RiotLolApi
 		include RiotLolApi::HelperClass
 
 		# attr needs @id, @region
-		SEASON_TAB = %Q{SEASON4,SEASON3}
+		SEASON_TAB = %Q{SEASON5,SEASON4,SEASON3}
 		def initialize(options = {})
 			options.each do |key, value|
 				self.class.send(:attr_accessor, key.to_sym)
@@ -74,7 +74,7 @@ module RiotLolApi
 			end
 		end
 
-		def stat_summaries season="SEASON4"
+		def stat_summaries season="SEASON5"
 			response = Client.get("#{@region}/v1.3/stats/by-summoner/#{@id}/summary",@region,{:season => season})
 			unless response.nil?
 				stat_summaries = response['playerStatSummaries']
@@ -90,7 +90,7 @@ module RiotLolApi
 			end
 		end
 
-		def stat_ranks season="SEASON4"
+		def stat_ranks season="SEASON5"
 			response = Client.get("#{@region}/v1.3/stats/by-summoner/#{@id}/ranked",@region,{:season => season})
 			unless response.nil?
 				stat_ranks = response['champions']

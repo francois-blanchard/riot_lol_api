@@ -291,9 +291,9 @@ describe RiotLolApi::Client do
       summoner = FactoryGirl.build(:summoner)
 
       api_response = File.read 'spec/mock_response/get_player_stat_summaries.json'
-      stub_request(:get, "https://#{summoner.region}.api.pvp.net/api/lol/euw/v1.3/stats/by-summoner/20639710/summary?season=SEASON4&api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
+      stub_request(:get, "https://#{summoner.region}.api.pvp.net/api/lol/euw/v1.3/stats/by-summoner/20639710/summary?season=SEASON5&api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
 
-      @stat_summaries_test = summoner.stat_summaries("SEASON4")
+      @stat_summaries_test = summoner.stat_summaries("SEASON5")
     end
 
     it "should have good attributes" do
@@ -311,9 +311,9 @@ describe RiotLolApi::Client do
       summoner = FactoryGirl.build(:summoner)
 
       api_response = File.read 'spec/mock_response/get_player_stat_ranked.json'
-      stub_request(:get, "https://#{summoner.region}.api.pvp.net/api/lol/euw/v1.3/stats/by-summoner/20639710/ranked?season=SEASON4&api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
+      stub_request(:get, "https://#{summoner.region}.api.pvp.net/api/lol/euw/v1.3/stats/by-summoner/20639710/ranked?season=SEASON5&api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
 
-      @stat_ranks_test = summoner.stat_ranks("SEASON4")
+      @stat_ranks_test = summoner.stat_ranks("SEASON5")
     end
 
     it "should have good attributes" do
