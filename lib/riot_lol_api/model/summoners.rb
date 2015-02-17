@@ -3,6 +3,19 @@ require 'riot_lol_api/model/player_stat_ranks'
 require 'riot_lol_api/model/pages'
 require 'riot_lol_api/model/games'
 require 'riot_lol_api/model/leagues'
+require 'riot_lol_api/model/matches'
+require 'riot_lol_api/model/participants'
+require 'riot_lol_api/model/timelines'
+require 'riot_lol_api/model/creepspermindeltas'
+require 'riot_lol_api/model/xppermindeltas'
+require 'riot_lol_api/model/goldpermindeltas'
+require 'riot_lol_api/model/csdiffpermindeltas'
+require 'riot_lol_api/model/xpdiffpermindeltas'
+require 'riot_lol_api/model/damagetakenpermindeltas'
+require 'riot_lol_api/model/damagetakendiffpermindeltas'
+require 'riot_lol_api/model/participantidentities'
+require 'riot_lol_api/model/players'
+
 
 module RiotLolApi
   module Model
@@ -94,7 +107,7 @@ module RiotLolApi
 		end
 
 		def get_league_stats
-			response = Client.get("#{@region}/v2.4/league/by-summoner/#{@id}/entry",@region)
+			response = Client.get("#{@region}/v2.5/league/by-summoner/#{@id}/entry",@region)
 			unless response.nil?
 				league_stats = response["#{@id}"]
 
@@ -104,6 +117,22 @@ module RiotLolApi
 				end
 
 				tab_league_stats
+			else
+				nil
+			end
+		end
+
+		def get_match_history
+			response = Client.get("#{@region}/v2.2/matchhistory/#{@id}",@region)
+			unless response.nil?
+				match_histories = response["matches"]
+
+				tab_match_histories = Array.new
+				match_histories.each do |match_history|
+					tab_match_histories << RiotLolApi::Model::Match.new(match_history.to_symbol)
+				end
+
+				tab_match_histories
 			else
 				nil
 			end
