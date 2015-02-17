@@ -13,7 +13,7 @@
 
 ## Status
 
-###V 0.1.0
+###V 0.2.0
 
 ```
 - champion-v1.2         NO IMPLEMENT
@@ -199,6 +199,7 @@ client.get_versions
 
 ## Change logs
 
+- v 0.2.0 : Add method matchhistory and update season 5
 - v 0.1.12 : Add class datnum for champion entry
 - v 0.1.11 : Fix class mini_sery for league entry
 - v 0.1.1 : Add class mini_sery for league entry
