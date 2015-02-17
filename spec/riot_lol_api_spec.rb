@@ -36,7 +36,7 @@ describe RiotLolApi::Client do
   describe "set realm when create client" do
     it "define RiotLolApi::REALM" do
       client = FactoryGirl.build(:client)
-      expect(RiotLolApi::Client.realm).to eq({"css" => "0.152.55", "dd" => "4.17.1","l" => "en_US", "n" => {"item" => "4.18.1","rune" => "4.17.1", "mastery" => "4.17.1", "summoner" => "4.18.1", "champion" => "4.18.1", "profileicon" => "4.18.1", "language" => "4.17.1"}, "profileiconmax" => 28, "v" => "4.18.1", "lg" => "0.152.55", "cdn" => "http://ddragon.leagueoflegends.com/cdn"})
+      expect(RiotLolApi::Client.realm).to include("css","dd","l","n","profileiconmax","v","lg","cdn")
     end
   end
 
@@ -58,14 +58,12 @@ describe RiotLolApi::Client do
     end
 
     it "should have good attributes" do
-      summoner = FactoryGirl.build(:summoner)
-
-      expect(@summoner_test.id).to eq(summoner.id)
-      expect(@summoner_test.name).to eq(summoner.name)
-      expect(@summoner_test.profile_icon_id).to eq(summoner.profile_icon_id)
-      expect(@summoner_test.summoner_level).to eq(summoner.summoner_level)
-      expect(@summoner_test.revision_date).to eq(summoner.revision_date)
-      expect(@summoner_test.region).to eq(summoner.region)
+      expect(@summoner_test.id).to be_a Integer
+      expect(@summoner_test.name).to be_a String
+      expect(@summoner_test.profile_icon_id).to be_a Integer
+      expect(@summoner_test.summoner_level).to be_a Integer
+      expect(@summoner_test.revision_date).to be_a Integer
+      expect(@summoner_test.region).to be_a String
     end
   end
 
@@ -89,12 +87,12 @@ describe RiotLolApi::Client do
     it "should have good attributes" do
       summoner = FactoryGirl.build(:summoner)
 
-      expect(@summoner_test.id).to eq(summoner.id)
-      expect(@summoner_test.name).to eq(summoner.name)
-      expect(@summoner_test.profile_icon_id).to eq(summoner.profile_icon_id)
-      expect(@summoner_test.summoner_level).to eq(summoner.summoner_level)
-      expect(@summoner_test.revision_date).to eq(summoner.revision_date)
-      expect(@summoner_test.region).to eq(summoner.region)
+      expect(@summoner_test.id).to be_a Integer
+      expect(@summoner_test.name).to be_a String
+      expect(@summoner_test.profile_icon_id).to be_a Integer
+      expect(@summoner_test.summoner_level).to be_a Integer
+      expect(@summoner_test.revision_date).to be_a Integer
+      expect(@summoner_test.region).to be_a String
     end
   end
 
@@ -158,19 +156,19 @@ describe RiotLolApi::Client do
       game = FactoryGirl.build(:game)
 
       game_test = @game_tests.first
-      expect(game_test.game_id).to eq(game.game_id)
-      expect(game_test.invalid).to eq(game.invalid)
-      expect(game_test.game_mode).to eq(game.game_mode)
-      expect(game_test.game_type).to eq(game.game_type)
-      expect(game_test.sub_type).to eq(game.sub_type)
-      expect(game_test.map_id).to eq(game.map_id)
-      expect(game_test.team_id).to eq(game.team_id)
-      expect(game_test.champion_id).to eq(game.champion_id)
-      expect(game_test.spell1).to eq(game.spell1)
-      expect(game_test.spell2).to eq(game.spell2)
-      expect(game_test.level).to eq(game.level)
-      expect(game_test.ip_earned).to eq(game.ip_earned)
-      expect(game_test.create_date).to eq(game.create_date)
+      expect(game_test.game_id).to be_a Integer
+      # expect(game_test.invalid).to eq()
+      expect(game_test.game_mode).to be_a String
+      expect(game_test.game_type).to be_a String
+      expect(game_test.sub_type).to be_a String
+      expect(game_test.map_id).to be_a Integer
+      expect(game_test.team_id).to be_a Integer
+      expect(game_test.champion_id).to be_a Integer
+      expect(game_test.spell1).to be_a Integer
+      expect(game_test.spell2).to be_a Integer
+      expect(game_test.level).to be_a Integer
+      expect(game_test.ip_earned).to be_a Integer
+      expect(game_test.create_date).to be_a Integer
 
       expect(game_test.fellow_players.first).to be_a RiotLolApi::Model::FellowPlayer
 
@@ -514,7 +512,7 @@ describe RiotLolApi::Client do
       summoner = FactoryGirl.build(:summoner)
 
       api_response = File.read 'spec/mock_response/get_player_league.json'
-      stub_request(:get, "https://euw.api.pvp.net/api/lol/euw/v2.4/league/by-summoner/20639710/entry?api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
+      stub_request(:get, "https://euw.api.pvp.net/api/lol/euw/v2.5/league/by-summoner/20639710/entry?api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
 
       @get_league = summoner.get_league_stats
     end
@@ -544,15 +542,15 @@ describe RiotLolApi::Client do
       expect(@get_match_history.first.participants.first).to be_a RiotLolApi::Model::Participant
       expect(@get_match_history.first.participants.first.stats).to be_a RiotLolApi::Model::Stat
       expect(@get_match_history.first.participants.first.timeline).to be_a RiotLolApi::Model::Timeline
-      expect(@get_match_history.first.participants.first.timeline.xp_diff_per_min_deltas).to be_a RiotLolApi::Model::XpDiffPerMinDeltas
-      expect(@get_match_history.first.participants.first.timeline.damage_taken_diff_per_min_deltas).to be_a RiotLolApi::Model::DamageTakenDiffPerMinDeltas
-      expect(@get_match_history.first.participants.first.timeline.xp_per_min_deltas).to be_a RiotLolApi::Model::XpPerMinDeltas
-      expect(@get_match_history.first.participants.first.timeline.gold_per_min_deltas).to be_a RiotLolApi::Model::GoldPerMinDeltas
-      expect(@get_match_history.first.participants.first.timeline.creeps_per_min_deltas).to be_a RiotLolApi::Model::CreepsPerMinDeltas
-      expect(@get_match_history.first.participants.first.timeline.cs_diff_per_min_deltas).to be_a RiotLolApi::Model::CsDiffPerMinDeltas
-      expect(@get_match_history.first.participants.first.timeline.damage_taken_per_min_deltas).to be_a RiotLolApi::Model::DamageTakenPerMinDeltas
-      expect(@get_match_history.first.participants.first.timeline.damage_taken_per_min_deltas).to be_a RiotLolApi::Model::DamageTakenPerMinDeltas
-      expect(@get_match_history.first.participant_identities.first).to be_a RiotLolApi::Model::ParticipantIdentities
+      expect(@get_match_history.first.participants.first.timeline.xp_diff_per_min_deltas).to be_a RiotLolApi::Model::XpDiffPerMinDelta
+      expect(@get_match_history.first.participants.first.timeline.damage_taken_diff_per_min_deltas).to be_a RiotLolApi::Model::DamageTakenDiffPerMinDelta
+      expect(@get_match_history.first.participants.first.timeline.xp_per_min_deltas).to be_a RiotLolApi::Model::XpPerMinDelta
+      expect(@get_match_history.first.participants.first.timeline.gold_per_min_deltas).to be_a RiotLolApi::Model::GoldPerMinDelta
+      expect(@get_match_history.first.participants.first.timeline.creeps_per_min_deltas).to be_a RiotLolApi::Model::CreepsPerMinDelta
+      expect(@get_match_history.first.participants.first.timeline.cs_diff_per_min_deltas).to be_a RiotLolApi::Model::CsDiffPerMinDelta
+      expect(@get_match_history.first.participants.first.timeline.damage_taken_per_min_deltas).to be_a RiotLolApi::Model::DamageTakenPerMinDelta
+      expect(@get_match_history.first.participants.first.timeline.damage_taken_per_min_deltas).to be_a RiotLolApi::Model::DamageTakenPerMinDelta
+      expect(@get_match_history.first.participant_identities.first).to be_a RiotLolApi::Model::ParticipantIdentity
       expect(@get_match_history.first.participant_identities.first.player).to be_a RiotLolApi::Model::Player
     end
   end
