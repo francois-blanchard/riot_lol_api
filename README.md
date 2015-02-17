@@ -16,17 +16,18 @@
 ###V 0.1.0
 
 ```
-- champion-v1.2 ... NO IMPLEMENT
-- game-v1.3 ... OK
-- league-v2.4 ... PROGRESS
-  - /by-summoner/{summonerIds}/entry ... OK
-- lol-static-data-v1.2 ... OK
-- lol-status-v1.0 ... NO IMPLEMENT
-- match-v2.2 ... PROGRESS
-- stats-v1.3 ... OK
-- summoner-v1.4 ... OK
-  - /{summonerIds}/name ... NO IMPLEMENT
-- team-v2.3 ... NO IMPLEMENT
+- champion-v1.2         NO IMPLEMENT
+- current-game-v1.0     PROGRESS
+- featured-games-v1.0   PROGRESS
+- game-v1.3             OK
+- league-v2.5           PROGRESS
+- lol-static-data-v1.2  OK
+- lol-status-v1.0       NO IMPLEMENT
+- match-v2.2            PROGRESS
+- matchhistory-v2.2     PROGRESS
+- stats-v1.3            OK
+- summoner-v1.4         OK
+- team-v2.4             NO IMPLEMENT
 ```
 
 ## Installation
