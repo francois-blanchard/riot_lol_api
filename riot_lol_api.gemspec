@@ -27,12 +27,12 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_development_dependency "bundler", "~> 1.5"
-  spec.add_development_dependency "rake"
+  spec.add_development_dependency "rake", "~> 10.3.0"
   spec.add_development_dependency "rspec", "~> 2.14.1"
-  spec.add_development_dependency "factory_girl"
-  spec.add_development_dependency "webmock"
-  spec.add_development_dependency "pry"
+  spec.add_development_dependency "factory_girl", "~> 4.4.0"
+  spec.add_development_dependency "webmock", "~> 1.17.4"
+  spec.add_development_dependency "pry", "~> 0.10.1"
 
-  spec.add_dependency "httparty"
-  spec.add_dependency "activesupport"
+  spec.add_dependency "httparty", "~> 0.13.1"
+  spec.add_dependency "activesupport", ">= 3.0.0"
 end
