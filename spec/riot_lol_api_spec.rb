@@ -291,9 +291,9 @@ describe RiotLolApi::Client do
       summoner = FactoryGirl.build(:summoner)
 
       api_response = File.read 'spec/mock_response/get_player_stat_summaries.json'
-      stub_request(:get, "https://#{summoner.region}.api.pvp.net/api/lol/euw/v1.3/stats/by-summoner/20639710/summary?season=SEASON5&api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
+      stub_request(:get, "https://#{summoner.region}.api.pvp.net/api/lol/euw/v1.3/stats/by-summoner/20639710/summary?season=SEASON2015&api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
 
-      @stat_summaries_test = summoner.stat_summaries("SEASON5")
+      @stat_summaries_test = summoner.stat_summaries("SEASON2015")
     end
 
     it "should have good attributes" do
@@ -311,9 +311,9 @@ describe RiotLolApi::Client do
       summoner = FactoryGirl.build(:summoner)
 
       api_response = File.read 'spec/mock_response/get_player_stat_ranked.json'
-      stub_request(:get, "https://#{summoner.region}.api.pvp.net/api/lol/euw/v1.3/stats/by-summoner/20639710/ranked?season=SEASON5&api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
+      stub_request(:get, "https://#{summoner.region}.api.pvp.net/api/lol/euw/v1.3/stats/by-summoner/20639710/ranked?season=SEASON2015&api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
 
-      @stat_ranks_test = summoner.stat_ranks("SEASON5")
+      @stat_ranks_test = summoner.stat_ranks("SEASON2015")
     end
 
     it "should have good attributes" do
@@ -552,6 +552,47 @@ describe RiotLolApi::Client do
       expect(@get_match_history.first.participants.first.timeline.damage_taken_per_min_deltas).to be_a RiotLolApi::Model::DamageTakenPerMinDelta
       expect(@get_match_history.first.participant_identities.first).to be_a RiotLolApi::Model::ParticipantIdentity
       expect(@get_match_history.first.participant_identities.first.player).to be_a RiotLolApi::Model::Player
+    end
+  end
+
+  describe "get_featured_games" do
+    before(:each) do
+      # Create client
+      client = FactoryGirl.build(:client)
+
+      api_response = File.read 'spec/mock_response/get_featured_games.json'
+      stub_request(:get, "https://#{client.region}.api.pvp.net/observer-mode/rest/featured?api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
+
+      @get_featured_games = client.featured_games
+    end
+
+    it "should have good attributes" do
+      expect(@get_featured_games.game_list).to be_a Array
+      expect(@get_featured_games.game_list.first.banned_champions.first).to be_a RiotLolApi::Model::BannedChampion
+      expect(@get_featured_games.game_list.first.participants.first).to be_a RiotLolApi::Model::Participant
+    end
+  end
+
+  describe "get_current_game" do
+    before(:each) do
+      # Create client
+      client = FactoryGirl.build(:client)
+      summoner = FactoryGirl.build(:summoner, :id => 43921069)
+
+      api_response = File.read 'spec/mock_response/get_current_game.json'
+      stub_request(:get, "https://#{client.region}.api.pvp.net/observer-mode/rest/consumer/getSpectatorGameInfo/EUW1/#{summoner.id}?api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
+
+      @get_current_game_by_client = client.current_game(summoner.id)
+      @get_current_game_by_summoner = summoner.current_game
+    end
+
+    it "should have good attributes" do
+      expect(@get_current_game_by_client).to be_a RiotLolApi::Model::Game
+      expect(@get_current_game_by_summoner).to be_a RiotLolApi::Model::Game
+      expect(@get_current_game_by_client.banned_champions.first).to be_a RiotLolApi::Model::BannedChampion
+      expect(@get_current_game_by_summoner.banned_champions.first).to be_a RiotLolApi::Model::BannedChampion
+      expect(@get_current_game_by_client.participants.first).to be_a RiotLolApi::Model::Participant
+      expect(@get_current_game_by_summoner.participants.first).to be_a RiotLolApi::Model::Participant
     end
   end
 

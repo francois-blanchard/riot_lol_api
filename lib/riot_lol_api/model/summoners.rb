@@ -15,6 +15,9 @@ require 'riot_lol_api/model/damagetakenpermindeltas'
 require 'riot_lol_api/model/damagetakendiffpermindeltas'
 require 'riot_lol_api/model/participantidentities'
 require 'riot_lol_api/model/players'
+require 'riot_lol_api/model/observers'
+require 'riot_lol_api/model/game_lists'
+require 'riot_lol_api/model/banned_champions'
 
 
 module RiotLolApi
@@ -24,7 +27,7 @@ module RiotLolApi
 		include RiotLolApi::HelperClass
 
 		# attr needs @id, @region
-		SEASON_TAB = %Q{SEASON5,SEASON4,SEASON3}
+		SEASON_TAB = %Q{SEASON2015,SEASON2014,SEASON3}
 		def initialize(options = {})
 			options.each do |key, value|
 				self.class.send(:attr_accessor, key.to_sym)
@@ -74,7 +77,7 @@ module RiotLolApi
 			end
 		end
 
-		def stat_summaries season="SEASON5"
+		def stat_summaries season="SEASON2015"
 			response = Client.get("#{@region}/v1.3/stats/by-summoner/#{@id}/summary",@region,{:season => season})
 			unless response.nil?
 				stat_summaries = response['playerStatSummaries']
@@ -90,7 +93,7 @@ module RiotLolApi
 			end
 		end
 
-		def stat_ranks season="SEASON5"
+		def stat_ranks season="SEASON2015"
 			response = Client.get("#{@region}/v1.3/stats/by-summoner/#{@id}/ranked",@region,{:season => season})
 			unless response.nil?
 				stat_ranks = response['champions']
@@ -133,6 +136,15 @@ module RiotLolApi
 				end
 
 				tab_match_histories
+			else
+				nil
+			end
+		end
+
+		def current_game platform_id='EUW1'
+			response = Client.get("observer-mode/rest/consumer/getSpectatorGameInfo/#{platform_id}/#{@id}",@region,nil,'api.pvp.net/')
+			unless response.nil?
+				RiotLolApi::Model::Game.new(response.to_symbol)
 			else
 				nil
 			end

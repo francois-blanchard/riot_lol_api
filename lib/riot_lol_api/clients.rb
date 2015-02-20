@@ -38,7 +38,7 @@ module RiotLolApi
 		# Set callback to get realm constants
 		#
 
-		def self.get url, domaine,data = nil
+		def self.get url, domaine,data = nil, overide_base_uri = nil
 			unless RiotLolApi::TOKEN.nil?
 
 				# Check limit rate
@@ -57,7 +57,7 @@ module RiotLolApi
 				end
 
 				# Set domaine url
-				domaine_url = "#{domaine}.#{BASE_URL_API}"
+				domaine_url = "#{domaine}.#{overide_base_uri||BASE_URL_API}"
 
 				response = HTTParty.get("https://#{domaine_url}#{url}", :query => data)
 				case response.code
@@ -273,6 +273,24 @@ module RiotLolApi
 			response = Client.get("static-data/#{@region}/v1.2/summoner-spell/#{id}","global",data)
 			unless response.nil?
 				RiotLolApi::Model::Spell.new(response.to_symbol)
+			else
+				nil
+			end
+		end
+
+		def featured_games
+			response = Client.get("observer-mode/rest/featured",@region,nil,'api.pvp.net/')
+			unless response.nil?
+				RiotLolApi::Model::Observer.new(response.to_symbol)
+			else
+				nil
+			end
+		end
+
+		def current_game summoner_id, platform_id='EUW1'
+			response = Client.get("observer-mode/rest/consumer/getSpectatorGameInfo/#{platform_id}/#{summoner_id}",@region,nil,'api.pvp.net/')
+			unless response.nil?
+				RiotLolApi::Model::Game.new(response.to_symbol)
 			else
 				nil
 			end

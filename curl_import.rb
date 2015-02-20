@@ -149,14 +149,14 @@ TAB_CALLS = [
     :url => "euw.api.pvp.net/api/lol/euw/v1.3/stats/by-summoner/20639710/ranked",
     :filename => "get_player_stat_ranked",
     :params => {
-      :season => 'SEASON5'
+      :season => 'SEASON2015'
     }
   },
   {
     :url => "euw.api.pvp.net/api/lol/euw/v1.3/stats/by-summoner/20639710/summary",
     :filename => "get_player_stat_summaries",
     :params => {
-      :season => 'SEASON5'
+      :season => 'SEASON2015'
     }
   },
   # summoner-v1.4
@@ -184,7 +184,19 @@ TAB_CALLS = [
     :url => "euw.api.pvp.net/api/lol/euw/v1.4/summoner/20639710/runes",
     :filename => "get_summoner_runes_by_id",
     :params => nil
+  },
+  # featured-games-v1.0
+  {
+    :url => "euw.api.pvp.net/observer-mode/rest/featured",
+    :filename => "get_featured_games",
+    :params => nil
   }
+  # current-game-v1.0
+  # {
+  #   :url => "euw.api.pvp.net/observer-mode/rest/consumer/getSpectatorGameInfo/EUW1/43921069",
+  #   :filename => "get_current_game",
+  #   :params => nil
+  # }
 ]
 
 class Mock

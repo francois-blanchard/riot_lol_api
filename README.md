@@ -17,8 +17,8 @@
 
 ```
 - champion-v1.2         NO IMPLEMENT
-- current-game-v1.0     PROGRESS
-- featured-games-v1.0   PROGRESS
+- current-game-v1.0     OK
+- featured-games-v1.0   OK
 - game-v1.3             OK
 - league-v2.5           PROGRESS
 - lol-static-data-v1.2  OK
@@ -71,135 +71,40 @@ Methods
 # CLIENT #
 ##########
 
-# Create client object
-client = RiotLolApi::Client.new(:region => 'your_region')
+client.get_summoner_by_name 'pacoloco'
+client.get_summoner_by_id 20639710
+client.featured_games
+client.current_game(summoner_id)
+client.get_champion_by_id id_champ, {:version => num_version, :champData => 'all'}, 'fr_FR'
+client.get_all_champions {:version => num_version, :champData => 'all'}, 'false', 'fr_FR'
+client.get_item_by_id id, {:version => num_version, :itemListData => 'all'}, 'fr_FR'
+client.get_all_items {:version => num_version, :itemListData => 'all'}, 'fr_FR'
+client.get_mastery_by_id id, {:version => num_version, :masteryListData => 'all'}, 'fr_FR'
+client.get_all_masteries {:version => num_version, :masteryListData => 'all'}, 'fr_FR'
+client.get_rune_by_id id, {:version => num_version, :runeListData => 'all'}, 'fr_FR'
+client.get_all_runes {:version => num_version, :runeListData => 'all'}, 'fr_FR'
+client.get_summoner_spell_by_id id, {:version => num_version, :spellData => 'all'}, 'fr_FR'
+client.get_all_summoner_spells {:version => num_version, :spellData => 'all'}, 'false', 'fr_FR'
+client.get_versions
 
 ############
 # SUMMONER #
 ############
 
-# Get summoner by name
-# params : name => string
-client.get_summoner_by_name 'pacoloco'
-
-# Get summoner by id
-# params : id => integer
-client.get_summoner_by_id 20639710
-
-# Get sumoner masteries
 summoner.masteries
-
-# Get sumoner runes
 summoner.runes
-
-# Get sumoner games
 summoner.games
-
-# Get sumoner stat_summaries
 summoner.stat_summaries
-
-# Get sumoner get_league_stats
 summoner.get_league_stats
-
-############
-# CHAMPION #
-############
-
-# Get champion by id
-# params :
-# id => integer,
-# data => hash (version, champData) - default => nil,
-# locale => string ('fr_FR','en_EN', ...) - default => 'fr_FR'
-client.get_champion_by_id id_champ, {:version => num_version, :champData => 'all'}, 'fr_FR'
-
-# Get all champions
-# params :
-# data => hash (version, champData) - default => nil,
-# sort_id => boolean - default => false
-# locale => string ('fr_FR','en_EN', ...) - default => 'fr_FR'
-client.get_all_champions {:version => num_version, :champData => 'all'}, 'false', 'fr_FR'
-
-########
-# ITEM #
-########
-
-# Get item by id
-# params :
-# id => integer,
-# data => hash (version, itemListData) - default => nil,
-# locale => string ('fr_FR','en_EN', ...) - default => 'fr_FR'
-client.get_item_by_id id, {:version => num_version, :itemListData => 'all'}, 'fr_FR'
-
-# Get all items
-# params :
-# data => hash (version, itemListData) - default => nil,
-# locale => string ('fr_FR','en_EN', ...) - default => 'fr_FR'
-client.get_all_items {:version => num_version, :itemListData => 'all'}, 'fr_FR'
-
-###########
-# MASTERY #
-###########
-
-# Get masteries by id
-# params :
-# id => integer,
-# data => hash (version, masteryListData) - default => nil,
-# locale => string ('fr_FR','en_EN', ...) - default => 'fr_FR'
-client.get_mastery_by_id id, {:version => num_version, :masteryListData => 'all'}, 'fr_FR'
-
-# Get all masteries
-# params :
-# data => hash (version, masteryListData) - default => nil,
-# locale => string ('fr_FR','en_EN', ...) - default => 'fr_FR'
-client.get_all_masteries {:version => num_version, :masteryListData => 'all'}, 'fr_FR'
-
-########
-# RUNE #
-########
-
-# Get rune by id
-# params :
-# id => integer,
-# data => hash (version, runeListData) - default => nil,
-# locale => string ('fr_FR','en_EN', ...) - default => 'fr_FR'
-client.get_rune_by_id id, {:version => num_version, :runeListData => 'all'}, 'fr_FR'
-
-# Get all rune
-# params :
-# data => hash (version, runeListData) - default => nil,
-# locale => string ('fr_FR','en_EN', ...) - default => 'fr_FR'
-client.get_all_runes {:version => num_version, :runeListData => 'all'}, 'fr_FR'
-
-##################
-# SUMMONER SPELL #
-##################
-
-# Get summoner spell by id
-# params :
-# id => integer,
-# data => hash (version, spellData) - default => nil,
-# locale => string ('fr_FR','en_EN', ...) - default => 'fr_FR'
-client.get_summoner_spell_by_id id, {:version => num_version, :spellData => 'all'}, 'fr_FR'
-
-# Get all summoner spell
-# params :
-# data => hash (version, spellData) - default => nil,
-# sort_id => boolean - default => false
-# locale => string ('fr_FR','en_EN', ...) - default => 'fr_FR'
-client.get_all_summoner_spells {:version => num_version, :spellData => 'all'}, 'false', 'fr_FR'
-
-###############
-# INFORMATION #
-###############
-
-# Get version
-client.get_versions
+summoner.get_match_history
+summoner.current_game
 
 ```
 
 ## Change logs
 
-- v 0.2.0 : Add method matchhistory and update season 5
+- v 0.3.0 : Add current game and featured games methods
+- v 0.2.0 : Add method matchhistory and update SEASON2015
 - v 0.1.12 : Add class datnum for champion entry
 - v 0.1.11 : Fix class mini_sery for league entry
 - v 0.1.1 : Add class mini_sery for league entry
