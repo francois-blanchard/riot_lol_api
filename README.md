@@ -23,7 +23,7 @@
 - league-v2.5           PROGRESS
 - lol-static-data-v1.2  OK
 - lol-status-v1.0       NO IMPLEMENT
-- match-v2.2            PROGRESS
+- match-v2.2            OK
 - matchhistory-v2.2     PROGRESS
 - stats-v1.3            OK
 - summoner-v1.4         OK
@@ -103,6 +103,7 @@ summoner.current_game
 
 ## Change logs
 
+- v 0.3.1 : Add get match by id methods
 - v 0.3.0 : Add current game and featured games methods
 - v 0.2.0 : Add method matchhistory and update SEASON2015
 - v 0.1.12 : Add class datnum for champion entry

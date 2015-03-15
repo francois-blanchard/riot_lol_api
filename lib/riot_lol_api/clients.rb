@@ -296,6 +296,15 @@ module RiotLolApi
 			end
 		end
 
+		def match game_id
+			response = Client.get("#{@region}/v2.2/match/#{game_id}",@region)
+			unless response.nil?
+				RiotLolApi::Model::Match.new(response.to_symbol)
+			else
+				nil
+			end
+		end
+
 		def get_versions
 			response = Client.get("static-data/#{@region}/v1.2/versions","global")
 			unless response.nil?

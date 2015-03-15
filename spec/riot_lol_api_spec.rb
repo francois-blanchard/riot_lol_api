@@ -555,6 +555,30 @@ describe RiotLolApi::Client do
     end
   end
 
+  describe "get_match_by_id" do
+    before(:each) do
+      # Create client
+      client = FactoryGirl.build(:client)
+
+      api_response = File.read 'spec/mock_response/get_match_by_id.json'
+      stub_request(:get, "https://#{client.region}.api.pvp.net/api/lol/#{client.region}/v2.2/match/1617870200?api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
+
+      @get_match_by_id = client.match 1617870200
+    end
+
+    it "should have good attributes" do
+      expect(@get_match_by_id.participants.first).to be_a RiotLolApi::Model::Participant
+      expect(@get_match_by_id.participants.first.stats).to be_a RiotLolApi::Model::Stat
+      expect(@get_match_by_id.participants.first.timeline).to be_a RiotLolApi::Model::Timeline
+      expect(@get_match_by_id.participant_identities.first).to be_a RiotLolApi::Model::ParticipantIdentity
+      expect(@get_match_by_id.participant_identities.first.player).to be_a RiotLolApi::Model::Player
+    end
+
+    it "should know which team win" do
+      expect(@get_match_by_id.which_team_win).to be_a Integer
+    end
+  end
+
   describe "get_featured_games" do
     before(:each) do
       # Create client

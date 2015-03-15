@@ -18,6 +18,8 @@ require 'riot_lol_api/model/players'
 require 'riot_lol_api/model/observers'
 require 'riot_lol_api/model/game_lists'
 require 'riot_lol_api/model/banned_champions'
+require 'riot_lol_api/model/teams'
+require 'riot_lol_api/model/bans'
 
 
 module RiotLolApi
