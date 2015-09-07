@@ -58,7 +58,6 @@ module RiotLolApi
 
 				# Set domaine url
 				domaine_url = "#{domaine}.#{overide_base_uri||BASE_URL_API}"
-
 				response = HTTParty.get("https://#{domaine_url}#{url}", :query => data)
 				case response.code
 					when 200
@@ -98,9 +97,23 @@ module RiotLolApi
 			end
 		end
 
+		def get_summoners_by_id id
+			response = Client.get("#{@region}/v1.4/summoner/#{id}",@region)
+			unless response.nil?
+				summoners = Array.new
+				response.each do |id, data|
+					summoners << RiotLolApi::Model::Summoner.new(response[data['id'].to_s].to_symbol.merge({:region => @region}))
+				end
+				summoners
+				#RiotLolApi::Model::Summoner.new(response[id.to_s].to_symbol.merge({:region => @region}))
+			else
+				nil
+			end
+		end
+
 		# CHAMPION
 
-		def get_champion_by_id id, data = nil, locale = 'fr_FR'
+		def get_champion_by_id id, data = nil, locale = 'en_US'
 			if data.nil?
 				data = {:locale => locale}
 			else
@@ -115,7 +128,7 @@ module RiotLolApi
 			end
 		end
 
-		def get_all_champions data = nil, sort_id = 'false', locale = 'fr_FR'
+		def get_all_champions data = nil, sort_id = 'false', locale = 'en_US'
 			if data.nil?
 				data = {:locale => locale, :dataById => sort_id}
 			else
@@ -136,7 +149,7 @@ module RiotLolApi
 
 		# ITEM
 
-		def get_all_items data = nil, locale = 'fr_FR'
+		def get_all_items data = nil, locale = 'en_US'
 			if data.nil?
 				data = {:locale => locale}
 			else
@@ -155,7 +168,7 @@ module RiotLolApi
 			end
 		end
 
-		def get_item_by_id id, data = nil, locale = 'fr_FR'
+		def get_item_by_id id, data = nil, locale = 'en_US'
 			if data.nil?
 				data = {:locale => locale}
 			else
@@ -172,7 +185,7 @@ module RiotLolApi
 
 		# MASTERY
 
-		def get_all_masteries data = nil, locale = 'fr_FR'
+		def get_all_masteries data = nil, locale = 'en_US'
 			if data.nil?
 				data = {:locale => locale}
 			else
@@ -191,7 +204,7 @@ module RiotLolApi
 			end
 		end
 
-		def get_mastery_by_id id, data = nil, locale = 'fr_FR'
+		def get_mastery_by_id id, data = nil, locale = 'en_US'
 			if data.nil?
 				data = {:locale => locale}
 			else
@@ -208,7 +221,7 @@ module RiotLolApi
 
 		# RUNE
 
-		def get_all_runes data = nil, locale = 'fr_FR'
+		def get_all_runes data = nil, locale = 'en_US'
 			if data.nil?
 				data = {:locale => locale}
 			else
@@ -227,7 +240,7 @@ module RiotLolApi
 			end
 		end
 
-		def get_rune_by_id id, data = nil, locale = 'fr_FR'
+		def get_rune_by_id id, data = nil, locale = 'en_US'
 			if data.nil?
 				data = {:locale => locale}
 			else
@@ -244,7 +257,7 @@ module RiotLolApi
 
 		# SUMMONER SPELL
 
-		def get_all_summoner_spells data = nil, sort_id = 'false', locale = 'fr_FR'
+		def get_all_summoner_spells data = nil, sort_id = 'false', locale = 'en_US'
 			if data.nil?
 				data = {:locale => locale, :dataById => sort_id}
 			else
@@ -263,7 +276,7 @@ module RiotLolApi
 			end
 		end
 
-		def get_summoner_spell_by_id id, data = nil, locale = 'fr_FR'
+		def get_summoner_spell_by_id id, data = nil, locale = 'en_US'
 			if data.nil?
 				data = {:locale => locale}
 			else
