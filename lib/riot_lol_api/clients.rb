@@ -105,7 +105,6 @@ module RiotLolApi
 					summoners << RiotLolApi::Model::Summoner.new(response[data['id'].to_s].to_symbol.merge({:region => @region}))
 				end
 				summoners
-				#RiotLolApi::Model::Summoner.new(response[id.to_s].to_symbol.merge({:region => @region}))
 			else
 				nil
 			end
