@@ -13,7 +13,7 @@
 
 ## Status
 
-###V 0.2.0
+###V 0.3.2
 
 ```
 - champion-v1.2         NO IMPLEMENT
@@ -103,6 +103,7 @@ summoner.current_game
 
 ## Change logs
 
+- v 0.3.2 : Add get_summoners_by_id method (pull request by [aeipownu](https://github.com/aeipownu))
 - v 0.3.1 : Add get match by id methods
 - v 0.3.0 : Add current game and featured games methods
 - v 0.2.0 : Add method matchhistory and update SEASON2015
