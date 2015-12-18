@@ -7,7 +7,6 @@ module RiotLolApi
           instance_variable_set("@#{key}", value)
         end
       end
-
     end
   end
 end

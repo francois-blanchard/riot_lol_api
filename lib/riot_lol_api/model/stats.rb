@@ -1,8 +1,7 @@
 module RiotLolApi
   module Model
     class Stat
-
-      # attr 
+      # attr
       # :totalDamageDealtToChampions :goldEarned :item2 :item1 :wardPlaced :totalDamageTaken :item0 :physicalDamageDealtPlayer :totalUnitsHealed :level :magicDamageDealtToChampions :magicDamageDealtPlayer :assists :magicDamageTaken :numDeaths :totalTimeCrowdControlDealt :physicalDamageTaken :win :team :sightWardsBought :totalDamageDealt :totalHeal :item4 :item3 :item6 :minionsKilled :timePlayed :physicalDamageDealtToChampions :trueDamageTaken :goldSpent
 
       def initialize(options = {})
@@ -11,7 +10,6 @@ module RiotLolApi
           instance_variable_set("@#{key}", value)
         end
       end
-
     end
   end
 end

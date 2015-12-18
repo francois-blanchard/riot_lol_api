@@ -1,7 +1,6 @@
 module RiotLolApi
   module Model
     class Match
-
       def initialize(options = {})
         options.each do |key, value|
           self.class.send(:attr_accessor, key.to_sym)
@@ -10,9 +9,8 @@ module RiotLolApi
       end
 
       def which_team_win
-        self.teams.first.win? ? self.teams.first.team_id : self.teams.last.team_id
+        teams.first.win? ? teams.first.team_id : teams.last.team_id
       end
-
     end
   end
 end

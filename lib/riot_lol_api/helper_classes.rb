@@ -1,10 +1,9 @@
 module RiotLolApi
   module HelperClass
-
     # Instance methods
 
     def list_methods
-      self.class.instance_methods(false).map{|i| i.to_sym}
+      self.class.instance_methods(false).map(&:to_sym)
     end
 
     # Class methods
@@ -15,7 +14,7 @@ module RiotLolApi
 
     module ClassMethods
       def list_methods
-        self.instance_methods(false).map{|i| i.to_sym}
+        instance_methods(false).map(&:to_sym)
       end
     end
   end

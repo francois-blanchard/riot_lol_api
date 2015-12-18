@@ -1,7 +1,6 @@
 module RiotLolApi
   module Model
     class Slot
-
       # attr :id_slot, :rank
 
       def initialize(options = {})
@@ -10,7 +9,6 @@ module RiotLolApi
           instance_variable_set("@#{key}", value)
         end
       end
-
     end
   end
 end

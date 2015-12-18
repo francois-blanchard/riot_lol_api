@@ -17,6 +17,6 @@ RSpec.configure do |config|
   config.filter_run :focus
   config.order = 'random'
   config.after(:suite) do
-    WebMock.disable_net_connect!(:allow => 'codeclimate.com')
+    WebMock.disable_net_connect!(allow: 'codeclimate.com')
   end
 end

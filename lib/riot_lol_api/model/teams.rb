@@ -1,7 +1,6 @@
 module RiotLolApi
   module Model
     class Team
-
       def initialize(options = {})
         options.each do |key, value|
           self.class.send(:attr_accessor, key.to_sym)
@@ -10,9 +9,8 @@ module RiotLolApi
       end
 
       def win?
-        self.winner
+        winner
       end
-
     end
   end
 end
