@@ -110,6 +110,20 @@ module RiotLolApi
 			end
 		end
 
+		def get_summoners_by_name name
+			response = Client.get("#{@region}/v1.4/summoner/by-name/#{name}",@region)
+			unless response.nil?
+				summoners = Array.new
+				response.each do |name, data|
+					#downcase and gsub are to handle capital letters and spaces in summoner names. If this method breaks this is a good place to check for errors.
+					summoners << RiotLolApi::Model::Summoner.new(response[data['name'].downcase.gsub(' ', '').to_s].to_symbol.merge({:region => @region}))
+				end
+				summoners
+			else
+				nil
+			end
+		end
+
 		# CHAMPION
 
 		def get_champion_by_id id, data = nil, locale = 'en_US'
