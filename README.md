@@ -1,6 +1,10 @@
 # Gem Riot games API wrapper for Ruby - League of Legends
 
 [![Gem Version](https://badge.fury.io/rb/riot_lol_api.svg)](http://badge.fury.io/rb/riot_lol_api)
+[![Build Status](https://travis-ci.org/francois-blanchard/riot_lol_api.svg)](https://travis-ci.org/francois-blanchard/riot_lol_api)
+[![Code Climate](https://codeclimate.com/github/francois-blanchard/riot_lol_api/badges/gpa.svg)](https://codeclimate.com/github/francois-blanchard/riot_lol_api)
+[![Issue Count](https://codeclimate.com/github/francois-blanchard/riot_lol_api/badges/issue_count.svg)](https://codeclimate.com/github/francois-blanchard/riot_lol_api)
+[![Test Coverage](https://codeclimate.com/github/francois-blanchard/riot_lol_api/badges/coverage.svg)](https://codeclimate.com/github/francois-blanchard/riot_lol_api/coverage)
 
 ```
  __________.__        __                                      _____ __________.___
