@@ -187,7 +187,7 @@ describe RiotLolApi::Client do
       api_response = File.read 'spec/mock_response/get_champion_by_id.json'
       stub_request(:get, "https://global.api.pvp.net/api/lol/static-data/euw/v1.2/champion/#{id_champion}?locale=fr_FR&api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
 
-      @champion_test = client.get_champion_by_id(id_champion)
+      @champion_test = client.get_champion_by_id(id_champion, nil, 'fr_FR')
     end
 
     it "should get summoner object" do
@@ -214,7 +214,7 @@ describe RiotLolApi::Client do
       api_response = File.read 'spec/mock_response/get_champion_by_id_all_data.json'
       stub_request(:get, "https://global.api.pvp.net/api/lol/static-data/euw/v1.2/champion/#{id_champion}?locale=fr_FR&champData=all&api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
 
-      @champion_test = client.get_champion_by_id(id_champion,{:champData => 'all'})
+      @champion_test = client.get_champion_by_id(id_champion,{:champData => 'all'}, 'fr_FR')
     end
 
     it "should get summoner object" do
@@ -254,7 +254,7 @@ describe RiotLolApi::Client do
       api_response = File.read 'spec/mock_response/get_all_champions_by_ids.json'
       stub_request(:get, "https://global.api.pvp.net/api/lol/static-data/euw/v1.2/champion?locale=fr_FR&dataById=true&api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
 
-      @all_champion_test = client.get_all_champions(nil,true)
+      @all_champion_test = client.get_all_champions(nil,true, 'fr_FR')
     end
 
     it "should have good attributes" do
@@ -273,7 +273,7 @@ describe RiotLolApi::Client do
       api_response = File.read 'spec/mock_response/get_all_champions_by_ids_all_data.json'
       stub_request(:get, "https://global.api.pvp.net/api/lol/static-data/euw/v1.2/champion?locale=fr_FR&dataById=false&champData=all&api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
 
-      @all_champion_test = client.get_all_champions({:champData => 'all'})
+      @all_champion_test = client.get_all_champions({:champData => 'all'}, 'false', 'fr_FR')
     end
 
     it "should have good attributes" do
@@ -332,7 +332,7 @@ describe RiotLolApi::Client do
       api_response = File.read 'spec/mock_response/get_all_item.json'
       stub_request(:get, "https://global.api.pvp.net/api/lol/static-data/euw/v1.2/item?locale=fr_FR&itemListData=all&api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
 
-      @all_item_test = client.get_all_items({:itemListData => 'all'})
+      @all_item_test = client.get_all_items({:itemListData => 'all'}, 'fr_FR')
     end
 
     it "should have good attributes" do
@@ -351,7 +351,7 @@ describe RiotLolApi::Client do
       api_response = File.read 'spec/mock_response/get_item_by_id.json'
       stub_request(:get, "https://global.api.pvp.net/api/lol/static-data/euw/v1.2/item/2009?locale=fr_FR&itemListData=all&api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
 
-      @item_test = client.get_item_by_id(2009,{:itemListData => 'all'})
+      @item_test = client.get_item_by_id(2009,{:itemListData => 'all'}, 'fr_FR')
     end
 
     it "should have good attributes" do
@@ -369,7 +369,7 @@ describe RiotLolApi::Client do
       api_response = File.read 'spec/mock_response/get_all_masteries.json'
       stub_request(:get, "https://global.api.pvp.net/api/lol/static-data/euw/v1.2/mastery?locale=fr_FR&masteryListData=all&api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
 
-      @all_mastery_test = client.get_all_masteries({:masteryListData => 'all'})
+      @all_mastery_test = client.get_all_masteries({:masteryListData => 'all'}, 'fr_FR')
     end
 
     it "should have good attributes" do
@@ -388,7 +388,7 @@ describe RiotLolApi::Client do
       api_response = File.read 'spec/mock_response/get_mastery_by_id.json'
       stub_request(:get, "https://global.api.pvp.net/api/lol/static-data/euw/v1.2/mastery/4353?locale=fr_FR&masteryData=all&api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
 
-      @mastery_test = client.get_mastery_by_id(4353,{:masteryData => 'all'})
+      @mastery_test = client.get_mastery_by_id(4353,{:masteryData => 'all'}, 'fr_FR')
     end
 
     it "should have good attributes" do
@@ -405,7 +405,7 @@ describe RiotLolApi::Client do
       api_response = File.read 'spec/mock_response/get_all_runes.json'
       stub_request(:get, "https://global.api.pvp.net/api/lol/static-data/euw/v1.2/rune?locale=fr_FR&runeListData=all&api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
 
-      @all_rune_test = client.get_all_runes({:runeListData => 'all'})
+      @all_rune_test = client.get_all_runes({:runeListData => 'all'}, 'fr_FR')
     end
 
     it "should have good attributes" do
@@ -424,7 +424,7 @@ describe RiotLolApi::Client do
       api_response = File.read 'spec/mock_response/get_rune_by_id.json'
       stub_request(:get, "https://global.api.pvp.net/api/lol/static-data/euw/v1.2/rune/5235?locale=fr_FR&runeData=all&api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
 
-      @rune_test = client.get_rune_by_id(5235,{:runeData => 'all'})
+      @rune_test = client.get_rune_by_id(5235, {:runeData => 'all'}, 'fr_FR')
     end
 
     it "should have good attributes" do
@@ -442,7 +442,7 @@ describe RiotLolApi::Client do
       api_response = File.read 'spec/mock_response/get_all_summoner_spells.json'
       stub_request(:get, "https://global.api.pvp.net/api/lol/static-data/euw/v1.2/summoner-spell?locale=fr_FR&dataById=false&spellData=all&api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
 
-      @all_summoner_spells = client.get_all_summoner_spells({:spellData => 'all'})
+      @all_summoner_spells = client.get_all_summoner_spells({:spellData => 'all'}, 'false', 'fr_FR')
     end
 
     it "should have good attributes" do
@@ -462,7 +462,7 @@ describe RiotLolApi::Client do
       api_response = File.read 'spec/mock_response/get_all_summoner_spells_by_ids.json'
       stub_request(:get, "https://global.api.pvp.net/api/lol/static-data/euw/v1.2/summoner-spell?locale=fr_FR&dataById=true&spellData=all&api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
 
-      @all_summoner_spells = client.get_all_summoner_spells({:spellData => 'all'},true)
+      @all_summoner_spells = client.get_all_summoner_spells({:spellData => 'all'}, true, 'fr_FR')
     end
 
     it "should have good attributes" do
@@ -481,7 +481,7 @@ describe RiotLolApi::Client do
       api_response = File.read 'spec/mock_response/get_summoner_spell_by_id.json'
       stub_request(:get, "https://global.api.pvp.net/api/lol/static-data/euw/v1.2/summoner-spell/17?locale=fr_FR&spellData=all&api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
 
-      @summoner_spell_test = client.get_summoner_spell_by_id(17,{:spellData => 'all'})
+      @summoner_spell_test = client.get_summoner_spell_by_id(17,{:spellData => 'all'}, 'fr_FR')
     end
 
     it "should have good attributes" do
