@@ -18,4 +18,3 @@ tmp
 .DS_Store
 .ruby-gemset
 .ruby-version
-spec/mock_response/*.json
