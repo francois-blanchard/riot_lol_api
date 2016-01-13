@@ -3,11 +3,11 @@ Access-Control-Allow-Headers: Content-Type
 Access-Control-Allow-Methods: GET, POST, DELETE, PUT
 Access-Control-Allow-Origin: *
 Content-Type: application/json; charset=UTF-8
-Date: Fri, 20 Feb 2015 21:53:34 GMT
-Server: Jetty(9.1.1.v20140108)
+Date: Sun, 10 Jan 2016 16:53:15 GMT
+Server: Jetty(9.1.5.v20140505)
 Vary: Accept-Encoding, User-Agent
-X-NewRelic-App-Data: PxQFWFFSDwQTVlhTBAcHX0YdFGQHBDcQUQxLA1tMXV1dORYzVBBGBxdCdhUSEVFRRRAEPhhQRw84HlpcDjpMEUQDTAtbFVBTRwRlTlQURD5LHGtOFRZVXl8KBBAaQkcDCF1qHEhET1IeUhRSFggFBgFUCVEJVx9PVRoVAlEHWlIGXVdTUgUHVVZQBRE/
-transfer-encoding: chunked
+X-NewRelic-App-Data: PxQFWFFSDwQTVlhTBAcHX0YdFGQHBDcQUQxLA1tMXV1dORYzVBBGBxdCdhUSEVFRRRAEPhhQRw84HlpcDjpMEUQDTAtbFVBTRwRlTlQURD5LQAZPVD8XQEUJDA1ZVEVLF0FTXw46TAtUQBRSFggYAh1VCFEDUwRaVxoaUEpBCFJUUgUDVgIOVlcCDwYAX0E/
+Content-Length: 1156
 Connection: keep-alive
 
 {"name":"Garnison","description":"Tourelle alliée : octroie une régénération considérable pendant 8 sec. Tourelle ennemie : réduit les dégâts infligés de 80% pendant 8 sec.","sanitizedDescription":"Tourelle alliée : octroie une régénération considérable pendant 8 sec. Tourelle ennemie : réduit les dégâts infligés de 80% pendant 8 sec.","tooltip":"<span class=\"size16 colorFF9900\">Tourelle alliée :</span> octroie une régénération considérable pendant 8 sec.<br><br><span class=\"size16 colorFF9900\">Tourelle ennemie :</span> réduit les dégâts infligés de 80% pendant 8 sec.","sanitizedTooltip":"Tourelle alliée : octroie une régénération considérable pendant 8 sec. Tourelle ennemie : réduit les dégâts infligés de 80% pendant 8 sec.","leveltip":{"label":[""],"effect":[""]},"image":{"full":"SummonerOdinGarrison.png","sprite":"spell0.png","group":"spell","x":432,"y":0,"w":48,"h":48},"resource":"Pas de coût","maxrank":1,"cost":[0],"costType":"NoCost","costBurn":"0","cooldown":[210.0],"cooldownBurn":"210","range":[1250],"rangeBurn":"1250","summonerLevel":1,"id":17,"key":"SummonerOdinGarrison","modes":["ODIN"]}

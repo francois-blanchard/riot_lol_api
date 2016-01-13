@@ -26,15 +26,16 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ['lib']
 
-  spec.add_development_dependency 'bundler', '~> 1.5'
-  spec.add_development_dependency 'rake', '~> 10.3.0'
-  spec.add_development_dependency 'rspec', '~> 2.14.1'
-  spec.add_development_dependency 'factory_girl', '~> 4.4.0'
-  spec.add_development_dependency 'webmock', '~> 1.17.4'
+  spec.add_development_dependency 'bundler', '~> 1.11.2'
+  spec.add_development_dependency 'rake', '~> 10.4.2'
+  spec.add_development_dependency 'rspec', '~> 3.4.0'
+  spec.add_development_dependency 'factory_girl', '~> 4.5.0'
   spec.add_development_dependency 'pry', '~> 0.10.1'
   spec.add_development_dependency 'pry-byebug'
   spec.add_development_dependency 'codeclimate-test-reporter', '~> 0.4.8'
+  spec.add_development_dependency 'vcr', '~> 3.0.1'
+  spec.add_development_dependency 'webmock', '~> 1.22.5'
 
-  spec.add_dependency 'httparty', '~> 0.13.1'
-  spec.add_dependency 'activesupport', '>= 3.0.0'
+  spec.add_dependency 'httparty', '~> 0.13.7'
+  spec.add_dependency 'activesupport', '~> 4.2.5'
 end

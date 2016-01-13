@@ -28,7 +28,7 @@
 - lol-static-data-v1.2  OK
 - lol-status-v1.0       NO IMPLEMENT
 - match-v2.2            OK
-- matchhistory-v2.2     PROGRESS
+- matchlist-v2.2     PROGRESS
 - stats-v1.3            OK
 - summoner-v1.4         OK
 - team-v2.4             NO IMPLEMENT
@@ -58,11 +58,11 @@ Get token api on [http://developer.riotgames.com/](http://developer.riotgames.co
 ###2) Scripts
 Sample scripts
 ```ruby
-# Set token
-RiotLolApi::TOKEN = XXXXXXXXXXXXXXXXXXXXXXXXXXXX
-
 # Create client
-client = RiotLolApi::Client.new(:region => 'your_region')
+client = RiotLolApi::Client.new do |config|
+  config.region = 'your_region'
+  config.api_key = 'xxxxxxxxxxxx'
+end
 
 # Start get data
 summoner = client.get_summoner_by_name 'your_summoner_name'
@@ -89,7 +89,7 @@ client.get_rune_by_id id, {:version => num_version, :runeListData => 'all'}, 'fr
 client.get_all_runes {:version => num_version, :runeListData => 'all'}, 'fr_FR'
 client.get_summoner_spell_by_id id, {:version => num_version, :spellData => 'all'}, 'fr_FR'
 client.get_all_summoner_spells {:version => num_version, :spellData => 'all'}, 'false', 'fr_FR'
-client.get_versions
+client.versions
 
 ############
 # SUMMONER #

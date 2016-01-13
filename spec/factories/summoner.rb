@@ -6,6 +6,7 @@ FactoryGirl.define do
     summoner_level 30
     revision_date 1_414_008_147_000
     region 'euw'
-    initialize_with { new(id: id, name: name, profile_icon_id: profile_icon_id, summoner_level: summoner_level, revision_date: revision_date, region: region) }
+    client { RiotLolApi::Client.new(region: region, api_key: RiotLolApi::FAKETOKEN) }
+    initialize_with { new(id: id, name: name, profile_icon_id: profile_icon_id, summoner_level: summoner_level, revision_date: revision_date, region: region, client: client) }
   end
 end

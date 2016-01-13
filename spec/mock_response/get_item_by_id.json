@@ -3,11 +3,11 @@ Access-Control-Allow-Headers: Content-Type
 Access-Control-Allow-Methods: GET, POST, DELETE, PUT
 Access-Control-Allow-Origin: *
 Content-Type: application/json; charset=UTF-8
-Date: Fri, 20 Feb 2015 21:53:07 GMT
-Server: Jetty(9.1.1.v20140108)
+Date: Sun, 10 Jan 2016 16:52:49 GMT
+Server: Jetty(9.1.5.v20140505)
 Vary: Accept-Encoding, User-Agent
-X-NewRelic-App-Data: PxQFWFFSDwQTVlhTBAcHX0YdFGQHBDcQUQxLA1tMXV1dORYzVBBGBxdCdhUSEVFRRRAEPhhQRw84HlpcDjpMEUQDTAtbFVBTRwRlTlQURD5LHGtODxddXmxLS0AbARlWSAEYA1NRWlQHWg1QFBUFHhEHCVACVwdWBlVUVV9aCgIDRjw=
-Content-Length: 432
+X-NewRelic-App-Data: PxQFWFFSDwQTVlhTBAcHX0YdFGQHBDcQUQxLA1tMXV1dORYzVBBGBxdCdhUSEVFRRRAEPhhQRw84HlpcDjpMEUQDTAtbFVBTRwRlTlQURD5LQAZPVD8XWkQBDD4YWFNESAEYA05WTVIBVgFSDggGBx9ICE0TWQEEB1VTVQMHDVJUAgUEDxNq
+Content-Length: 500
 Connection: keep-alive
 
-{"id":2009,"name":"Biscuit de rajeunissement","description":"<consumable>Cliquer pour consommer :</consumable> rend 80 PV et 50 mana en 10 secondes.","sanitizedDescription":"Cliquer pour consommer : rend 80 PV et 50 mana en 10 secondes.","consumed":true,"inStore":false,"image":{"full":"2009.png","sprite":"item0.png","group":"item","x":144,"y":144,"w":48,"h":48},"stats":{},"gold":{"base":0,"total":0,"sell":0,"purchasable":false}}
+{"id":2009,"name":"Biscuit de rajeunissement","description":"<consumable>Cliquer pour consommer :</consumable> rend 80 PV et 50 mana en 10 secondes.","sanitizedDescription":"Cliquer pour consommer : rend 80 PV et 50 mana en 10 secondes.","consumed":true,"inStore":false,"maps":{"10":true,"1":false,"8":true,"14":false,"11":true,"12":true},"image":{"full":"2009.png","sprite":"item0.png","group":"item","x":96,"y":144,"w":48,"h":48},"stats":{},"gold":{"base":0,"total":0,"sell":0,"purchasable":false}}

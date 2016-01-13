@@ -71,7 +71,7 @@ TAB_CALLS = [
     }
   },
   {
-    url: 'global.api.pvp.net/api/lol/static-data/euw/v1.2/mastery/4353',
+    url: 'global.api.pvp.net/api/lol/static-data/euw/v1.2/mastery/6363',
     filename: 'get_mastery_by_id',
     params: {
       locale: 'fr_FR',
@@ -80,7 +80,7 @@ TAB_CALLS = [
   },
   {
     url: 'global.api.pvp.net/api/lol/static-data/euw/v1.2/realm',
-    filename: 'get_realm',
+    filename: 'realm',
     params: nil
   },
   {
@@ -137,11 +137,10 @@ TAB_CALLS = [
     filename: 'get_match_by_id',
     params: nil
   },
-  # matchhistory-v2.2
+  # matchlist-v2.2
   {
-    # A faire
-    url: 'euw.api.pvp.net/api/lol/euw/v2.2/matchhistory/20639710',
-    filename: 'get_match_history',
+    url: 'euw.api.pvp.net/api/lol/euw/v2.2/matchlist/by-summoner/20639710',
+    filename: 'match_list',
     params: nil
   },
   # stats-v1.3

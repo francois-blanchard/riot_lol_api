@@ -4,14 +4,13 @@ require 'pp'
 
 describe RiotLolApi::Client do
   before(:each) do
-    realm_response = File.read 'spec/mock_response/get_realm.json'
-    stub_request(:get, "https://global.api.pvp.net/api/lol/static-data/euw/v1.2/realm?api_key=#{RiotLolApi::TOKEN}").to_return(realm_response)
+    realm_response = File.read 'spec/mock_response/realm.json'
+    stub_request(:get, "https://global.api.pvp.net/api/lol/static-data/euw/v1.2/realm?api_key=#{RiotLolApi::FAKETOKEN}").to_return(realm_response)
   end
 
   describe 'can use string and hash ovewriting method' do
     it 'transform string CamelCase in to symbol' do
-      test = 'lolApiTest'
-      expect(test.lol_symbolize).to eq :lol_api_test
+      expect('lolApiTest'.lol_symbolize).to eq :lol_api_test
     end
 
     it 'transform hash keys CamelCase in to symbol' do
@@ -30,7 +29,7 @@ describe RiotLolApi::Client do
 
   describe 'set realm when create client' do
     it 'define RiotLolApi::REALM' do
-      client = FactoryGirl.build(:client)
+      FactoryGirl.build(:client)
       expect(RiotLolApi::Client.realm).to include('css', 'dd', 'l', 'n', 'profileiconmax', 'v', 'lg', 'cdn')
     end
   end
@@ -42,7 +41,7 @@ describe RiotLolApi::Client do
       name = 'pacoloco'
 
       api_response = File.read 'spec/mock_response/get_summoner_by_name.json'
-      stub_request(:get, "https://#{client.region}.api.pvp.net/api/lol/euw/v1.4/summoner/by-name/#{name}?api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
+      stub_request(:get, "https://#{client.region}.api.pvp.net/api/lol/euw/v1.4/summoner/by-name/#{name}?api_key=#{RiotLolApi::FAKETOKEN}").to_return(api_response)
 
       @summoner_test = client.get_summoner_by_name(name)
     end
@@ -68,7 +67,7 @@ describe RiotLolApi::Client do
       id = 20_639_710
 
       api_response = File.read 'spec/mock_response/get_summoner_by_id.json'
-      stub_request(:get, "https://#{client.region}.api.pvp.net/api/lol/euw/v1.4/summoner/#{id}?api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
+      stub_request(:get, "https://#{client.region}.api.pvp.net/api/lol/euw/v1.4/summoner/#{id}?api_key=#{RiotLolApi::FAKETOKEN}").to_return(api_response)
 
       @summoner_test = client.get_summoner_by_id(id)
     end
@@ -95,7 +94,7 @@ describe RiotLolApi::Client do
       summoner = FactoryGirl.build(:summoner)
 
       api_response = File.read 'spec/mock_response/get_summoner_masteries_by_id.json'
-      stub_request(:get, "https://#{summoner.region}.api.pvp.net/api/lol/euw/v1.4/summoner/#{summoner.id}/masteries?api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
+      stub_request(:get, "https://#{summoner.region}.api.pvp.net/api/lol/euw/v1.4/summoner/#{summoner.id}/masteries?api_key=#{RiotLolApi::FAKETOKEN}").to_return(api_response)
 
       @page_test = summoner.masteries
     end
@@ -116,7 +115,7 @@ describe RiotLolApi::Client do
       summoner = FactoryGirl.build(:summoner)
 
       api_response = File.read 'spec/mock_response/get_summoner_runes_by_id.json'
-      stub_request(:get, "https://#{summoner.region}.api.pvp.net/api/lol/euw/v1.4/summoner/#{summoner.id}/runes?api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
+      stub_request(:get, "https://#{summoner.region}.api.pvp.net/api/lol/euw/v1.4/summoner/#{summoner.id}/runes?api_key=#{RiotLolApi::FAKETOKEN}").to_return(api_response)
 
       @rune_test = summoner.runes
     end
@@ -137,7 +136,7 @@ describe RiotLolApi::Client do
       summoner = FactoryGirl.build(:summoner)
 
       api_response = File.read 'spec/mock_response/get_summoner_games_by_id.json'
-      stub_request(:get, "https://#{summoner.region}.api.pvp.net/api/lol/euw/v1.3/game/by-summoner/#{summoner.id}/recent?api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
+      stub_request(:get, "https://#{summoner.region}.api.pvp.net/api/lol/euw/v1.3/game/by-summoner/#{summoner.id}/recent?api_key=#{RiotLolApi::FAKETOKEN}").to_return(api_response)
 
       @game_tests = summoner.games
     end
@@ -173,9 +172,9 @@ describe RiotLolApi::Client do
       id_champion = 412
 
       api_response = File.read 'spec/mock_response/get_champion_by_id.json'
-      stub_request(:get, "https://global.api.pvp.net/api/lol/static-data/euw/v1.2/champion/#{id_champion}?locale=fr_FR&api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
+      stub_request(:get, "https://global.api.pvp.net/api/lol/static-data/euw/v1.2/champion/#{id_champion}?locale=fr_FR&api_key=#{RiotLolApi::FAKETOKEN}").to_return(api_response)
 
-      @champion_test = client.get_champion_by_id(id_champion, nil, 'fr_FR')
+      @champion_test = client.get_champion_by_id(id_champion, {}, 'fr_FR')
     end
 
     it 'should get summoner object' do
@@ -199,7 +198,7 @@ describe RiotLolApi::Client do
       id_champion = 412
 
       api_response = File.read 'spec/mock_response/get_champion_by_id_all_data.json'
-      stub_request(:get, "https://global.api.pvp.net/api/lol/static-data/euw/v1.2/champion/#{id_champion}?locale=fr_FR&champData=all&api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
+      stub_request(:get, "https://global.api.pvp.net/api/lol/static-data/euw/v1.2/champion/#{id_champion}?locale=fr_FR&champData=all&api_key=#{RiotLolApi::FAKETOKEN}").to_return(api_response)
 
       @champion_test = client.get_champion_by_id(id_champion, { champData: 'all' }, 'fr_FR')
     end
@@ -238,9 +237,9 @@ describe RiotLolApi::Client do
       client = FactoryGirl.build(:client)
 
       api_response = File.read 'spec/mock_response/get_all_champions_by_ids.json'
-      stub_request(:get, "https://global.api.pvp.net/api/lol/static-data/euw/v1.2/champion?locale=fr_FR&dataById=true&api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
+      stub_request(:get, "https://global.api.pvp.net/api/lol/static-data/euw/v1.2/champion?locale=fr_FR&dataById=true&api_key=#{RiotLolApi::FAKETOKEN}").to_return(api_response)
 
-      @all_champion_test = client.get_all_champions(nil, true, 'fr_FR')
+      @all_champion_test = client.get_all_champions({}, true, 'fr_FR')
     end
 
     it 'should have good attributes' do
@@ -256,7 +255,7 @@ describe RiotLolApi::Client do
       client = FactoryGirl.build(:client)
 
       api_response = File.read 'spec/mock_response/get_all_champions_by_ids_all_data.json'
-      stub_request(:get, "https://global.api.pvp.net/api/lol/static-data/euw/v1.2/champion?locale=fr_FR&dataById=false&champData=all&api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
+      stub_request(:get, "https://global.api.pvp.net/api/lol/static-data/euw/v1.2/champion?locale=fr_FR&dataById=false&champData=all&api_key=#{RiotLolApi::FAKETOKEN}").to_return(api_response)
 
       @all_champion_test = client.get_all_champions({ champData: 'all' }, 'false', 'fr_FR')
     end
@@ -275,7 +274,7 @@ describe RiotLolApi::Client do
       summoner = FactoryGirl.build(:summoner)
 
       api_response = File.read 'spec/mock_response/get_player_stat_summaries.json'
-      stub_request(:get, "https://#{summoner.region}.api.pvp.net/api/lol/euw/v1.3/stats/by-summoner/20639710/summary?season=SEASON2015&api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
+      stub_request(:get, "https://#{summoner.region}.api.pvp.net/api/lol/euw/v1.3/stats/by-summoner/20639710/summary?season=SEASON2015&api_key=#{RiotLolApi::FAKETOKEN}").to_return(api_response)
 
       @stat_summaries_test = summoner.stat_summaries('SEASON2015')
     end
@@ -294,7 +293,7 @@ describe RiotLolApi::Client do
       summoner = FactoryGirl.build(:summoner)
 
       api_response = File.read 'spec/mock_response/get_player_stat_ranked.json'
-      stub_request(:get, "https://#{summoner.region}.api.pvp.net/api/lol/euw/v1.3/stats/by-summoner/20639710/ranked?season=SEASON2015&api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
+      stub_request(:get, "https://#{summoner.region}.api.pvp.net/api/lol/euw/v1.3/stats/by-summoner/20639710/ranked?season=SEASON2015&api_key=#{RiotLolApi::FAKETOKEN}").to_return(api_response)
 
       @stat_ranks_test = summoner.stat_ranks('SEASON2015')
     end
@@ -313,7 +312,7 @@ describe RiotLolApi::Client do
       client = FactoryGirl.build(:client)
 
       api_response = File.read 'spec/mock_response/get_all_item.json'
-      stub_request(:get, "https://global.api.pvp.net/api/lol/static-data/euw/v1.2/item?locale=fr_FR&itemListData=all&api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
+      stub_request(:get, "https://global.api.pvp.net/api/lol/static-data/euw/v1.2/item?locale=fr_FR&itemListData=all&api_key=#{RiotLolApi::FAKETOKEN}").to_return(api_response)
 
       @all_item_test = client.get_all_items({ itemListData: 'all' }, 'fr_FR')
     end
@@ -332,7 +331,7 @@ describe RiotLolApi::Client do
       client = FactoryGirl.build(:client)
 
       api_response = File.read 'spec/mock_response/get_item_by_id.json'
-      stub_request(:get, "https://global.api.pvp.net/api/lol/static-data/euw/v1.2/item/2009?locale=fr_FR&itemListData=all&api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
+      stub_request(:get, "https://global.api.pvp.net/api/lol/static-data/euw/v1.2/item/2009?locale=fr_FR&itemListData=all&api_key=#{RiotLolApi::FAKETOKEN}").to_return(api_response)
 
       @item_test = client.get_item_by_id(2009, { itemListData: 'all' }, 'fr_FR')
     end
@@ -350,7 +349,7 @@ describe RiotLolApi::Client do
       client = FactoryGirl.build(:client)
 
       api_response = File.read 'spec/mock_response/get_all_masteries.json'
-      stub_request(:get, "https://global.api.pvp.net/api/lol/static-data/euw/v1.2/mastery?locale=fr_FR&masteryListData=all&api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
+      stub_request(:get, "https://global.api.pvp.net/api/lol/static-data/euw/v1.2/mastery?locale=fr_FR&masteryListData=all&api_key=#{RiotLolApi::FAKETOKEN}").to_return(api_response)
 
       @all_mastery_test = client.get_all_masteries({ masteryListData: 'all' }, 'fr_FR')
     end
@@ -369,7 +368,7 @@ describe RiotLolApi::Client do
       client = FactoryGirl.build(:client)
 
       api_response = File.read 'spec/mock_response/get_mastery_by_id.json'
-      stub_request(:get, "https://global.api.pvp.net/api/lol/static-data/euw/v1.2/mastery/4353?locale=fr_FR&masteryData=all&api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
+      stub_request(:get, "https://global.api.pvp.net/api/lol/static-data/euw/v1.2/mastery/4353?locale=fr_FR&masteryData=all&api_key=#{RiotLolApi::FAKETOKEN}").to_return(api_response)
 
       @mastery_test = client.get_mastery_by_id(4353, { masteryData: 'all' }, 'fr_FR')
     end
@@ -386,7 +385,7 @@ describe RiotLolApi::Client do
       client = FactoryGirl.build(:client)
 
       api_response = File.read 'spec/mock_response/get_all_runes.json'
-      stub_request(:get, "https://global.api.pvp.net/api/lol/static-data/euw/v1.2/rune?locale=fr_FR&runeListData=all&api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
+      stub_request(:get, "https://global.api.pvp.net/api/lol/static-data/euw/v1.2/rune?locale=fr_FR&runeListData=all&api_key=#{RiotLolApi::FAKETOKEN}").to_return(api_response)
 
       @all_rune_test = client.get_all_runes({ runeListData: 'all' }, 'fr_FR')
     end
@@ -405,7 +404,7 @@ describe RiotLolApi::Client do
       client = FactoryGirl.build(:client)
 
       api_response = File.read 'spec/mock_response/get_rune_by_id.json'
-      stub_request(:get, "https://global.api.pvp.net/api/lol/static-data/euw/v1.2/rune/5235?locale=fr_FR&runeData=all&api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
+      stub_request(:get, "https://global.api.pvp.net/api/lol/static-data/euw/v1.2/rune/5235?locale=fr_FR&runeData=all&api_key=#{RiotLolApi::FAKETOKEN}").to_return(api_response)
 
       @rune_test = client.get_rune_by_id(5235, { runeData: 'all' }, 'fr_FR')
     end
@@ -422,7 +421,7 @@ describe RiotLolApi::Client do
       client = FactoryGirl.build(:client)
 
       api_response = File.read 'spec/mock_response/get_all_summoner_spells.json'
-      stub_request(:get, "https://global.api.pvp.net/api/lol/static-data/euw/v1.2/summoner-spell?locale=fr_FR&dataById=false&spellData=all&api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
+      stub_request(:get, "https://global.api.pvp.net/api/lol/static-data/euw/v1.2/summoner-spell?locale=fr_FR&dataById=false&spellData=all&api_key=#{RiotLolApi::FAKETOKEN}").to_return(api_response)
 
       @all_summoner_spells = client.get_all_summoner_spells({ spellData: 'all' }, 'false', 'fr_FR')
     end
@@ -441,7 +440,7 @@ describe RiotLolApi::Client do
       client = FactoryGirl.build(:client)
 
       api_response = File.read 'spec/mock_response/get_all_summoner_spells_by_ids.json'
-      stub_request(:get, "https://global.api.pvp.net/api/lol/static-data/euw/v1.2/summoner-spell?locale=fr_FR&dataById=true&spellData=all&api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
+      stub_request(:get, "https://global.api.pvp.net/api/lol/static-data/euw/v1.2/summoner-spell?locale=fr_FR&dataById=true&spellData=all&api_key=#{RiotLolApi::FAKETOKEN}").to_return(api_response)
 
       @all_summoner_spells = client.get_all_summoner_spells({ spellData: 'all' }, true, 'fr_FR')
     end
@@ -460,7 +459,7 @@ describe RiotLolApi::Client do
       client = FactoryGirl.build(:client)
 
       api_response = File.read 'spec/mock_response/get_summoner_spell_by_id.json'
-      stub_request(:get, "https://global.api.pvp.net/api/lol/static-data/euw/v1.2/summoner-spell/17?locale=fr_FR&spellData=all&api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
+      stub_request(:get, "https://global.api.pvp.net/api/lol/static-data/euw/v1.2/summoner-spell/17?locale=fr_FR&spellData=all&api_key=#{RiotLolApi::FAKETOKEN}").to_return(api_response)
 
       @summoner_spell_test = client.get_summoner_spell_by_id(17, { spellData: 'all' }, 'fr_FR')
     end
@@ -471,15 +470,15 @@ describe RiotLolApi::Client do
     end
   end
 
-  describe 'get_versions' do
+  describe 'versions' do
     before(:each) do
       # Create client
       client = FactoryGirl.build(:client)
 
       api_response = File.read 'spec/mock_response/get_version.json'
-      stub_request(:get, "https://global.api.pvp.net/api/lol/static-data/euw/v1.2/versions?api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
+      stub_request(:get, "https://global.api.pvp.net/api/lol/static-data/euw/v1.2/versions?api_key=#{RiotLolApi::FAKETOKEN}").to_return(api_response)
 
-      @version_test = client.get_versions
+      @version_test = client.versions
     end
 
     it 'should have good attributes' do
@@ -493,7 +492,7 @@ describe RiotLolApi::Client do
       summoner = FactoryGirl.build(:summoner)
 
       api_response = File.read 'spec/mock_response/get_player_league.json'
-      stub_request(:get, "https://euw.api.pvp.net/api/lol/euw/v2.5/league/by-summoner/20639710/entry?api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
+      stub_request(:get, "https://euw.api.pvp.net/api/lol/euw/v2.5/league/by-summoner/20639710/entry?api_key=#{RiotLolApi::FAKETOKEN}").to_return(api_response)
 
       @get_league = summoner.get_league_stats
     end
@@ -507,32 +506,16 @@ describe RiotLolApi::Client do
     end
   end
 
-  describe 'get_match_history' do
+  describe 'match_list' do
     before(:each) do
-      # Create client
       summoner = FactoryGirl.build(:summoner)
-
-      api_response = File.read 'spec/mock_response/get_match_history.json'
-      stub_request(:get, "https://#{summoner.region}.api.pvp.net/api/lol/#{summoner.region}/v2.2/matchhistory/#{summoner.id}?api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
-
-      @get_match_history = summoner.get_match_history
+      api_response = File.read 'spec/mock_response/match_list.json'
+      stub_request(:get, "https://#{summoner.region}.api.pvp.net/api/lol/#{summoner.region}/v2.2/matchlist/by-summoner/#{summoner.id}?api_key=#{RiotLolApi::FAKETOKEN}").to_return(api_response)
+      @match_list = summoner.match_list
     end
 
     it 'should have good attributes' do
-      expect(@get_match_history).to be_a Array
-      expect(@get_match_history.first.participants.first).to be_a RiotLolApi::Model::Participant
-      expect(@get_match_history.first.participants.first.stats).to be_a RiotLolApi::Model::Stat
-      expect(@get_match_history.first.participants.first.timeline).to be_a RiotLolApi::Model::Timeline
-      expect(@get_match_history.first.participants.first.timeline.xp_diff_per_min_deltas).to be_a RiotLolApi::Model::XpDiffPerMinDelta
-      expect(@get_match_history.first.participants.first.timeline.damage_taken_diff_per_min_deltas).to be_a RiotLolApi::Model::DamageTakenDiffPerMinDelta
-      expect(@get_match_history.first.participants.first.timeline.xp_per_min_deltas).to be_a RiotLolApi::Model::XpPerMinDelta
-      expect(@get_match_history.first.participants.first.timeline.gold_per_min_deltas).to be_a RiotLolApi::Model::GoldPerMinDelta
-      expect(@get_match_history.first.participants.first.timeline.creeps_per_min_deltas).to be_a RiotLolApi::Model::CreepsPerMinDelta
-      expect(@get_match_history.first.participants.first.timeline.cs_diff_per_min_deltas).to be_a RiotLolApi::Model::CsDiffPerMinDelta
-      expect(@get_match_history.first.participants.first.timeline.damage_taken_per_min_deltas).to be_a RiotLolApi::Model::DamageTakenPerMinDelta
-      expect(@get_match_history.first.participants.first.timeline.damage_taken_per_min_deltas).to be_a RiotLolApi::Model::DamageTakenPerMinDelta
-      expect(@get_match_history.first.participant_identities.first).to be_a RiotLolApi::Model::ParticipantIdentity
-      expect(@get_match_history.first.participant_identities.first.player).to be_a RiotLolApi::Model::Player
+      expect(@match_list).to be_a Array
     end
   end
 
@@ -542,7 +525,7 @@ describe RiotLolApi::Client do
       client = FactoryGirl.build(:client)
 
       api_response = File.read 'spec/mock_response/get_match_by_id.json'
-      stub_request(:get, "https://#{client.region}.api.pvp.net/api/lol/#{client.region}/v2.2/match/1617870200?api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
+      stub_request(:get, "https://#{client.region}.api.pvp.net/api/lol/#{client.region}/v2.2/match/1617870200?api_key=#{RiotLolApi::FAKETOKEN}").to_return(api_response)
 
       @get_match_by_id = client.match 1_617_870_200
     end
@@ -566,7 +549,7 @@ describe RiotLolApi::Client do
       client = FactoryGirl.build(:client)
 
       api_response = File.read 'spec/mock_response/get_featured_games.json'
-      stub_request(:get, "https://#{client.region}.api.pvp.net/observer-mode/rest/featured?api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
+      stub_request(:get, "https://#{client.region}.api.pvp.net/observer-mode/rest/featured?api_key=#{RiotLolApi::FAKETOKEN}").to_return(api_response)
 
       @get_featured_games = client.featured_games
     end
@@ -585,7 +568,7 @@ describe RiotLolApi::Client do
       summoner = FactoryGirl.build(:summoner, id: 43_921_069)
 
       api_response = File.read 'spec/mock_response/get_current_game.json'
-      stub_request(:get, "https://#{client.region}.api.pvp.net/observer-mode/rest/consumer/getSpectatorGameInfo/EUW1/#{summoner.id}?api_key=#{RiotLolApi::TOKEN}").to_return(api_response)
+      stub_request(:get, "https://#{client.region}.api.pvp.net/observer-mode/rest/consumer/getSpectatorGameInfo/EUW1/#{summoner.id}?api_key=#{RiotLolApi::FAKETOKEN}").to_return(api_response)
 
       @get_current_game_by_client = client.current_game(summoner.id)
       @get_current_game_by_summoner = summoner.current_game
