@@ -1,11 +1,10 @@
-require 'riot_lol_api/model/leveltips'
-require 'riot_lol_api/model/images'
-require 'riot_lol_api/model/vars'
-require 'riot_lol_api/model/altimages'
+require 'riot_lol_api/models/masteries'
+require 'riot_lol_api/models/slots'
+require 'riot_lol_api/models/runes'
 
 module RiotLolApi
   module Model
-    class Spell
+    class Page
       def initialize(options = {})
         options.each do |key, value|
           self.class.send(:attr_accessor, key.to_sym)

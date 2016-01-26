@@ -1,5 +1,5 @@
-require 'riot_lol_api/model/summoners'
-require 'riot_lol_api/model/champions'
+require 'riot_lol_api/models/summoners'
+require 'riot_lol_api/models/champions'
 
 module RiotLolApi
   module Model

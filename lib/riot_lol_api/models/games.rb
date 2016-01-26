@@ -1,5 +1,5 @@
-require 'riot_lol_api/model/fellow_players'
-require 'riot_lol_api/model/stats'
+require 'riot_lol_api/models/fellow_players'
+require 'riot_lol_api/models/stats'
 
 module RiotLolApi
   module Model

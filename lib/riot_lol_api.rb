@@ -4,7 +4,7 @@ require 'riot_lol_api/clients'
 require 'riot_lol_api/models'
 require 'core_ext/string/riot_lol_api'
 require 'core_ext/hash/riot_lol_api'
-require 'riot_lol_api/model/class_base'
+require 'riot_lol_api/models/class_base'
 
 Hash.include CoreExt::Hash::RiotLolApi
 String.include CoreExt::String::RiotLolApi

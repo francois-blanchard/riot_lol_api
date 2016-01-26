@@ -1,10 +1,8 @@
-require 'riot_lol_api/model/masteries'
-require 'riot_lol_api/model/slots'
-require 'riot_lol_api/model/runes'
+require 'riot_lol_api/models/items'
 
 module RiotLolApi
   module Model
-    class Page
+    class Block
       def initialize(options = {})
         options.each do |key, value|
           self.class.send(:attr_accessor, key.to_sym)

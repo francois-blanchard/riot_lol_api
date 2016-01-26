@@ -1,8 +1,8 @@
-require 'riot_lol_api/model/items'
+require 'riot_lol_api/models/aggregated_stats'
 
 module RiotLolApi
   module Model
-    class Block
+    class PlayerStatRank
       def initialize(options = {})
         options.each do |key, value|
           self.class.send(:attr_accessor, key.to_sym)

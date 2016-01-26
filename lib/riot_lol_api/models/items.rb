@@ -1,6 +1,6 @@
-require 'riot_lol_api/model/golds'
-require 'riot_lol_api/model/effects'
-require 'riot_lol_api/model/maps'
+require 'riot_lol_api/models/golds'
+require 'riot_lol_api/models/effects'
+require 'riot_lol_api/models/maps'
 
 module RiotLolApi
   module Model

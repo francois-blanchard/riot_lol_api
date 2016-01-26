@@ -1,4 +1,4 @@
-require 'riot_lol_api/model/blocks'
+require 'riot_lol_api/models/blocks'
 
 module RiotLolApi
   module Model

@@ -1,8 +1,9 @@
-require 'riot_lol_api/model/aggregated_stats'
+require 'riot_lol_api/models/entries'
+require 'riot_lol_api/models/mini_series'
 
 module RiotLolApi
   module Model
-    class PlayerStatRank
+    class League
       def initialize(options = {})
         options.each do |key, value|
           self.class.send(:attr_accessor, key.to_sym)
