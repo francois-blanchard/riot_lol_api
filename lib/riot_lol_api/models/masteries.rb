@@ -1,12 +1,7 @@
 module RiotLolApi
   module Model
     class Mastery
-      def initialize(options = {})
-        options.each do |key, value|
-          self.class.send(:attr_accessor, key.to_sym)
-          instance_variable_set("@#{key}", value)
-        end
-      end
+      include RiotLolApi::Concern::Init
 
       def infos(data = {}, locale = 'fr_FR')
         data.merge!(locale: locale)

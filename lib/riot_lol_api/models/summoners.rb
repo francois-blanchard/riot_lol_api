@@ -28,12 +28,7 @@ module RiotLolApi
 
       # attr needs @id, @region
       SEASON_TAB = %(SEASON2016, SEASON2015, SEASON2014, SEASON3)
-      def initialize(options = {})
-        options.each do |key, value|
-          self.class.send(:attr_accessor, key.to_sym)
-          instance_variable_set("@#{key}", value)
-        end
-      end
+      include RiotLolApi::Concern::Init
 
       def masteries
         response = @client.get(url: "#{@region}/v1.4/summoner/#{@id}/masteries", domaine: @region)
