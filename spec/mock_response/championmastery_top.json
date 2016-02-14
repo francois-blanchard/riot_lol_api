@@ -1,0 +1,6 @@
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=UTF-8
+transfer-encoding: chunked
+Connection: keep-alive
+
+[{"playerId":20639710,"championId":89,"championLevel":5,"championPoints":31132,"lastPlayTime":1451351680000,"championPointsSinceLastLevel":9532,"championPointsUntilNextLevel":0},{"playerId":20639710,"championId":157,"championLevel":5,"championPoints":26250,"lastPlayTime":1451157339000,"championPointsSinceLastLevel":4650,"championPointsUntilNextLevel":0},{"playerId":20639710,"championId":412,"championLevel":5,"championPoints":21719,"lastPlayTime":1454967367000,"championPointsSinceLastLevel":119,"championPointsUntilNextLevel":0}]

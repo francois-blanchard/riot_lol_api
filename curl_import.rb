@@ -3,6 +3,27 @@ API_KEY = ARGV[0]
 
 # Tab files
 TAB_CALLS = [
+  # championmastery
+  {
+    url: 'euw.api.pvp.net/championmastery/location/EUW1/player/20639710/champion/89',
+    filename: 'championmastery_by_summoner_by_champion',
+    params: nil
+  },
+  {
+    url: 'euw.api.pvp.net/championmastery/location/EUW1/player/20639710/champions',
+    filename: 'championmastery_by_summoner',
+    params: nil
+  },
+  {
+    url: 'euw.api.pvp.net/championmastery/location/EUW1/player/20639710/score',
+    filename: 'championmastery_score',
+    params: nil
+  },
+  {
+    url: 'euw.api.pvp.net/championmastery/location/EUW1/player/20639710/topchampions',
+    filename: 'championmastery_top',
+    params: nil
+  },
   # game-v1.3
   {
     url: 'euw.api.pvp.net/api/lol/euw/v1.3/game/by-summoner/20639710/recent',

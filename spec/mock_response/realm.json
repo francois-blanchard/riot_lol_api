@@ -3,11 +3,10 @@ Access-Control-Allow-Headers: Content-Type
 Access-Control-Allow-Methods: GET, POST, DELETE, PUT
 Access-Control-Allow-Origin: *
 Content-Type: application/json; charset=UTF-8
-Date: Sun, 10 Jan 2016 16:52:59 GMT
-Server: Jetty(9.1.5.v20140505)
+Date: Sun, 14 Feb 2016 22:05:58 GMT
 Vary: Accept-Encoding, User-Agent
-X-NewRelic-App-Data: PxQFWFFSDwQTVlhTBAcHX0YdFGQHBDcQUQxLA1tMXV1dORYzVBBGBxdCdhUSEVFRRRAEPhhQRw84HlpcDjpMEUQDTAtbFVBTRwRlTlQURD5LQAZPVD8XQVUFDQ8VHQdIVB0GHVJWUFMCUwxRDRQZAx9HAVcBBQJTB1JTBwdXDwJTBUM/
-Content-Length: 291
+X-NewRelic-App-Data: PxQFWFFSDwQTVlhTBAcHX0YdFGQHBDcQUQxLA1tMXV1dORYzVBBGBxdCdhUSEVFRRRAEPhhQRw84HlpcDjpMEUQDTAtbFVBTRwRlTlQURD5LQAZPVD8XQVUFDQ8VHQdIVB0GHVJWUVsFUwpWCxQZAx9HDgcHUgQBAVJRVwQAWwoIUUM/
+Content-Length: 279
 Connection: keep-alive
 
-{"css":"5.24.2","dd":"5.24.2","l":"en_US","n":{"item":"5.24.2","rune":"5.24.2","mastery":"5.24.2","summoner":"5.24.2","champion":"5.24.2","profileicon":"5.24.2","map":"5.24.2","language":"5.24.2"},"profileiconmax":28,"v":"5.24.2","lg":"5.24.2","cdn":"http://ddragon.leagueoflegends.com/cdn"}
+{"css":"6.3.1","dd":"6.3.1","l":"en_US","n":{"item":"6.3.1","rune":"6.3.1","mastery":"6.3.1","summoner":"6.3.1","champion":"6.3.1","profileicon":"6.3.1","map":"6.3.1","language":"6.3.1"},"profileiconmax":28,"v":"6.3.1","lg":"6.3.1","cdn":"http://ddragon.leagueoflegends.com/cdn"}

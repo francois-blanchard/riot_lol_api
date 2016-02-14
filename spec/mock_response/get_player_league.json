@@ -3,11 +3,10 @@ Access-Control-Allow-Headers: Content-Type
 Access-Control-Allow-Methods: GET, POST, DELETE, PUT
 Access-Control-Allow-Origin: *
 Content-Type: application/json; charset=UTF-8
-Date: Sun, 10 Jan 2016 16:52:28 GMT
-Server: Jetty(9.1.5.v20140505)
+Date: Sun, 14 Feb 2016 22:05:27 GMT
 Vary: Accept-Encoding
-X-NewRelic-App-Data: PxQFWFFSDwQTUlBSDgkOVEYdFGQHBDcQUQxLA1tMXV1dORYzVBJHNQFUZAQUFVFQVThOA0dYa0kIXlpvTR0RB1cLVwxFZBtEAUsMPR4NVgMDQ1I9SQFBHkMRDA9YX1IUOB5NQBcLDg1eB0orXEtJbhwAVxVDGBNKI3NjSERPCB0ASFFMBwQHUlMADgtRSk5THEAIUQlcDFQFBwpQUAUBW1IAFTw=
-transfer-encoding: chunked
+X-NewRelic-App-Data: PxQFWFFSDwQTUlBSDgkOVEYdFGQHBDcQUQxLA1tMXV1dORYzVBJHNQFUZAQUFVFQVThOA0dYa0kIXlpvTR0RB1cLVwxFZBtEAUsMPR4NVgMDQ1I9SQFBHkMRDA9YX1IUOB5NQBcLDg1eB0orXEtJbhwAVxVDGBNKI3NjSERPCB0ASFFMBwUPUFIFBQJRSk5THEBaUABdDQFXAAxZUFdRB1ZSFTw=
+Content-Length: 289
 Connection: keep-alive
 
-{"20639710":[{"name":"Nami's Weaponmasters","tier":"SILVER","queue":"RANKED_SOLO_5x5","entries":[{"playerOrTeamId":"20639710","playerOrTeamName":"PacoLoco","division":"IV","leaguePoints":0,"wins":72,"losses":92,"isHotStreak":false,"isVeteran":true,"isFreshBlood":false,"isInactive":false}]}]}
+{"20639710":[{"name":"Zilean's Renegades","tier":"BRONZE","queue":"RANKED_SOLO_5x5","entries":[{"playerOrTeamId":"20639710","playerOrTeamName":"PacoLoco","division":"III","leaguePoints":0,"wins":3,"losses":8,"isHotStreak":false,"isVeteran":false,"isFreshBlood":true,"isInactive":false}]}]}

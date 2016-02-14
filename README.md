@@ -21,6 +21,7 @@
 
 ```
 - champion-v1.2         NO IMPLEMENT
+- championmastery       OK
 - current-game-v1.0     OK
 - featured-games-v1.0   OK
 - game-v1.3             OK
