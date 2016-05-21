@@ -1,6 +1,7 @@
 HTTP/1.1 200 OK
-Content-Type: application/json; charset=UTF-8
-Content-Length: 176
+Content-Type: application/json;charset=utf-8
+Vary: Accept-Encoding
+Content-Length: 215
 Connection: keep-alive
 
-{"playerId":20639710,"championId":89,"championLevel":5,"championPoints":31132,"lastPlayTime":1451351680000,"championPointsSinceLastLevel":9532,"championPointsUntilNextLevel":0}
+{"playerId":20639710,"championId":89,"championLevel":5,"championPoints":34938,"lastPlayTime":1456696481000,"championPointsSinceLastLevel":13338,"championPointsUntilNextLevel":0,"chestGranted":false,"tokensEarned":0}

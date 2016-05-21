@@ -2,11 +2,11 @@ HTTP/1.1 200 OK
 Access-Control-Allow-Headers: Content-Type
 Access-Control-Allow-Methods: GET, POST, DELETE, PUT
 Access-Control-Allow-Origin: *
-Content-Type: application/json; charset=UTF-8
-Date: Sun, 14 Feb 2016 22:06:14 GMT
+Content-Type: application/json;charset=utf-8
+Date: Sat, 21 May 2016 09:50:21 GMT
 Vary: Accept-Encoding, User-Agent
-X-NewRelic-App-Data: PxQFWFFSDwQTVlhTBAcHX0YdFGQHBDcQUQxLA1tMXV1dORYzVBBGBxdCdhUSEVFRRRAEPhhQRw84HlpcDjpMEUQDTAtbFVBTRwRlTlQURD5LQAZPVD8XQEUJDA1ZVEVLF0FTXw46TAtUQBRSFggYAh1VCVgDUgtaXA8bTFdPGldSAVgHVQlUBAVTVVdWA1NAbQ==
-Content-Length: 1156
+X-NewRelic-App-Data: PxQFWFFSDwQTVlhTBAcHX0YdFGQHBDcQUQxLA1tMXV1dORYzVBBGBxdCdhUSEVFRRRAEPhhQRw84HlpcDjpMEUQDTAtbFVBTRwRlTlQURD5LQAZPVD8XQEUJDA1ZVEVLF0FTXw46TAtUQBRSFggYAh1VCFEGVwpSUQQbTFdPGgECVgMEVgJSAlRUBQZbAFpAbQ==
+Content-Length: 1139
 Connection: keep-alive
 
-{"name":"Garnison","description":"Tourelle alliée : octroie une régénération considérable pendant 8 sec. Tourelle ennemie : réduit les dégâts infligés de 80% pendant 8 sec.","sanitizedDescription":"Tourelle alliée : octroie une régénération considérable pendant 8 sec. Tourelle ennemie : réduit les dégâts infligés de 80% pendant 8 sec.","tooltip":"<span class=\"size16 colorFF9900\">Tourelle alliée :</span> octroie une régénération considérable pendant 8 sec.<br><br><span class=\"size16 colorFF9900\">Tourelle ennemie :</span> réduit les dégâts infligés de 80% pendant 8 sec.","sanitizedTooltip":"Tourelle alliée : octroie une régénération considérable pendant 8 sec. Tourelle ennemie : réduit les dégâts infligés de 80% pendant 8 sec.","leveltip":{"label":[""],"effect":[""]},"image":{"full":"SummonerOdinGarrison.png","sprite":"spell0.png","group":"spell","x":432,"y":0,"w":48,"h":48},"resource":"Pas de coût","maxrank":1,"cost":[0],"costType":"NoCost","costBurn":"0","cooldown":[210.0],"cooldownBurn":"210","range":[1250],"rangeBurn":"1250","summonerLevel":1,"id":17,"key":"SummonerOdinGarrison","modes":["ODIN"]}
+{"name":"Purge","description":"Dissipe toutes les entraves et tous les sortilèges de sorts d'invocateur, en plus de réduire de 65% la durée des nouveaux effets entravants subis pendant 3 sec.","sanitizedDescription":"Dissipe toutes les entraves et tous les sortilèges de sorts d'invocateur, en plus de réduire de 65% la durée des nouveaux effets entravants subis pendant 3 sec.","tooltip":"Dissipe toutes les entraves et tous les sortilèges de sorts d'invocateur sur le champion, et réduit de 65% la durée des entraves pendant {{ f1 }} sec.","sanitizedTooltip":"Dissipe toutes les entraves et tous les sortilèges de sorts d'invocateur sur le champion, et réduit de 65% la durée des entraves pendant {{ f1 }} sec.","image":{"full":"SummonerBoost.png","sprite":"spell0.png","group":"spell","x":48,"y":0,"w":48,"h":48},"resource":"Pas de coût","maxrank":1,"cost":[0],"costType":"NoCost","costBurn":"0","cooldown":[210.0],"cooldownBurn":"210","vars":[{"key":"f1","link":"@text","coeff":[3.0]}],"range":[200],"rangeBurn":"200","summonerLevel":6,"id":1,"key":"SummonerBoost","modes":["CLASSIC","ODIN","TUTORIAL","ARAM","ASCENSION"]}

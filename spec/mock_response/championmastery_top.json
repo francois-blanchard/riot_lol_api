@@ -1,6 +1,7 @@
 HTTP/1.1 200 OK
-Content-Type: application/json; charset=UTF-8
-transfer-encoding: chunked
+Content-Type: application/json;charset=utf-8
+Vary: Accept-Encoding
+Content-Length: 684
 Connection: keep-alive
 
-[{"playerId":20639710,"championId":89,"championLevel":5,"championPoints":31132,"lastPlayTime":1451351680000,"championPointsSinceLastLevel":9532,"championPointsUntilNextLevel":0},{"playerId":20639710,"championId":157,"championLevel":5,"championPoints":26250,"lastPlayTime":1451157339000,"championPointsSinceLastLevel":4650,"championPointsUntilNextLevel":0},{"playerId":20639710,"championId":412,"championLevel":5,"championPoints":21719,"lastPlayTime":1454967367000,"championPointsSinceLastLevel":119,"championPointsUntilNextLevel":0}]
+[{"playerId":20639710,"championId":89,"championLevel":5,"championPoints":34938,"lastPlayTime":1456696481000,"championPointsSinceLastLevel":13338,"championPointsUntilNextLevel":0,"chestGranted":false,"tokensEarned":0},{"playerId":20639710,"championId":2,"championLevel":5,"championPoints":29993,"lastPlayTime":1459381444000,"championPointsSinceLastLevel":8393,"championPointsUntilNextLevel":0,"chestGranted":true,"highestGrade":"B","tokensEarned":0},{"playerId":20639710,"championId":157,"championLevel":5,"championPoints":27450,"lastPlayTime":1460576158000,"championPointsSinceLastLevel":5850,"championPointsUntilNextLevel":0,"chestGranted":false,"highestGrade":"C","tokensEarned":0}]

@@ -2,11 +2,11 @@ HTTP/1.1 200 OK
 Access-Control-Allow-Headers: Content-Type
 Access-Control-Allow-Methods: GET, POST, DELETE, PUT
 Access-Control-Allow-Origin: *
-Content-Type: application/json; charset=UTF-8
-Date: Sun, 14 Feb 2016 22:05:55 GMT
+Content-Type: application/json;charset=utf-8
+Date: Sat, 21 May 2016 09:50:01 GMT
 Vary: Accept-Encoding, User-Agent
-X-NewRelic-App-Data: PxQFWFFSDwQTVlhTBAcHX0YdFGQHBDcQUQxLA1tMXV1dORYzVBBGBxdCdhUSEVFRRRAEPhhQRw84HlpcDjpMEUQDTAtbFVBTRwRlTlQURD5LQAZPVD8XXlEXFQdFSGtJDVUUH1JIU04ATAhSAQoNCgNdDU0cUB9AAVQCVABQWlABVVlTVAYBXkZs
+X-NewRelic-App-Data: PxQFWFFSDwQTVlhTBAcHX0YdFGQHBDcQUQxLA1tMXV1dORYzVBBGBxdCdhUSEVFRRRAEPhhQRw84HlpcDjpMEUQDTAtbFVBTRwRlTlQURD5LQAZPVD8XXlEXFQdFSGtJDVUUH1JIU04ATAhTCQkNAAFUAE0cUB9AVlIAB1IGAQMJBlQDBAcOAEZs
 Content-Length: 766
 Connection: keep-alive
 
-{"id":6363,"name":"Bénédiction de l'aéromancien","description":["Vos soins et boucliers sont 10% plus puissants. De plus, quand vous ne les lancez pas sur vous-même, vos boucliers et vos soins augmentent l'armure de votre cible de 5-22 (selon le niveau) et sa résistance magique de la moitié de ce montant pendant 3 sec."],"sanitizedDescription":["Vos soins et boucliers sont 10% plus puissants. De plus, quand vous ne les lancez pas sur vous-même, vos boucliers et vos soins augmentent l'armure de votre cible de 5-22 (selon le niveau) et sa résistance magique de la moitié de ce montant pendant 3 sec."],"ranks":1,"prereq":"0","image":{"full":"6363.png","sprite":"mastery0.png","group":"gray_mastery","x":96,"y":384,"w":48,"h":48},"masteryTree":"Cunning"}
+{"id":6363,"name":"Bénédiction de l'aéromancien","description":["Vos soins et boucliers sont 10% plus puissants. De plus, quand vous ne les lancez pas sur vous-même, vos boucliers et vos soins augmentent l'armure de votre cible de 5-22 (selon le niveau) et sa résistance magique de la moitié de ce montant pendant 3 sec."],"sanitizedDescription":["Vos soins et boucliers sont 10% plus puissants. De plus, quand vous ne les lancez pas sur vous-même, vos boucliers et vos soins augmentent l'armure de votre cible de 5-22 (selon le niveau) et sa résistance magique de la moitié de ce montant pendant 3 sec."],"ranks":1,"prereq":"0","image":{"full":"6363.png","sprite":"mastery0.png","group":"gray_mastery","x":336,"y":96,"w":48,"h":48},"masteryTree":"Cunning"}

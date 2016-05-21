@@ -2,11 +2,11 @@ HTTP/1.1 200 OK
 Access-Control-Allow-Headers: Content-Type
 Access-Control-Allow-Methods: GET, POST, DELETE, PUT
 Access-Control-Allow-Origin: *
-Content-Type: application/json; charset=UTF-8
-Date: Sun, 14 Feb 2016 22:05:27 GMT
+Content-Type: application/json;charset=utf-8
+Date: Sat, 21 May 2016 09:49:32 GMT
 Vary: Accept-Encoding
-X-NewRelic-App-Data: PxQFWFFSDwQTUlBSDgkOVEYdFGQHBDcQUQxLA1tMXV1dORYzVBJHNQFUZAQUFVFQVThOA0dYa0kIXlpvTR0RB1cLVwxFZBtEAUsMPR4NVgMDQ1I9SQFBHkMRDA9YX1IUOB5NQBcLDg1eB0orXEtJbhwAVxVDGBNKI3NjSERPCB0ASFFMBwUPUFIFBQJRSk5THEBaUABdDQFXAAxZUFdRB1ZSFTw=
-Content-Length: 289
+X-NewRelic-App-Data: PxQFWFFSDwQTUlBSDgkOVEYdFGQHBDcQUQxLA1tMXV1dORYzVBJHNQFUZAQUFVFQVThOA0dYa0kIXlpvTR0RB1cLVwxFZBtEAUsMPR4NVgMDQ1I9SQFBHkMRDA9YX1IUOB5NQBcLDg1eB0orXEtJbhwAVxVDGBNKI3NjSERPCB0ASFFMBwgEUVQEBgtOS1JOElIBBg1cAgNVXQBRBlABWlwUag==
+Content-Length: 294
 Connection: keep-alive
 
-{"20639710":[{"name":"Zilean's Renegades","tier":"BRONZE","queue":"RANKED_SOLO_5x5","entries":[{"playerOrTeamId":"20639710","playerOrTeamName":"PacoLoco","division":"III","leaguePoints":0,"wins":3,"losses":8,"isHotStreak":false,"isVeteran":false,"isFreshBlood":true,"isInactive":false}]}]}
+{"20639710":[{"name":"Nunu's Weaponmasters","tier":"SILVER","queue":"RANKED_SOLO_5x5","entries":[{"playerOrTeamId":"20639710","playerOrTeamName":"PacoLoco","division":"III","leaguePoints":2,"wins":66,"losses":56,"isHotStreak":false,"isVeteran":false,"isFreshBlood":false,"isInactive":false}]}]}
