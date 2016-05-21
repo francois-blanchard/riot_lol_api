@@ -7,6 +7,7 @@ require 'riot_lol_api/requests/masteries'
 require 'riot_lol_api/requests/runes'
 require 'riot_lol_api/requests/spells'
 require 'riot_lol_api/requests/games'
+require 'riot_lol_api/requests/champion_masteries'
 
 module RiotLolApi
   class Client
@@ -18,17 +19,19 @@ module RiotLolApi
     include RiotLolApi::Request::Rune
     include RiotLolApi::Request::Spell
     include RiotLolApi::Request::Game
+    include RiotLolApi::Request::ChampionMastery
 
     BASE_URL_API = 'api.pvp.net/api/lol/'
 
-    attr_accessor :region, :api_key
+    attr_accessor :region, :api_key, :platform
 
     def initialize(options = {})
       options.each do |key, value|
         instance_variable_set("@#{key}", value)
       end
       yield(self) if block_given?
-      realm if RiotLolApi::Client.realm.nil? && !region.nil?
+      @platform = platform unless region.nil?
+      realm unless region.nil?
     end
 
     class << self
@@ -38,6 +41,10 @@ module RiotLolApi
     def realm
       response = get(url: "static-data/#{region}/v1.2/realm", domaine: 'global')
       self.class.realm = response unless response.nil?
+    end
+
+    def platform
+      RiotLolApi::Support::Region.new(@region).platform
     end
 
     def versions
