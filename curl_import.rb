@@ -139,7 +139,7 @@ TAB_CALLS = [
     }
   },
   {
-    url: 'global.api.pvp.net/api/lol/static-data/euw/v1.2/summoner-spell/17',
+    url: 'global.api.pvp.net/api/lol/static-data/euw/v1.2/summoner-spell/1',
     filename: 'get_summoner_spell_by_id',
     params: {
       locale: 'fr_FR',
