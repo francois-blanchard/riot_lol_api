@@ -587,7 +587,7 @@ describe RiotLolApi::Client do
     it 'should have good attributes' do
       client = FactoryGirl.build(:client)
       api_response = File.read 'spec/mock_response/championmastery_by_summoner_by_champion.json'
-      stub_request(:get, "https://#{client.region}.api.pvp.net/api/lol/championmastery/location/#{client.platform}/player/20639710/champion/89?api_key=#{RiotLolApi::FAKETOKEN}").to_return(api_response)
+      stub_request(:get, "https://#{client.region}.api.pvp.net/championmastery/location/#{client.platform}/player/20639710/champion/89?api_key=#{RiotLolApi::FAKETOKEN}").to_return(api_response)
       @championmastery = client.championmastery_by_summoner_by_champion(summoner_id: 20639710, champion_id: 89)
       expect(@championmastery).to be_a RiotLolApi::Model::ChampionMastery
     end
